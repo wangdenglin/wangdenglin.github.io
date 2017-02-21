@@ -15,16 +15,12 @@
 
 
 
-<meta name="description" content="angularjs常用指令和使用方法1.ng-app指令划分区域，表明哪一块属于angularjs使用example如下：12&amp;lt;body ng-app=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;2.ng-init 指令初始化值使用ng-init指令使open的初始化值为true使用example如下：12&amp;lt;div ng-init=&amp;apos;open=true&amp;apos">
-<meta property="og:type" content="article">
-<meta property="og:title" content="angular 常用指令和使用方法">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/angular_way/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://wangdenglin.github.io/archives/2016/11/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="angularjs常用指令和使用方法1.ng-app指令划分区域，表明哪一块属于angularjs使用example如下：12&amp;lt;body ng-app=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;2.ng-init 指令初始化值使用ng-init指令使open的初始化值为true使用example如下：12&amp;lt;div ng-init=&amp;apos;open=true&amp;apos">
-<meta property="og:updated_time" content="2017-02-21T08:55:42.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular 常用指令和使用方法">
-<meta name="twitter:description" content="angularjs常用指令和使用方法1.ng-app指令划分区域，表明哪一块属于angularjs使用example如下：12&amp;lt;body ng-app=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;2.ng-init 指令初始化值使用ng-init指令使open的初始化值为true使用example如下：12&amp;lt;div ng-init=&amp;apos;open=true&amp;apos">
+<meta name="twitter:title" content="我的博客">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +52,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular 常用指令和使用方法 | 我的博客</title>
+<title>Archives: 2016/11 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,8 +62,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
-        isArchive: false,
+        isPost: false,
+        isArchive: true,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -256,162 +252,52 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-angular_way" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2017/02/21/angular_way/" class="article-date">
-      <time datetime="2017-02-21T08:55:49.000Z" itemprop="datePublished">2017-02-21</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2016/11/08/angular_http/" class="archive-article-date">
+      <time datetime="2016-11-08T14:31:49.000Z" itemprop="datePublished">11-08</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      angular 常用指令和使用方法
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/11/08/angular_http/">angular http请求</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <p><strong>angularjs常用指令和使用方法</strong><br>1.ng-app指令<br>划分区域，表明哪一块属于angularjs<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body ng-app=&quot;&quot;&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure><br>2.ng-init 指令<br>初始化值<br>使用ng-init指令使open的初始化值为true<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init=&apos;open=true&apos;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>3.ng-show 指令和ng-hide<br>分别表示目标的显示和隐藏<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之显示关闭。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-show=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div ng-hide=&apos;IfSwitch&apos;&gt;</div><div class="line">		关闭</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>4.ng-if 指令<br>ng-if 指令不同于 ng-hide和ng-show 隐藏或显示元素，ng-if 是从 DOM 中移除元素。<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之移除dom。<br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-if=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>5.ng-class 指令<br>a.ng-class通过对象数组绑定，当$scope.isSelected=true时，增加class .selected反之增加class .unselected<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">    $scope.isSelected = true;  </div><div class="line">&#125; </div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-class=&quot;&#123;true:&apos;selected&apos;,false:&apos;unselected&apos;&#125;[isSelected]&quot;&gt;&lt;/div&gt;  </div></pre></td></tr></table></figure><br>b.ng-class通过key/value键值对绑定，当$scope.IfA=true时，增加class .A反之增加class .B或.C<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">	$scope.IfA = true;  </div><div class="line">	$scope.IfB = false;  </div><div class="line">	$scope.IfC = false;  </div><div class="line">&#125;  </div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>&lt;div ng-class=&quot;{&apos;A&apos;:IfA,&apos;B&apos;:IfB,&apos;C&apos;:IfC}&quot;&gt;&lt;/div&gt;    
-</code></pre></div></pre></td></tr></table></figure>
 
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2017-02-21, 16:55:49</p>
-        <p><span>最后更新:</span>2017-02-21, 16:55:42</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/21/angular_way/" title="angular 常用指令和使用方法">http://wangdenglin.github.io/2017/02/21/angular_way/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/21/angular_way/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/21/Rem/">
-                    一段js 适应所有的屏幕（rem）
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+          
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular 常用指令和使用方法　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2017/02/21/Rem/" title="下一篇: 一段js 适应所有的屏幕（rem）">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/08/angular_http/">angular http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/ionic/">ionic 常见问题</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">

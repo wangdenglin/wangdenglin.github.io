@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="angularjs常用指令和使用方法1.ng-app指令划分区域，表明哪一块属于angularjs使用example如下：12&amp;lt;body ng-app=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;2.ng-init 指令初始化值使用ng-init指令使open的初始化值为true使用example如下：12&amp;lt;div ng-init=&amp;apos;open=true&amp;apos">
+<meta name="description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular 常用指令和使用方法">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/angular_way/index.html">
+<meta property="og:title" content="angular http请求">
+<meta property="og:url" content="http://wangdenglin.github.io/2016/11/08/angular_http/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="angularjs常用指令和使用方法1.ng-app指令划分区域，表明哪一块属于angularjs使用example如下：12&amp;lt;body ng-app=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;2.ng-init 指令初始化值使用ng-init指令使open的初始化值为true使用example如下：12&amp;lt;div ng-init=&amp;apos;open=true&amp;apos">
-<meta property="og:updated_time" content="2017-02-21T08:55:42.660Z">
+<meta property="og:description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
+<meta property="og:updated_time" content="2017-02-21T09:00:24.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular 常用指令和使用方法">
-<meta name="twitter:description" content="angularjs常用指令和使用方法1.ng-app指令划分区域，表明哪一块属于angularjs使用example如下：12&amp;lt;body ng-app=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/body&amp;gt;2.ng-init 指令初始化值使用ng-init指令使open的初始化值为true使用example如下：12&amp;lt;div ng-init=&amp;apos;open=true&amp;apos">
+<meta name="twitter:title" content="angular http请求">
+<meta name="twitter:description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular 常用指令和使用方法 | 我的博客</title>
+<title>angular http请求 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-angular_way" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-angular_http" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/21/angular_way/" class="article-date">
-      <time datetime="2017-02-21T08:55:49.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/2016/11/08/angular_http/" class="article-date">
+      <time datetime="2016-11-08T14:31:49.000Z" itemprop="datePublished">2016-11-08</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular 常用指令和使用方法
+      angular http请求
     </h1>
   
 
@@ -292,9 +292,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>angularjs常用指令和使用方法</strong><br>1.ng-app指令<br>划分区域，表明哪一块属于angularjs<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body ng-app=&quot;&quot;&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure><br>2.ng-init 指令<br>初始化值<br>使用ng-init指令使open的初始化值为true<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init=&apos;open=true&apos;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>3.ng-show 指令和ng-hide<br>分别表示目标的显示和隐藏<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之显示关闭。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-show=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div ng-hide=&apos;IfSwitch&apos;&gt;</div><div class="line">		关闭</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>4.ng-if 指令<br>ng-if 指令不同于 ng-hide和ng-show 隐藏或显示元素，ng-if 是从 DOM 中移除元素。<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之移除dom。<br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-if=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>5.ng-class 指令<br>a.ng-class通过对象数组绑定，当$scope.isSelected=true时，增加class .selected反之增加class .unselected<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">    $scope.isSelected = true;  </div><div class="line">&#125; </div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-class=&quot;&#123;true:&apos;selected&apos;,false:&apos;unselected&apos;&#125;[isSelected]&quot;&gt;&lt;/div&gt;  </div></pre></td></tr></table></figure><br>b.ng-class通过key/value键值对绑定，当$scope.IfA=true时，增加class .A反之增加class .B或.C<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">	$scope.IfA = true;  </div><div class="line">	$scope.IfB = false;  </div><div class="line">	$scope.IfC = false;  </div><div class="line">&#125;  </div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>&lt;div ng-class=&quot;{&apos;A&apos;:IfA,&apos;B&apos;:IfB,&apos;C&apos;:IfC}&quot;&gt;&lt;/div&gt;    
-</code></pre></div></pre></td></tr></table></figure>
+        <p><strong>如何封装http请求?</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.factory(&apos;EXT&apos;, function ($http)</div><div class="line">&#123;</div><div class="line">    var factory = &#123;&#125;;</div><div class="line">    //封装请求</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">        factory.PackageHttp = function (url, data, successfn, errorfn,flag_with_form_encode)</div><div class="line">        &#123;</div><div class="line">                $http(&#123;</div><div class="line">                    method: &apos;POST&apos;,</div><div class="line">                    data: data,</div><div class="line">                    url: url,</div><div class="line">                    headers: headers,</div><div class="line">                &#125;)</div><div class="line">                .success(function (d, status)</div><div class="line">                &#123;</div><div class="line">                    successfn(d, status);</div><div class="line">                &#125;)</div><div class="line">                .error(function (e, status)</div><div class="line">                &#123;</div><div class="line">                    errorfn(e,status);</div><div class="line">                &#125;)</div><div class="line">            </div><div class="line">            &#125;</div><div class="line">            catch (err)</div><div class="line">            &#123;</div><div class="line">                //alert(err.message + &quot;封装&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    catch(err)</div><div class="line">    &#123;</div><div class="line">        //alert(err.message)</div><div class="line">    &#125;</div><div class="line"></div></pre></td></tr></table></figure></p>
+<p><strong>使用example如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.controller(&apos;HomeCtrl&apos;, function ( EXT)</div><div class="line">&#123;</div><div class="line"> EXT.PackageHttp(URL, Data,</div><div class="line">                function (Data, status)</div><div class="line">                &#123;</div><div class="line">                   console.log(&quot;success&quot;);</div><div class="line">                &#125;,</div><div class="line">                function ()</div><div class="line">                &#123;</div><div class="line">                    console.log(&quot;fail&quot;);</div><div class="line">                &#125;</div><div class="line">            )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -303,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/08/angular_http/">angular http请求</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2017-02-21, 16:55:49</p>
-        <p><span>最后更新:</span>2017-02-21, 16:55:42</p>
+        <p><span>发布时间:</span>2016-11-08, 22:31:49</p>
+        <p><span>最后更新:</span>2017-02-21, 17:00:24</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/21/angular_way/" title="angular 常用指令和使用方法">http://wangdenglin.github.io/2017/02/21/angular_way/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/21/angular_way/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/08/angular_http/" title="angular http请求">http://wangdenglin.github.io/2016/11/08/angular_http/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2016/11/08/angular_http/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -321,10 +320,16 @@
 
     <nav id="article-nav">
         
-        
-            <div id="article-nav-older" class="article-nav-title">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/2017/02/21/Rem/">
                     一段js 适应所有的屏幕（rem）
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/13/ionic/">
+                    ionic 常见问题
                 </a>
             </div>
         
@@ -372,7 +377,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular 常用指令和使用方法　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angular http请求　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -392,13 +397,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/02/21/Rem/" title="上一篇: 一段js 适应所有的屏幕（rem）">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/21/Rem/" title="下一篇: 一段js 适应所有的屏幕（rem）">
+            <a href="/2016/09/13/ionic/" title="下一篇: ionic 常见问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
