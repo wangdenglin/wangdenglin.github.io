@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
+<meta name="description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android  的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular http请求">
-<meta property="og:url" content="http://wangdenglin.github.io/2016/11/08/angular_http/index.html">
+<meta property="og:title" content="angularjs 页面刷新与ionic的局部刷新">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/Refresh/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
-<meta property="og:updated_time" content="2017-02-21T09:00:24.886Z">
+<meta property="og:description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android  的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios">
+<meta property="og:updated_time" content="2017-02-21T09:41:08.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular http请求">
-<meta name="twitter:description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
+<meta name="twitter:title" content="angularjs 页面刷新与ionic的局部刷新">
+<meta name="twitter:description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android  的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular http请求 | 我的博客</title>
+<title>angularjs 页面刷新与ionic的局部刷新 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-angular_http" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Refresh" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/08/angular_http/" class="article-date">
-      <time datetime="2016-11-08T14:31:49.000Z" itemprop="datePublished">2016-11-08</time>
+      <a href="/2017/02/21/Refresh/" class="article-date">
+      <time datetime="2017-02-21T09:30:49.000Z" itemprop="datePublished">2017-02-21</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular http请求
+      angularjs 页面刷新与ionic的局部刷新
     </h1>
   
 
@@ -292,8 +292,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>如何封装http请求?</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.factory(&apos;EXT&apos;, function ($http)</div><div class="line">&#123;</div><div class="line">    var factory = &#123;&#125;;</div><div class="line">    //封装请求</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">        factory.PackageHttp = function (url, data, successfn, errorfn,flag_with_form_encode)</div><div class="line">        &#123;</div><div class="line">                $http(&#123;</div><div class="line">                    method: &apos;POST&apos;,</div><div class="line">                    data: data,</div><div class="line">                    url: url,</div><div class="line">                    headers: headers,</div><div class="line">                &#125;)</div><div class="line">                .success(function (d, status)</div><div class="line">                &#123;</div><div class="line">                    successfn(d, status);</div><div class="line">                &#125;)</div><div class="line">                .error(function (e, status)</div><div class="line">                &#123;</div><div class="line">                    errorfn(e,status);</div><div class="line">                &#125;)</div><div class="line">            </div><div class="line">            &#125;</div><div class="line">            catch (err)</div><div class="line">            &#123;</div><div class="line">                //alert(err.message + &quot;封装&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    catch(err)</div><div class="line">    &#123;</div><div class="line">        //alert(err.message)</div><div class="line">    &#125;</div><div class="line"></div></pre></td></tr></table></figure></p>
-<p><strong>使用example如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.controller(&apos;HomeCtrl&apos;, function ( EXT)</div><div class="line">&#123;</div><div class="line"> EXT.PackageHttp(URL, Data,</div><div class="line">                function (Data, status)</div><div class="line">                &#123;</div><div class="line">                   console.log(&quot;success&quot;);</div><div class="line">                &#125;,</div><div class="line">                function ()</div><div class="line">                &#123;</div><div class="line">                    console.log(&quot;fail&quot;);</div><div class="line">                &#125;</div><div class="line">            )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p><strong> $scope.resume 刷新</strong><br>$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。<br>android  的刷新<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;     $scope.resume = function ()&lt;br&gt;    &#123;&lt;br&gt;       alert(‘注册刷新’)；&lt;br&gt;    &#125;;&lt;br&gt;</div></pre></td></tr></table></figure><br>ios 的刷新必须放在settimeout($scope.resume,0)</p>
+<p>缺点：如果该页面是cache=false,那么每次页面刷新都会注册一起监听事件，导致页面卡顿，<br>解决方法：为了减少资源消耗，我们可以采用局部刷新，$scope.resume事件不用刷新，只刷新我们需要刷新的事件。例子如下：</p>
+<figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>$scope.$on(&apos;$ionicView.beforeEnter&apos;, function ()
+{
+   alert(&quot;刷新内容&quot;)
+})
+ $scope.resume = function ()
+{
+   alert(&apos;注册刷新&apos;)；
+};
+</code></pre></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -302,13 +311,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/08/angular_http/">angular http请求</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2016-11-08, 22:31:49</p>
-        <p><span>最后更新:</span>2017-02-21, 17:00:24</p>
+        <p><span>发布时间:</span>2017-02-21, 17:30:49</p>
+        <p><span>最后更新:</span>2017-02-21, 17:41:08</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/08/angular_http/" title="angular http请求">http://wangdenglin.github.io/2016/11/08/angular_http/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2016/11/08/angular_http/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/21/Refresh/" title="angularjs 页面刷新与ionic的局部刷新">http://wangdenglin.github.io/2017/02/21/Refresh/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/21/Refresh/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -320,16 +329,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/21/Rem/">
-                    一段js 适应所有的屏幕（rem）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/13/ionic/">
-                    ionic 常见问题
+                <a href="/2017/02/21/angular_way/">
+                    angular 常用指令和使用方法
                 </a>
             </div>
         
@@ -377,7 +380,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular http请求　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angularjs 页面刷新与ionic的局部刷新　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,15 +400,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/21/Rem/" title="上一篇: 一段js 适应所有的屏幕（rem）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/13/ionic/" title="下一篇: ionic 常见问题">
+            <a href="/2017/02/21/angular_way/" title="下一篇: angular 常用指令和使用方法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
