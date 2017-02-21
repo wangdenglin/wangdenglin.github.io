@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="rem尽可能的先执行该js[Js]12&amp;lt;br&amp;gt;    (function (doc, win)&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;        var docEl = doc.documentElement;&amp;lt;br&amp;gt;        var resizeEvt = “onorientationchange” in win ? “orientation">
+<meta name="description" content="如何在ionic中嵌入网页代码?
+使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页1.如何将template加载到某个tab或某个sidemenu项目下?  百度搜索1&amp;apos;&amp;lt;ion-nav-view name=&amp;quot;menuContent&amp;quot;&amp;gt; 可以指">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一段js 适应所有的屏幕（rem）">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/Rem/index.html">
+<meta property="og:title" content="ionic 常见问题">
+<meta property="og:url" content="http://wangdenglin.github.io/2016/09/21/ionic/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="rem尽可能的先执行该js[Js]12&amp;lt;br&amp;gt;    (function (doc, win)&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;        var docEl = doc.documentElement;&amp;lt;br&amp;gt;        var resizeEvt = “onorientationchange” in win ? “orientation">
-<meta property="og:updated_time" content="2017-02-21T08:54:19.434Z">
+<meta property="og:description" content="如何在ionic中嵌入网页代码?
+使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页1.如何将template加载到某个tab或某个sidemenu项目下?  百度搜索1&amp;apos;&amp;lt;ion-nav-view name=&amp;quot;menuContent&amp;quot;&amp;gt; 可以指">
+<meta property="og:updated_time" content="2017-02-21T08:57:18.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一段js 适应所有的屏幕（rem）">
-<meta name="twitter:description" content="rem尽可能的先执行该js[Js]12&amp;lt;br&amp;gt;    (function (doc, win)&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;        var docEl = doc.documentElement;&amp;lt;br&amp;gt;        var resizeEvt = “onorientationchange” in win ? “orientation">
+<meta name="twitter:title" content="ionic 常见问题">
+<meta name="twitter:description" content="如何在ionic中嵌入网页代码?
+使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页1.如何将template加载到某个tab或某个sidemenu项目下?  百度搜索1&amp;apos;&amp;lt;ion-nav-view name=&amp;quot;menuContent&amp;quot;&amp;gt; 可以指">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>一段js 适应所有的屏幕（rem） | 我的博客</title>
+<title>ionic 常见问题 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +259,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Rem" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ionic" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/21/Rem/" class="article-date">
-      <time datetime="2017-02-21T08:50:49.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/2016/09/21/ionic/" class="article-date">
+      <time datetime="2016-09-21T06:31:49.000Z" itemprop="datePublished">2016-09-21</time>
 </a>
 
 
@@ -275,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      一段js 适应所有的屏幕（rem）
+      ionic 常见问题
     </h1>
   
 
@@ -292,29 +295,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>rem</strong><br>尽可能的先执行该js<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;    (function (doc, win)&lt;br&gt;    &#123;&lt;br&gt;        var docEl = doc.documentElement;&lt;br&gt;        var resizeEvt = “onorientationchange” in win ? “orientationchange” : “resize”;&lt;br&gt;        var Timer = null;&lt;br&gt;        function recalc()&lt;br&gt;        &#123;&lt;br&gt;            var clientWidth = docEl.clientWidth || win.innerWidth;&lt;br&gt;            //设计稿是640px&lt;br&gt;            var initSize = (clientWidth / 640) * 100;&lt;br&gt;            var fontSize = clientWidth &amp;gt; 768 ? 120 : (initSize &amp;lt; 50 ? 50 : initSize);&lt;br&gt;            docEl.style.fontSize = fontSize + “px”;&lt;br&gt;        &#125;&lt;br&gt;        doc.addEventListener(“DOMContendLoaded”, recalc, false);&lt;/p&gt;</div><div class="line"><pre><code>    //转屏
-    win.addEventListener(resizeEvt, function ()
-    {
-        clearTimeout(Timer);
-        Timer = setTimeout(recalc, 300)
-    }, false);
+        <p><strong>如何在ionic中嵌入网页代码?</strong></p>
+<p>使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页<br><strong>1.如何将template加载到某个tab或某个sidemenu项目下?</strong><br>  <a href="http://www.baidu.com" target="_blank" rel="external">百度搜索</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;&lt;ion-nav-view name=&quot;menuContent&quot;&gt; </div></pre></td></tr></table></figure>可以指定name，然后在子状态中使用该name，ionic就知道该把该状态的template渲染到哪边了。例如：<br><figure class="highlight plain"><figcaption><span>[路由设置] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;.state(&apos;auth.signup&apos;, &#123;</div><div class="line">      url: &apos;/signup&apos;,</div><div class="line">      views: &#123;</div><div class="line">          &apos;auth-signup&apos;: &#123;</div><div class="line">              templateUrl: &apos;templates/auth-signup.html&apos;,</div><div class="line">              controller: &apos;SignUpCtrl&apos;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    另有一个tabs中声明该auth-signup:</div><div class="line">    &apos;&lt;ion-tab title=&quot;Sign Up&quot; icon-on=&quot;ion-ios-personadd&quot;</div><div class="line">      icon-off=&quot;ion-ios-personadd-outline&quot; href=&quot;#/auth/signup&quot;&gt;</div><div class="line">      &lt;ion-nav-view name=&quot;auth-signup&quot;&gt;&lt;/ion-nav-view&gt;</div><div class="line">   &lt;/ion-tab&gt;&apos;</div></pre></td></tr></table></figure><br><strong>2.如何关闭应用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic.Platform.exitApp();</div></pre></td></tr></table></figure><br><strong>3.APP开启检测网络并提示开启</strong></p>
+<blockquote>
+<p>需要三个插件<br>  <div>1. <a href="https://github.com/apache/cordova-plugin-network-information" target="_blank" rel="external">https://github.com/apache/cordova-plugin-network-information</a></div><br>  <div>2. <a href="https://github.com/apache/cordova-plugin-dialogs" target="_blank" rel="external">https://github.com/apache/cordova-plugin-dialogs</a></div><br>  <div>3. <a href="https://github.com/deefactorial/Cordova-open-native-settings" target="_blank" rel="external">https://github.com/deefactorial/Cordova-open-native-settings</a></div><br>然后在APP.JS中，divicesReady中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">if (navigator.connection) &#123;</div><div class="line">            var tmptypes = navigator.connection.type;</div><div class="line">            if (tmptypes.toUpperCase().indexOf(&apos;NONE&apos;) &gt; -1 || tmptypes.toUpperCase().indexOf(&apos;UNKNOWN&apos;) &gt; -1) &#123;</div><div class="line">                if (navigator.notification) &#123;</div><div class="line">                    navigator.notification.confirm(</div><div class="line">                    &apos;您的设备未开启网络&apos;,</div><div class="line">                       function (buttonIndex) &#123;</div><div class="line">                             if (buttonIndex == 1) &#123;</div><div class="line">                               if (cordova.plugins.settings) &#123;</div><div class="line">                                   cordova.plugins.settings.openSetting(&quot;wifi&quot;, function () &#123; console.log(&quot;network setting openning&quot;); &#125;, function () &#123; console.log(&quot;open network setting failed&quot;); &#125;);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                         &#125;,            // callback to invoke with index of button pressed</div><div class="line">                       &apos;提示&apos;,           // title</div><div class="line">                       [&apos;开启&apos;, &apos;取消&apos;]     // buttonLabels</div><div class="line">                               );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;）</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>4.hide-back-button -是否隐藏导航栏中的返回按钮</strong><br>当模板被载入导航视图时，如果之前有其他的模板，那么在导航栏ion-nav-bar上默认会自动 显示返回按钮（使用指令ion-nav-back-button定义）。点击该按钮将返回前一个模板。<br>hide-back-button的允许值为：true | false ，默认为false<br>注意：必须在导航栏中显式地声明返回按钮，否则即使将hide-back-button属性设为false， 这个按钮也不会出现;<br><strong>5.hide-nav-bar - 是否隐藏导航栏</strong><br>允许值为：true | false ,默认为false<br>在<ion-view>中添加 hide-nav-bar 属性</ion-view></p>
+<p><ion-view title="title Policy" hide-nav-bar="true"><br></ion-view></p>
 
-    //pageshow,缓存相关
-    win.addEventListener(&quot;pageshow&quot;, function (e)
-    {
-        if (e.persisted)
-        {
-            clearTimeout(Timer);
-            Timer = setTimeout(recalc, 300)
-        }
-    }, false);
-
-    // 初始化
-    recalc();
-
-})(document, window);
-</code></pre></div></pre></td></tr></table></figure>
-</p>
       
     </div>
     
@@ -322,13 +310,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/21/ionic/">ionic 常见问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2017-02-21, 16:50:49</p>
-        <p><span>最后更新:</span>2017-02-21, 16:54:19</p>
+        <p><span>发布时间:</span>2016-09-21, 14:31:49</p>
+        <p><span>最后更新:</span>2017-02-21, 16:57:18</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/21/Rem/" title="一段js 适应所有的屏幕（rem）">http://wangdenglin.github.io/2017/02/21/Rem/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/21/Rem/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/21/ionic/" title="ionic 常见问题">http://wangdenglin.github.io/2016/09/21/ionic/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2016/09/21/ionic/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -341,17 +329,11 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/21/angular_way/">
-                    angular 常用指令和使用方法
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
                 <a href="/2017/02/21/angular_http/">
                     angular http请求
                 </a>
             </div>
+        
         
     </nav>
 
@@ -397,7 +379,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"一段js 适应所有的屏幕（rem）　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ionic 常见问题　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,7 +399,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/21/angular_way/" title="上一篇: angular 常用指令和使用方法">
+            <a href="/2017/02/21/angular_http/" title="上一篇: angular http请求">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -425,9 +407,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/21/angular_http/" title="下一篇: angular http请求">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
 
