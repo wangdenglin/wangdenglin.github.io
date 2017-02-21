@@ -288,7 +288,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> $scope.resume 刷新</strong><br>$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。<br>android  的刷新<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;     $scope.resume = function ()&lt;br&gt;    &#123;&lt;br&gt;       alert(‘注册刷新’)；&lt;br&gt;    &#125;;&lt;br&gt;</div></pre></td></tr></table></figure><br>ios 的刷新必须放在settimeout($scope.resume,0)</p>
+        <p><strong> $scope.resume 刷新</strong><br>$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。<br>android的刷新<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;     $scope.resume = function ()&lt;br&gt;    &#123;&lt;br&gt;       alert(‘注册刷新’)；&lt;br&gt;    &#125;;&lt;br&gt;</div></pre></td></tr></table></figure><br>ios的刷新必须放在settimeout($scope.resume,0)</p>
 <p>缺点：如果该页面是cache=false,那么每次页面刷新都会注册一起监听事件，导致页面卡顿，<br>解决方法：为了减少资源消耗，我们可以采用局部刷新，$scope.resume事件不用刷新，只刷新我们需要刷新的事件。例子如下：</p>
 <figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>$scope.$on(&apos;$ionicView.beforeEnter&apos;, function ()
 {
