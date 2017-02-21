@@ -259,6 +259,96 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ng-route" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/ng-route/" class="article-date">
+      <time datetime="2017-02-21T10:10:20.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/ng-route/">angular ng-route</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angular js 路由设置</strong><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;head&gt;&lt;br&gt;  &lt;meta charset=&quot;utf-8&quot; /&gt;&lt;br&gt;  &lt;title&gt;测试&lt;/title&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular-route.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;&lt;/head&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;body ng-app=&quot;myApp&quot;&gt;&lt;br&gt;  &lt;div ng-controller=&quot;TextController&quot;&gt;&lt;br&gt;     &lt;p&gt;&lt;/p&gt;&lt;br&gt;  &lt;/div&gt;&lt;br&gt;  &lt;div ng-view&gt;&lt;/div&gt;&lt;br&gt;&lt;/body&gt;&lt;br&gt;  &lt;script&gt;&lt;br&gt;    var myApp = angular.module(‘myApp’, [‘ngRoute’]);&lt;br&gt;    myApp.controller(‘TextController’, function ($scope) &#123;&lt;br&gt;      $scope.someText = ‘测试显示内容’;&lt;br&gt;    &#125;);&lt;/p&gt;</div><div class="line"><pre><code>//路由
+function emailRouteConfig($routeProvider) {
+  $routeProvider.
+  when(&apos;/&apos;, {
+    controller: ListController,
+    templateUrl: &apos;list.html&apos;
+  }).
+  when(&apos;/view/:id&apos;, { //在id前面加一个冒号，从而制订了一个参数化URL
+    controller: DetailController,
+    templateUrl: &apos;detail.html&apos;
+  }).
+  otherwise({
+    redirectTo: &apos;/&apos;
+  });
+}
+
+myApp.config(emailRouteConfig);//配置我们的路由
+
+messages = [{
+  id: 0, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
+}, {
+  id: 1, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
+}, {
+  id: 2, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
+}];
+
+function ListController($scope) {
+  $scope.messages = messages;
+}
+
+function DetailController($scope,$routeParams) {
+  $scope.message = messages[$routeParams.id];
+}
+</code></pre>&lt;p&gt;  &lt;/script&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[list.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;发件人&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;内容&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;日期&lt;/strong&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">  &lt;tr ng-repeat=&quot;message in messages&quot;&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;a href=&quot;#/view/&quot;&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>[detail.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;strong&gt;项目:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;发送者:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;日期:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">  &lt;strong&gt;To:&lt;/strong&gt;</div><div class="line">  &lt;span ng-repeat=&quot;recipient in message.recipients&quot;&gt;</div><div class="line">    </div><div class="line">  &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;a href=&quot;#/&quot;&gt;回到列表&lt;/a&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ionic_plugin" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
