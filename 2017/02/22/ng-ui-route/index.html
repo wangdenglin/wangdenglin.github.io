@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios的刷">
+<meta name="description" content="angular-ui-router路由设置因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试提供一个搭建本地服务器链接 》首先新建5个页面[a.html]1&amp;lt;div&amp;gt;&amp;lt;h1&amp;gt;我是a页面&amp;lt;/h1&amp;gt;&amp;lt;/div&amp;gt;[b.html]1&amp;lt;div&amp;gt;&amp;lt;h1&amp;gt;我是b页面&amp;lt;/h1&amp;gt;&amp;lt;/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angularjs 页面刷新与ionic的局部刷新">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/Refresh/index.html">
+<meta property="og:title" content="angular-ui-router路由设置">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/02/22/ng-ui-route/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios的刷">
-<meta property="og:updated_time" content="2017-02-21T09:42:28.834Z">
+<meta property="og:description" content="angular-ui-router路由设置因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试提供一个搭建本地服务器链接 》首先新建5个页面[a.html]1&amp;lt;div&amp;gt;&amp;lt;h1&amp;gt;我是a页面&amp;lt;/h1&amp;gt;&amp;lt;/div&amp;gt;[b.html]1&amp;lt;div&amp;gt;&amp;lt;h1&amp;gt;我是b页面&amp;lt;/h1&amp;gt;&amp;lt;/">
+<meta property="og:updated_time" content="2017-02-22T05:02:21.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angularjs 页面刷新与ionic的局部刷新">
-<meta name="twitter:description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios的刷">
+<meta name="twitter:title" content="angular-ui-router路由设置">
+<meta name="twitter:description" content="angular-ui-router路由设置因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试提供一个搭建本地服务器链接 》首先新建5个页面[a.html]1&amp;lt;div&amp;gt;&amp;lt;h1&amp;gt;我是a页面&amp;lt;/h1&amp;gt;&amp;lt;/div&amp;gt;[b.html]1&amp;lt;div&amp;gt;&amp;lt;h1&amp;gt;我是b页面&amp;lt;/h1&amp;gt;&amp;lt;/">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angularjs 页面刷新与ionic的局部刷新 | 我的博客</title>
+<title>angular-ui-router路由设置 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Refresh" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ng-ui-route" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/21/Refresh/" class="article-date">
-      <time datetime="2017-02-21T09:30:49.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/2017/02/22/ng-ui-route/" class="article-date">
+      <time datetime="2017-02-22T04:10:20.000Z" itemprop="datePublished">2017-02-22</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angularjs 页面刷新与ionic的局部刷新
+      angular-ui-router路由设置
     </h1>
   
 
@@ -292,17 +292,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> $scope.resume 刷新</strong><br>$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。<br>android的刷新<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;     $scope.resume = function ()&lt;br&gt;    &#123;&lt;br&gt;       alert(‘注册刷新’)；&lt;br&gt;    &#125;;&lt;br&gt;</div></pre></td></tr></table></figure><br>ios的刷新必须放在settimeout($scope.resume,0)</p>
-<p>缺点：如果该页面是cache=false,那么每次页面刷新都会注册一起监听事件，导致页面卡顿，<br>解决方法：为了减少资源消耗，我们可以采用局部刷新，$scope.resume事件不用刷新，只刷新我们需要刷新的事件。例子如下：</p>
-<figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>$scope.$on(&apos;$ionicView.beforeEnter&apos;, function ()
-{
-   alert(&quot;刷新内容&quot;)
-})
- $scope.resume = function ()
-{
-   alert(&apos;注册刷新&apos;)；
-};
-</code></pre></div></pre></td></tr></table></figure>
+        <p><strong>angular-ui-router路由设置</strong><br>因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试<br><a href="http://jingyan.baidu.com/article/ed2a5d1f128ff609f6be17fa.html" target="_blank" rel="external">提供一个搭建本地服务器链接 》</a><br>首先新建5个页面<br><figure class="highlight plain"><figcaption><span>[a.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是a页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[b.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是b页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[c.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是c页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Tab.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;div&gt;&lt;a ui-sref=&quot;.page1&quot;&gt;A&lt;/a&gt;&lt;a ui-sref=&quot;.page2&quot;&gt;B&lt;/a&gt;&lt;a ui-sref=&quot;.page3&quot;&gt;C&lt;/a&gt;&lt;/div&gt;&lt;br&gt;     &lt;div&gt;&lt;br&gt;          &lt;div ui-view=&quot;&quot;/&gt;&lt;br&gt;     &lt;/div&gt;&lt;br&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;br&gt;  &lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;br&gt;    &lt;title&gt;demo&lt;/title&gt;&lt;br&gt;    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;link href=&quot;&quot; rel=&quot;stylesheet&quot;&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular-ui-router.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/app.js&apos;&gt;&lt;/script&gt;&lt;br&gt;  &lt;/head&gt;&lt;br&gt;  &lt;body data-ng-app=&quot;demo&quot;&gt;&lt;br&gt;       &lt;div class=&quot;content&quot;&gt;&lt;br&gt;            &lt;div data-ui-view=&quot;&quot;&gt;&lt;/div&gt;&lt;br&gt;        &lt;/div&gt;&lt;br&gt;  &lt;/body&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br>首先注入ui.router<br>默认进入Tab.html页面<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;var demo = angular.module(“demo”, [“ui.router”]);&lt;br&gt;demo.config(function ($stateProvider, $urlRouterProvider) &#123;&lt;/p&gt;</div><div class="line"><pre><code>$urlRouterProvider.otherwise(&apos;/Tab&apos;);
+
+$stateProvider
+   .state(&quot;Tab&quot;, {
+       url: &quot;/Tab&quot;,
+       templateUrl: &quot;Tab.html&quot;
+   })
+   .state(&quot;Tab.page1&quot;, {
+       url:&quot;/page1&quot;,
+       templateUrl: &quot;page1.html&quot;
+   })
+   .state(&quot;Tab.page2&quot;, {
+       url:&quot;/page2&quot;,
+       templateUrl: &quot;page2.html&quot;
+   })
+   .state(&quot;Tab.page3&quot;, {
+       url:&quot;/page3&quot;,
+       templateUrl: &quot;page3.html&quot;
+   });
+</code></pre>&lt;p&gt;&#125;);</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -311,13 +320,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2017-02-21, 17:30:49</p>
-        <p><span>最后更新:</span>2017-02-21, 17:42:28</p>
+        <p><span>发布时间:</span>2017-02-22, 12:10:20</p>
+        <p><span>最后更新:</span>2017-02-22, 13:02:21</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/21/Refresh/" title="angularjs 页面刷新与ionic的局部刷新">http://wangdenglin.github.io/2017/02/21/Refresh/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/21/Refresh/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/22/ng-ui-route/" title="angular-ui-router路由设置">http://wangdenglin.github.io/2017/02/22/ng-ui-route/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/22/ng-ui-route/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -329,16 +338,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/21/ionic_plugin/">
-                    ionic cordova 常用插件
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/21/angular_way/">
-                    angular 常用指令和使用方法
+                <a href="/2017/02/21/ng-route/">
+                    angular ng-route
                 </a>
             </div>
         
@@ -386,7 +389,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angularjs 页面刷新与ionic的局部刷新　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angular-ui-router路由设置　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,15 +409,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/21/ionic_plugin/" title="上一篇: ionic cordova 常用插件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/21/angular_way/" title="下一篇: angular 常用指令和使用方法">
+            <a href="/2017/02/21/ng-route/" title="下一篇: angular ng-route">
                 <i class="fa fa-angle-right"></i>
             </a>
         
