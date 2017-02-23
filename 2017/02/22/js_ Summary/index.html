@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="如何在ionic中嵌入网页代码?
-使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页1.如何将template加载到某个tab或某个sidemenu项目下?  百度搜索1&amp;apos;&amp;lt;ion-nav-view name=&amp;quot;menuContent&amp;quot;&amp;gt; 可以指">
+<meta name="description" content="JS数组1.创建数组
+  空数组：var Obj=new Array() 或var Obj=[];  指定长度的数组：var Obj=new Array(Size);  指定元素的数组：var Obj=new Array(元素1,元素2...)  单维数组      ：var Obj=[元素a,元素b,元素c...];  多维数组      ：var Obj=[[a],[b],[c]]2.删除数组">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ionic 常见问题">
-<meta property="og:url" content="http://wangdenglin.github.io/2016/09/13/ionic/index.html">
+<meta property="og:title" content="js总结_数组">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/02/22/js_ Summary/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="如何在ionic中嵌入网页代码?
-使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页1.如何将template加载到某个tab或某个sidemenu项目下?  百度搜索1&amp;apos;&amp;lt;ion-nav-view name=&amp;quot;menuContent&amp;quot;&amp;gt; 可以指">
-<meta property="og:updated_time" content="2017-02-21T08:58:14.446Z">
+<meta property="og:description" content="JS数组1.创建数组
+  空数组：var Obj=new Array() 或var Obj=[];  指定长度的数组：var Obj=new Array(Size);  指定元素的数组：var Obj=new Array(元素1,元素2...)  单维数组      ：var Obj=[元素a,元素b,元素c...];  多维数组      ：var Obj=[[a],[b],[c]]2.删除数组">
+<meta property="og:updated_time" content="2017-02-22T07:50:13.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ionic 常见问题">
-<meta name="twitter:description" content="如何在ionic中嵌入网页代码?
-使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页1.如何将template加载到某个tab或某个sidemenu项目下?  百度搜索1&amp;apos;&amp;lt;ion-nav-view name=&amp;quot;menuContent&amp;quot;&amp;gt; 可以指">
+<meta name="twitter:title" content="js总结_数组">
+<meta name="twitter:description" content="JS数组1.创建数组
+  空数组：var Obj=new Array() 或var Obj=[];  指定长度的数组：var Obj=new Array(Size);  指定元素的数组：var Obj=new Array(元素1,元素2...)  单维数组      ：var Obj=[元素a,元素b,元素c...];  多维数组      ：var Obj=[[a],[b],[c]]2.删除数组">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ionic 常见问题 | 我的博客</title>
+<title>js总结_数组 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +259,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ionic" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js_ Summary" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/13/ionic/" class="article-date">
-      <time datetime="2016-09-13T06:31:49.000Z" itemprop="datePublished">2016-09-13</time>
+      <a href="/2017/02/22/js_ Summary/" class="article-date">
+      <time datetime="2017-02-22T05:50:20.000Z" itemprop="datePublished">2017-02-22</time>
 </a>
 
 
@@ -278,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ionic 常见问题
+      js总结_数组
     </h1>
   
 
@@ -295,13 +295,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>如何在ionic中嵌入网页代码?</strong></p>
-<p>使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页<br><strong>1.如何将template加载到某个tab或某个sidemenu项目下?</strong><br>  <a href="http://www.baidu.com" target="_blank" rel="external">百度搜索</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;&lt;ion-nav-view name=&quot;menuContent&quot;&gt; </div></pre></td></tr></table></figure>可以指定name，然后在子状态中使用该name，ionic就知道该把该状态的template渲染到哪边了。例如：<br><figure class="highlight plain"><figcaption><span>[路由设置] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;.state(&apos;auth.signup&apos;, &#123;</div><div class="line">      url: &apos;/signup&apos;,</div><div class="line">      views: &#123;</div><div class="line">          &apos;auth-signup&apos;: &#123;</div><div class="line">              templateUrl: &apos;templates/auth-signup.html&apos;,</div><div class="line">              controller: &apos;SignUpCtrl&apos;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    另有一个tabs中声明该auth-signup:</div><div class="line">    &apos;&lt;ion-tab title=&quot;Sign Up&quot; icon-on=&quot;ion-ios-personadd&quot;</div><div class="line">      icon-off=&quot;ion-ios-personadd-outline&quot; href=&quot;#/auth/signup&quot;&gt;</div><div class="line">      &lt;ion-nav-view name=&quot;auth-signup&quot;&gt;&lt;/ion-nav-view&gt;</div><div class="line">   &lt;/ion-tab&gt;&apos;</div></pre></td></tr></table></figure><br><strong>2.如何关闭应用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic.Platform.exitApp();</div></pre></td></tr></table></figure><br><strong>3.APP开启检测网络并提示开启</strong></p>
-<blockquote>
-<p>需要三个插件<br>  <div>1. <a href="https://github.com/apache/cordova-plugin-network-information" target="_blank" rel="external">https://github.com/apache/cordova-plugin-network-information</a></div><br>  <div>2. <a href="https://github.com/apache/cordova-plugin-dialogs" target="_blank" rel="external">https://github.com/apache/cordova-plugin-dialogs</a></div><br>  <div>3. <a href="https://github.com/deefactorial/Cordova-open-native-settings" target="_blank" rel="external">https://github.com/deefactorial/Cordova-open-native-settings</a></div><br>然后在APP.JS中，divicesReady中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">if (navigator.connection) &#123;</div><div class="line">            var tmptypes = navigator.connection.type;</div><div class="line">            if (tmptypes.toUpperCase().indexOf(&apos;NONE&apos;) &gt; -1 || tmptypes.toUpperCase().indexOf(&apos;UNKNOWN&apos;) &gt; -1) &#123;</div><div class="line">                if (navigator.notification) &#123;</div><div class="line">                    navigator.notification.confirm(</div><div class="line">                    &apos;您的设备未开启网络&apos;,</div><div class="line">                       function (buttonIndex) &#123;</div><div class="line">                             if (buttonIndex == 1) &#123;</div><div class="line">                               if (cordova.plugins.settings) &#123;</div><div class="line">                                   cordova.plugins.settings.openSetting(&quot;wifi&quot;, function () &#123; console.log(&quot;network setting openning&quot;); &#125;, function () &#123; console.log(&quot;open network setting failed&quot;); &#125;);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                         &#125;,            // callback to invoke with index of button pressed</div><div class="line">                       &apos;提示&apos;,           // title</div><div class="line">                       [&apos;开启&apos;, &apos;取消&apos;]     // buttonLabels</div><div class="line">                               );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;）</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>4.hide-back-button -是否隐藏导航栏中的返回按钮</strong><br>当模板被载入导航视图时，如果之前有其他的模板，那么在导航栏ion-nav-bar上默认会自动 显示返回按钮（使用指令ion-nav-back-button定义）。点击该按钮将返回前一个模板。<br>hide-back-button的允许值为：true | false ，默认为false<br>注意：必须在导航栏中显式地声明返回按钮，否则即使将hide-back-button属性设为false， 这个按钮也不会出现;<br><strong>5.hide-nav-bar - 是否隐藏导航栏</strong><br>允许值为：true | false ,默认为false<br>在<ion-view>中添加 hide-nav-bar 属性</ion-view></p>
-<p><ion-view title="title Policy" hide-nav-bar="true"><br></ion-view></p>
+        <p><strong>JS数组</strong><br>1.创建数组</p>
+<p>  <code>空数组：var Obj=new Array() 或var Obj=[];</code><br>  <code>指定长度的数组：var Obj=new Array(Size);</code><br>  <code>指定元素的数组：var Obj=new Array(元素1,元素2...)</code><br>  <code>单维数组      ：var Obj=[元素a,元素b,元素c...];</code><br>  <code>多维数组      ：var Obj=[[a],[b],[c]]</code><br>2.删除数组<br>delete 数组名加下标<br>3.遍历数组<br>for…in…<br><code>var example=[1,2,3,4];</code><br><code>for(a in example){
+ console.log(&#39;a在数组里&#39;);
+}</code><br>4.数组的添加与删除<br><code>push() 在数组末尾添加数组</code><br><code>unshift() 在数组头部添加元素</code><br><code>concat() 合并两个数组</code><br><code>pop() 删除并返回数值的最后一个元素</code><br><code>shift() 删除并返回数组的第一个元素</code><br><code>splice() 可以在指定位置删除插入或替换</code><br><code>slice() 从已有数组中选取部分元素组成数组，如果是正值从前外后，如果是负值从后往前</code><br><code>reverse() 颠倒数组元素的顺序</code><br><code>sort() 排序</code><br><figure class="highlight plain"><figcaption><span>[升序]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function UpSort(a,b)&#123;</div><div class="line">  if(a&gt;b)&#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else if(b&gt;a)</div><div class="line">  &#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else&#123;</div><div class="line">    return 0</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br><code>toString() 转化成字符串并返回  var aaa=[1,2,3,4] console.log(aaa.toString())  输出1,2,3,4</code><br><code>join() 用指定分隔符分割数组并转化成字符串 var aaa=[1,2,3,4] console.log(aaa.join(&#39;-&#39;))  输出1-2-3-4</code><br><code>indexOf() 从数组起始位置开始查找，如果有就返回&gt;=0</code><br><code>every() 如果该函数的每项都为true,则返回true</code><br><code>some() 如果该函数的有一项都为true,则返回true</code><br><code>map() 返回每次函数调用的结果数组</code><br><code>forEach():没有返回值，只是针对每个元素调用func</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function my_func(item) &#123;</div><div class="line">  if (item == 1) &#123;</div><div class="line">    console.log(&apos;t&apos;);</div><div class="line">    return true;</div><div class="line">  &#125;</div><div class="line">  console.log(&apos;f&apos;);</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// init an array</div><div class="line">l = [0,1,2,3,4]</div><div class="line">// print: f</div><div class="line">// return: false</div><div class="line">l.every(my_func)</div><div class="line">// print: f,t</div><div class="line">// return: true</div><div class="line">l.some(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">// return:[false, true, false, false, false]</div><div class="line">l.map(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">//return: undefined</div><div class="line">l.forEach(my_func)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -310,13 +307,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/13/ionic/">ionic 常见问题</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/22/js_ Summary/">js总结_数组</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2016-09-13, 14:31:49</p>
-        <p><span>最后更新:</span>2017-02-21, 16:58:14</p>
+        <p><span>发布时间:</span>2017-02-22, 13:50:20</p>
+        <p><span>最后更新:</span>2017-02-22, 15:50:13</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/13/ionic/" title="ionic 常见问题">http://wangdenglin.github.io/2016/09/13/ionic/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2016/09/13/ionic/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/22/js_ Summary/" title="js总结_数组">http://wangdenglin.github.io/2017/02/22/js_ Summary/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/22/js_ Summary/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -329,11 +326,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/08/angular_http/">
-                    angular http请求
+                <a href="/2017/02/23/js_ Summary_func/">
+                    js总结_函数基础
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/02/22/ng-ui-route/">
+                    angular-ui-router路由设置
+                </a>
+            </div>
         
     </nav>
 
@@ -379,7 +382,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ionic 常见问题　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js总结_数组　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -399,7 +402,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/08/angular_http/" title="上一篇: angular http请求">
+            <a href="/2017/02/23/js_ Summary_func/" title="上一篇: js总结_函数基础">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -407,7 +410,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/02/22/ng-ui-route/" title="下一篇: angular-ui-router路由设置">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
