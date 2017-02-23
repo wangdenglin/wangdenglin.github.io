@@ -137,13 +137,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -255,7 +255,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
   
@@ -263,7 +263,7 @@
   
     <div class="article-meta">
       <a href="/2017/02/23/js_ Summary_Dom/" class="article-date">
-      <time datetime="2017-02-23T01:30:20.000Z" itemprop="datePublished">2017-02-23</time>
+      <time datetime="2017-02-23T02:40:20.000Z" itemprop="datePublished">2017-02-23</time>
 </a>
 
 
@@ -278,7 +278,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/js_ Summary_Dom/">js总结_函数基础</a>
+      <a class="article-title" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a>
     </h1>
   
 
@@ -288,9 +288,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>JS函数基础</strong><br>1.调用方法<br>直接调用：函数名(实参列表)<br>在链接中调用：<code>&lt;a href=&quot;javascript:函数名()&quot;&gt;啦啦啦啦&lt;/a&gt;</code><br>在事件中调用：事件类型=”函数名()”;<br>递归调用：在函数内部调用函数自身，<code>function aaa(){alert(&#39;1111&#39;);aaa()}</code><br><figure class="highlight plain"><figcaption><span>[递归调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var i=0;</div><div class="line">function aaa()</div><div class="line">&#123;</div><div class="line">  console.log(i++);</div><div class="line">  if(i&lt;6)&#123;</div><div class="line">    aaa() </div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br>2.方法<br>apply 将函数作为对象的方法来调用，将参数以数组形式传递给该方法;<br>call 将函数作为对象的方法来调用，将指定参数传递给该方法;<br>toString 返回函数的字符串表示<br>apply和call的区别是传入参数的形式不一样，其作用并无本质差别,都是改变this的指向。第一个是改变改变this的指向，其后就是传入的参数<br>如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]);<br><figure class="highlight plain"><figcaption><span>[1]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; id=&quot;myText&quot;   value=&quot;input text&quot;&gt;</div><div class="line">&lt;script&gt;</div><div class="line">   function Obj()&#123;</div><div class="line">    this.value=&quot;对象！&quot;;</div><div class="line">   &#125;</div><div class="line">   var value=&quot;global 变量&quot;;</div><div class="line">   function Fun1()&#123;</div><div class="line">    alert(this.value);</div><div class="line">   &#125;</div><div class="line">   window.Fun1();   //global 变量</div><div class="line">   Fun1.call(window);  //global 变量</div><div class="line">   Fun1.call(document.getElementById(&apos;myText&apos;));  //input text</div><div class="line">   Fun1.call(new Obj());   //对象！</div><div class="line">   window.Fun1(); //global 变量</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>下例分别弹出了func和var。先调用func函数，用this.a=”func”替换myfunc中的this.a ; 然后将”var”传递给方法myfunc的参数x可见分别弹出了func和var。<br>对于apply和call两者在作用上是相同的，但两者在参数上有区别的。<br>第一个参数意义都一样。第二个参数：apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。<br>如 func.call(func1,var1,var2,var3)  对应的apply写法为：func.apply(func1,[var1,var2,var3])，同时使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入。 　<br><figure class="highlight plain"><figcaption><span>[2]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  var func=new function()&#123;this.a=&quot;func&quot;&#125;</div><div class="line">  var myfunc=function(x)&#123;</div><div class="line">       var a=&quot;myfunc&quot;;</div><div class="line">       alert(this.a);</div><div class="line">       alert(x);</div><div class="line">   &#125;</div><div class="line">   myfunc.call(func,&quot;var&quot;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>下例将add替换sub,运行结果为4;<br><figure class="highlight plain"><figcaption><span>[3]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function add(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a + b);</div><div class="line">&#125;</div><div class="line">function sub(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a - b);</div><div class="line">&#125;</div><div class="line">add.call(sub, 3, 1);</div></pre></td></tr></table></figure></p>
-<p><a href="http://www.cnblogs.com/huyong/p/4139875.html" target="_blank" rel="external">apply和call参考资料</a></p>
+        <p><strong>JS dom基本操作</strong><br><strong><em>获取节点</em></strong><br><code>document.getElementById(元素ID);</code><br><code>document.getElementsByName(元素name);</code><br><code>document.getElementsByTagName(元素标签);</code><br><strong><em>节点指针</em></strong><br><code>firstChild:获取元素的首个子节点;</code><br><code>lastChild:取元素的最后一个子节点;</code><br><code>childNodes:获取元素的子节点列表;</code><br><code>parentNode:获取已知节点的父节点;</code><br><code>previousSibling:获取已知元素的前一个节点(同级);</code><br><code>nextSibling:获取已知元素的后一个节点(同级);</code><br><strong><em>节点操作</em></strong><br>1.创建节点<br><code>createElement 创建元素节点,创建p标签document.createElement(&quot;p&quot;);</code><br><code>createAttribute 创建元素属性,document.createAttribute(元素属性);</code><br><code>createTextNode 创建文本节点,document.createTextNode(文本内容);</code><br>2.插入节点<br><code>appendChild 向节点的子节点列表的末尾添加新的子节点</code><br><code>insertBefore 在已知子节点前插入一个新的子节点</code><br>3.替换节点<br><code>replaceChild 将某个子节点替换成另一个,replaceChild(&#39;要插入的新元素&#39;,&#39;将被替换的老元素&#39;)</code><br>4.复制节点<br><code>cloneNode创建指定节点的副本，需要被复制的节点.cloneNode(true/false)</code><br>5.删除节点<br><code>removeChild 删除指定节点， removeChild(要删除的节点)</code><br><strong><em>属性操作</em></strong><br><code>getAttribute获取元素属性;</code><br><code>setAttribute设置元素属性;</code><br><code>removeAttribute移除元素属性;</code><br><strong><em>文本操作</em></strong><br><code>insertData(offset,String) 从offset的指定位置插入string;</code><br><code>appendData(String) 将string插入文本节点的末尾处;</code><br><code>deleteData(offset,count) 从offset起删除count个字符;</code><br><code>spiltData(offset) 从offset处将文本节点分为两个节点;</code><br><code>substring(offset,count) 返回由offset起的count个节点;</code></p>
 
       
     </div>
@@ -956,14 +954,14 @@ function DetailController($scope,$routeParams) {
                 2016-2017 wangdenglin
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -972,7 +970,7 @@ function DetailController($scope,$routeParams) {
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -1005,9 +1003,9 @@ function DetailController($scope,$routeParams) {
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
