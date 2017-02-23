@@ -137,13 +137,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -255,9 +255,65 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-js_ Summary_Object" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/23/js_ Summary_Object/" class="article-date">
+      <time datetime="2017-02-23T03:46:20.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/js_ Summary_Object/">js总结_面向对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>JS 面向对象</strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-js_ Summary_Dom" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -288,7 +344,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>JS dom基本操作</strong><br><strong><em>获取节点</em></strong><br><code>document.getElementById(元素ID);</code><br><code>document.getElementsByName(元素name);</code><br><code>document.getElementsByTagName(元素标签);</code><br><strong><em>节点指针</em></strong><br><code>firstChild:获取元素的首个子节点;</code><br><code>lastChild:取元素的最后一个子节点;</code><br><code>childNodes:获取元素的子节点列表;</code><br><code>parentNode:获取已知节点的父节点;</code><br><code>previousSibling:获取已知元素的前一个节点(同级);</code><br><code>nextSibling:获取已知元素的后一个节点(同级);</code><br><strong><em>节点操作</em></strong><br>1.创建节点<br><code>createElement 创建元素节点,创建p标签document.createElement(&quot;p&quot;);</code><br><code>createAttribute 创建元素属性,document.createAttribute(元素属性);</code><br><code>createTextNode 创建文本节点,document.createTextNode(文本内容);</code><br>2.插入节点<br><code>appendChild 向节点的子节点列表的末尾添加新的子节点</code><br><code>insertBefore 在已知子节点前插入一个新的子节点</code><br>3.替换节点<br><code>replaceChild 将某个子节点替换成另一个,replaceChild(&#39;要插入的新元素&#39;,&#39;将被替换的老元素&#39;)</code><br>4.复制节点<br><code>cloneNode创建指定节点的副本，需要被复制的节点.cloneNode(true/false)</code><br>5.删除节点<br><code>removeChild 删除指定节点， removeChild(要删除的节点)</code><br><strong><em>属性操作</em></strong><br><code>getAttribute获取元素属性;</code><br><code>setAttribute设置元素属性;</code><br><code>removeAttribute移除元素属性;</code><br><strong><em>文本操作</em></strong><br><code>insertData(offset,String) 从offset的指定位置插入string;</code><br><code>appendData(String) 将string插入文本节点的末尾处;</code><br><code>deleteData(offset,count) 从offset起删除count个字符;</code><br><code>spiltData(offset) 从offset处将文本节点分为两个节点;</code><br><code>substring(offset,count) 返回由offset起的count个节点;</code></p>
+        <p><strong>JS dom基本操作</strong><br><strong><em>获取节点</em></strong><br><code>document.getElementById(元素ID);</code><br><code>document.getElementsByName(元素name);</code><br><code>document.getElementsByTagName(元素标签);</code><br><strong><em>节点指针</em></strong><br><code>firstChild:获取元素的首个子节点;</code><br><code>lastChild:取元素的最后一个子节点;</code><br><code>childNodes:获取元素的子节点列表;</code><br><code>parentNode:获取已知节点的父节点;</code><br><code>previousSibling:获取已知元素的前一个节点(同级);</code><br><code>nextSibling:获取已知元素的后一个节点(同级);</code><br><figure class="highlight plain"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;demo&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;123&quot; value=&quot;123&quot;/&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</div><div class="line">&lt;button onclick=&quot;myFunction()&quot;&gt;试一下&lt;/button&gt; </div><div class="line">&lt;script&gt;</div><div class="line">function myFunction()</div><div class="line">&#123;</div><div class="line">  var x=document.getElementById(&quot;demo&quot;);</div><div class="line">  console.log(x.firstChild);  //&lt;input type=&quot;text&quot; id=&quot;123&quot; value=&quot;123&quot;/&gt;</div><div class="line">  console.log(x.firstChild.value);//123</div><div class="line">  console.log(x.childNodes.length);//2 注意空格</div><div class="line">  console.log(x.childNodes[0].innerHTML); //</div><div class="line">  console.log(1);//1</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br><strong><em>节点操作</em></strong><br>1.创建节点<br><code>createElement 创建元素节点,创建p标签document.createElement(&quot;p&quot;);</code><br><code>createAttribute 创建元素属性,document.createAttribute(元素属性);</code><br><code>createTextNode 创建文本节点,document.createTextNode(文本内容);</code><br>2.插入节点<br><code>appendChild 向节点的子节点列表的末尾添加新的子节点</code><br><code>insertBefore 在已知子节点前插入一个新的子节点</code><br>3.替换节点<br><code>replaceChild 将某个子节点替换成另一个,replaceChild(&#39;要插入的新元素&#39;,&#39;将被替换的老元素&#39;)</code><br>4.复制节点<br><code>cloneNode创建指定节点的副本，需要被复制的节点.cloneNode(true/false)</code><br>5.删除节点<br><code>removeChild 删除指定节点， removeChild(要删除的节点)</code><br><strong><em>属性操作</em></strong><br><code>getAttribute获取元素属性;</code><br><code>setAttribute设置元素属性;</code><br><code>removeAttribute移除元素属性;</code><br><strong><em>文本操作</em></strong><br><code>insertData(offset,String) 从offset的指定位置插入string;</code><br><code>appendData(String) 将string插入文本节点的末尾处;</code><br><code>deleteData(offset,count) 从offset起删除count个字符;</code><br><code>spiltData(offset) 从offset处将文本节点分为两个节点;</code><br><code>substring(offset,count) 返回由offset起的count个节点;</code></p>
 
       
     </div>
@@ -883,63 +939,6 @@ function DetailController($scope,$routeParams) {
 
 
   
-    <article id="post-angular_http" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/08/angular_http/" class="article-date">
-      <time datetime="2016-11-08T14:31:49.000Z" itemprop="datePublished">2016-11-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/angular_http/">angular http请求</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>如何封装http请求?</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.factory(&apos;EXT&apos;, function ($http)</div><div class="line">&#123;</div><div class="line">    var factory = &#123;&#125;;</div><div class="line">    //封装请求</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">        factory.PackageHttp = function (url, data, successfn, errorfn,flag_with_form_encode)</div><div class="line">        &#123;</div><div class="line">                $http(&#123;</div><div class="line">                    method: &apos;POST&apos;,</div><div class="line">                    data: data,</div><div class="line">                    url: url,</div><div class="line">                    headers: headers,</div><div class="line">                &#125;)</div><div class="line">                .success(function (d, status)</div><div class="line">                &#123;</div><div class="line">                    successfn(d, status);</div><div class="line">                &#125;)</div><div class="line">                .error(function (e, status)</div><div class="line">                &#123;</div><div class="line">                    errorfn(e,status);</div><div class="line">                &#125;)</div><div class="line">            </div><div class="line">            &#125;</div><div class="line">            catch (err)</div><div class="line">            &#123;</div><div class="line">                //alert(err.message + &quot;封装&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    catch(err)</div><div class="line">    &#123;</div><div class="line">        //alert(err.message)</div><div class="line">    &#125;</div><div class="line"></div></pre></td></tr></table></figure></p>
-<p><strong>使用example如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.controller(&apos;HomeCtrl&apos;, function ( EXT)</div><div class="line">&#123;</div><div class="line"> EXT.PackageHttp(URL, Data,</div><div class="line">                function (Data, status)</div><div class="line">                &#123;</div><div class="line">                   console.log(&quot;success&quot;);</div><div class="line">                &#125;,</div><div class="line">                function ()</div><div class="line">                &#123;</div><div class="line">                    console.log(&quot;fail&quot;);</div><div class="line">                &#125;</div><div class="line">            )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -954,14 +953,14 @@ function DetailController($scope,$routeParams) {
                 2016-2017 wangdenglin
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -970,7 +969,7 @@ function DetailController($scope,$routeParams) {
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -1003,9 +1002,9 @@ function DetailController($scope,$routeParams) {
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
