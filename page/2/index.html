@@ -259,6 +259,83 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Rem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/Rem/" class="article-date">
+      <time datetime="2017-02-21T08:50:49.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>rem</strong><br>尽可能的先执行该js<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;    (function (doc, win)&lt;br&gt;    &#123;&lt;br&gt;        var docEl = doc.documentElement;&lt;br&gt;        var resizeEvt = “onorientationchange” in win ? “orientationchange” : “resize”;&lt;br&gt;        var Timer = null;&lt;br&gt;        function recalc()&lt;br&gt;        &#123;&lt;br&gt;            var clientWidth = docEl.clientWidth || win.innerWidth;&lt;br&gt;            //设计稿是640px&lt;br&gt;            var initSize = (clientWidth / 640) * 100;&lt;br&gt;            var fontSize = clientWidth &amp;gt; 768 ? 120 : (initSize &amp;lt; 50 ? 50 : initSize);&lt;br&gt;            docEl.style.fontSize = fontSize + “px”;&lt;br&gt;        &#125;&lt;br&gt;        doc.addEventListener(“DOMContendLoaded”, recalc, false);&lt;/p&gt;</div><div class="line"><pre><code>    //转屏
+    win.addEventListener(resizeEvt, function ()
+    {
+        clearTimeout(Timer);
+        Timer = setTimeout(recalc, 300)
+    }, false);
+
+    //pageshow,缓存相关
+    win.addEventListener(&quot;pageshow&quot;, function (e)
+    {
+        if (e.persisted)
+        {
+            clearTimeout(Timer);
+            Timer = setTimeout(recalc, 300)
+        }
+    }, false);
+
+    // 初始化
+    recalc();
+
+})(document, window);
+</code></pre></div></pre></td></tr></table></figure>
+</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular_http" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
