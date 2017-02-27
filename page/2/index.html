@@ -182,7 +182,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
                     </div>
                 </section>
                 
@@ -258,6 +258,130 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Refresh" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/Refresh/" class="article-date">
+      <time datetime="2017-02-21T09:30:49.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong> $scope.resume 刷新</strong><br>$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。<br>android的刷新<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;     $scope.resume = function ()&lt;br&gt;    &#123;&lt;br&gt;       alert(‘注册刷新’)；&lt;br&gt;    &#125;;&lt;br&gt;</div></pre></td></tr></table></figure><br>ios的刷新必须放在settimeout($scope.resume,0)</p>
+<p>缺点：如果该页面是cache=false,那么每次页面刷新都会注册一起监听事件，导致页面卡顿，<br>解决方法：为了减少资源消耗，我们可以采用局部刷新，$scope.resume事件不用刷新，只刷新我们需要刷新的事件。例子如下：</p>
+<figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>$scope.$on(&apos;$ionicView.beforeEnter&apos;, function ()
+{
+   alert(&quot;刷新内容&quot;)
+})
+ $scope.resume = function ()
+{
+   alert(&apos;注册刷新&apos;)；
+};
+</code></pre></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular_way" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/angular_way/" class="article-date">
+      <time datetime="2017-02-21T08:55:49.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angularjs常用指令和使用方法</strong><br>1.ng-app指令<br>划分区域，表明哪一块属于angularjs<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body ng-app=&quot;&quot;&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure><br>2.ng-init 指令<br>初始化值<br>使用ng-init指令使open的初始化值为true<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init=&apos;open=true&apos;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>3.ng-show 指令和ng-hide<br>分别表示目标的显示和隐藏<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之显示关闭。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-show=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div ng-hide=&apos;IfSwitch&apos;&gt;</div><div class="line">		关闭</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>4.ng-if 指令<br>ng-if 指令不同于 ng-hide和ng-show 隐藏或显示元素，ng-if 是从 DOM 中移除元素。<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之移除dom。<br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-if=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>5.ng-class 指令<br>a.ng-class通过对象数组绑定，当$scope.isSelected=true时，增加class .selected反之增加class .unselected<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">    $scope.isSelected = true;  </div><div class="line">&#125; </div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-class=&quot;&#123;true:&apos;selected&apos;,false:&apos;unselected&apos;&#125;[isSelected]&quot;&gt;&lt;/div&gt;  </div></pre></td></tr></table></figure><br>b.ng-class通过key/value键值对绑定，当$scope.IfA=true时，增加class .A反之增加class .B或.C<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">	$scope.IfA = true;  </div><div class="line">	$scope.IfB = false;  </div><div class="line">	$scope.IfC = false;  </div><div class="line">&#125;  </div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>&lt;div ng-class=&quot;{&apos;A&apos;:IfA,&apos;B&apos;:IfB,&apos;C&apos;:IfC}&quot;&gt;&lt;/div&gt;    
+</code></pre></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Rem" class="article article-type-post" itemscope itemprop="blogPost">
   
