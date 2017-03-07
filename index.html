@@ -259,6 +259,182 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-node-events" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/node-events/" class="article-date">
+      <time datetime="2017-03-08T08:31:50.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/node-events/">nodejs events模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>事件驱动 events</strong><br>event 是node.js最重要的模块，没有之一，原因是nodejs本身架构就是事件式的，而他提供了唯一的接口，所以堪称nodejs事件编程的基石。events模块不仅用于用户代码与nodejs下层事件循环交互，还几乎被所有的模块依赖。<br>1.事件发射器<br>events模块只提供一个对象：events.EventEmitter。EventEmitter的核心就是事件发射与事件监听功能的封装。EventEmitter的每个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件，EventEmitter支持若干个事件监听器。当事件发射时，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var events = require(&apos;events&apos;); </div><div class="line"> </div><div class="line">var emitter = new events.EventEmitter(); </div><div class="line"> </div><div class="line">emitter.on(&apos;someEvent&apos;, function(arg1, arg2) &#123;   console.log(&apos;listener1&apos;, arg1, arg2); &#125;); </div><div class="line"> </div><div class="line">emitter.on(&apos;someEvent&apos;, function(arg1, arg2) &#123;   console.log(&apos;listener2&apos;, arg1, arg2); &#125;); </div><div class="line"> </div><div class="line">emitter.emit(&apos;someEvent&apos;, &apos;byvoid&apos;, 1991);</div><div class="line"></div><div class="line">运行的结果是： </div><div class="line">listener1 byvoid 1991 </div><div class="line">listener2 byvoid 1991</div></pre></td></tr></table></figure></p>
+<p>以上例子中，emitter 为事件 someEvent 注册了两个事件监听器，然后发射了 someEvent 事件。运行结果中可以看到两个事件监听器回调函数被先后调用。 这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
+<p>  EventEmitter.on(event, listener) 为指定事件注册一个监听器，接受一个字 符串 event 和一个回调函数 listener。 <br>    EventEmitter.emit(event, [arg1], [arg2], […]) 发射 event 事件，传 递若干可选参数到事件监听器的参数表。 <br>    EventEmitter.once(event, listener) 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。 <br>    EventEmitter.removeListener(event, listener) 移除指定事件的某个监听 器，listener 必须是该事件已经注册过的监听器。<br>    EventEmitter.removeAllListeners([event]) 移除所有事件的所有监听器， 如果指定 </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node-fs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/07/node-fs/" class="article-date">
+      <time datetime="2017-03-07T10:16:55.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/07/node-fs/">nodejs fs模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>文件系统fs</strong><br>fs模块是文件操作的封装，它提供了文件的读取、写入、更名、删除、遍历目录、链接等POSIX文件系统操作。与其他模板不同的是，fs模板中所有的操作都提供了异步的和同步的两个版本，例如读取文件内容的函数有异步的fs.readFile()和同步的fs.readFileSync().我们以几个函数为代表，介绍fs的常用功能，并列出fs所有函数的定义和功能。<br>fs.readFile<br>fs.readFile(filename,[encoding],[callback(err,data)])<br>一个必选参数filename，表示读取的文件名，第二个参数encoding是可选的，表示文件的字符编码。callback是回调还数，用于接受文件内容，如果不指定encoding，则callback就是第二个参数。回调函数提供两个参数err和data,err表示没有错误发生，data是文件内容，如果指定了encoding，data是一个解析后的字符串，否则data将会是以Buffer的形式表示的二进制数据。<br>例：不指定编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var fs = require(&apos;fs&apos;); </div><div class="line"> </div><div class="line">fs.readFile(&apos;content.txt&apos;, </div><div class="line">    function(err, data)</div><div class="line">     &#123;   </div><div class="line">        if (err) </div><div class="line">        &#123; </div><div class="line"></div><div class="line">            console.error(err);  </div><div class="line">         &#125;</div><div class="line">        else </div><div class="line">        &#123;     console.log(data);   </div><div class="line">        &#125; </div><div class="line">    &#125;); </div><div class="line">//假设 content.txt 中的内容是 UTF-8 编码的 Text 文本文件示例，运行结果如下： </div><div class="line">&lt;Buffer 54 65 78 74 20 e6 96 87 e6 9c ac e6 96 87 e4 bb b6 e7 a4 ba e4 be 8b&gt; </div><div class="line">这个程序以二进制的模式读取了文件的内容，data 的值是 Buffer 对象。</div><div class="line">如果我们给 fs.readFile 的 encoding 指定编码： </div><div class="line">var fs = require(&apos;fs&apos;); </div><div class="line"></div><div class="line">fs.readFile(&apos;content.txt&apos;, &apos;utf-8&apos;, function(err, data) </div><div class="line">    &#123;   </div><div class="line">        if (err)</div><div class="line">         &#123;     </div><div class="line">            console.error(err);  </div><div class="line">         &#125; else </div><div class="line">         &#123;    </div><div class="line">            console.log(data);  </div><div class="line">           &#125; </div><div class="line">       &#125;); </div><div class="line">那么运行结果则是： </div><div class="line">Text 文本文件示例 </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>fs.readFileSync<br>fs.readFileSync(filename, [encoding])是 fs.readFile 同步的版本。它接受 的参数和 fs.readFile 相同，而读取到的文件内容会以函数返回值的形式返回。如果有错 误发生，fs 将会抛出异常，你需要使用 try 和 catch 捕捉并处理异常。<br>fs.open<br>fs.open(path, flags, [mode], [callback(err, fd)])是 POSIX open 函数的 封装，与 C 语言标准库中的 fopen 函数类似。它接受两个必选参数，path 为文件的路径， flags 可以是以下值。 r ：以读取模式打开文件。 <br>r+ ：以读写模式打开文件。 <br>w ：以写入模式打开文件，如果文件不存在则创建。 <br>w+ ：以读写模式打开文件，如果文件不存在则创建。 <br>a ：以追加模式打开文件，如果文件不存在则创建。 <br>a+ ：以读取追加模式打开文件，如果文件不存在则创建。<br>mode 参数用于创建文件时给文件指定权限，默认是 0666①。回调函数将会传递一个文 件描述符 fd②。<br>① 文件权限指的是 POSIX 操作系统中对文件读取和访问权限的规范，通常用一个八进制数来表示。例如 0754 表 示文件所有者的权限是 7 （读、写、执行），同组的用户权限是 5 （读、执行），其他用户的权限是 4 （读）， 写成字符表示就是 -rwxr-xr–。<br>② 文件描述符是一个非负整数，表示操作系统内核为当前进程所维护的打开文件的记录表索引</p>
+<p>fs.read<br>fs.read(fd, buffer, offset, length, position, [callback(err, bytesRead, buffer)])是 POSIX read 函数的封装，相比 fs.readFile 提供了更底层的接口。fs.read 的功能是从指定的文件描述符<br>fd 中读取数据并写入 buffer 指向的缓冲区对象。<br>offset 是 buffer 的写入偏移量。<br>length 是要从文件中读取的字节数。<br>position 是文件读取的起始 位置，如果 position 的值为 null，则会从当前文件指针的位置读取。<br>回调函数传递 bytesRead 和 buffer，分别表示读取的字节数和缓冲区对象。<br>以下是一个使用 fs.open 和 fs.read 的示例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt; </div><div class="line">var fs = require(&apos;fs&apos;); </div><div class="line"> </div><div class="line">fs.open(&apos;content.txt&apos;, &apos;r&apos;, function(err, fd) &#123; </div><div class="line">  if (err) </div><div class="line">  &#123;     </div><div class="line">    console.error(err);     </div><div class="line">    return;   </div><div class="line">  &#125;      </div><div class="line">  var buf = new Buffer(8);   </div><div class="line">  fs.read(fd, buf, 0, 8, null, function(err, bytesRead, buffer)</div><div class="line">   &#123;     </div><div class="line">    if(err) </div><div class="line">    &#123;       </div><div class="line">        console.error(err);       </div><div class="line">        return;     </div><div class="line">    &#125;          </div><div class="line">    console.log(&apos;bytesRead: &apos; + bytesRead);    </div><div class="line">    console.log(buffer);   </div><div class="line">    &#125;)</div><div class="line"> &#125;); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>一般来说，除非必要，否则不要使用这种方式读取文件，因为它要求你手动管理缓冲区 和文件指针，尤其是在你不知道文件大小的时候，这将会是一件很麻烦的事情</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-nodejs1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/28/nodejs1/" class="article-date">
+      <time datetime="2017-02-28T01:50:20.000Z" itemprop="datePublished">2017-02-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/nodejs1/">nodejs基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>util.inherits实现继承</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var util = require(&apos;util&apos;); </div><div class="line">function Base() &#123; </div><div class="line">  this.name = &apos;base&apos;; </div><div class="line">  this.base = 1991; </div><div class="line">  this.sayHello = function() &#123; </div><div class="line">  console.log(&apos;Hello &apos; + this.name); </div><div class="line">  &#125;; </div><div class="line">&#125; </div><div class="line">Base.prototype.showName = function() &#123; </div><div class="line">  console.log(this.name);</div><div class="line">&#125;; </div><div class="line">function Sub() &#123; </div><div class="line">  this.name = &apos;sub&apos;; </div><div class="line">&#125; </div><div class="line">util.inherits(Sub, Base); </div><div class="line">var objBase = new Base(); </div><div class="line">objBase.showName(); </div><div class="line">objBase.sayHello(); </div><div class="line">console.log(objBase); </div><div class="line">var objSub = new Sub(); </div><div class="line">objSub.showName(); </div><div class="line">//objSub.sayHello(); </div><div class="line">console.log(objSub); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>上例的Sub继承Base中的方法，且只能继承原型中的方法。Sub和Base都为构造函数<br><a href="http://yijiebuyi.com/blog/ea4b2a30f73596a08ce85211626b68e5.html" target="_blank" rel="external">详情点击此处：</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js_ Summary_Client" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -634,256 +810,6 @@
 <p>  <code>空数组：var Obj=new Array() 或var Obj=[];</code><br>  <code>指定长度的数组：var Obj=new Array(Size);</code><br>  <code>指定元素的数组：var Obj=new Array(元素1,元素2...)</code><br>  <code>单维数组      ：var Obj=[元素a,元素b,元素c...];</code><br>  <code>多维数组      ：var Obj=[[a],[b],[c]]</code><br>2.删除数组<br>delete 数组名加下标<br>3.遍历数组<br>for…in…<br><code>var example=[1,2,3,4];</code><br><code>for(a in example){
  console.log(&#39;a在数组里&#39;);
 }</code><br>4.数组的添加与删除<br><code>push() 在数组末尾添加数组</code><br><code>unshift() 在数组头部添加元素</code><br><code>concat() 合并两个数组</code><br><code>pop() 删除并返回数值的最后一个元素</code><br><code>shift() 删除并返回数组的第一个元素</code><br><code>splice() 可以在指定位置删除插入或替换</code><br><code>slice() 从已有数组中选取部分元素组成数组，如果是正值从前外后，如果是负值从后往前</code><br><code>reverse() 颠倒数组元素的顺序</code><br><code>sort() 排序</code><br><figure class="highlight plain"><figcaption><span>[升序]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function UpSort(a,b)&#123;</div><div class="line">  if(a&gt;b)&#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else if(b&gt;a)</div><div class="line">  &#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else&#123;</div><div class="line">    return 0</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br><code>toString() 转化成字符串并返回  var aaa=[1,2,3,4] console.log(aaa.toString())  输出1,2,3,4</code><br><code>join() 用指定分隔符分割数组并转化成字符串 var aaa=[1,2,3,4] console.log(aaa.join(&#39;-&#39;))  输出1-2-3-4</code><br><code>indexOf() 从数组起始位置开始查找，如果有就返回&gt;=0</code><br><code>every() 如果该函数的每项都为true,则返回true</code><br><code>some() 如果该函数的有一项都为true,则返回true</code><br><code>map() 返回每次函数调用的结果数组</code><br><code>forEach():没有返回值，只是针对每个元素调用func</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function my_func(item) &#123;</div><div class="line">  if (item == 1) &#123;</div><div class="line">    console.log(&apos;t&apos;);</div><div class="line">    return true;</div><div class="line">  &#125;</div><div class="line">  console.log(&apos;f&apos;);</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// init an array</div><div class="line">l = [0,1,2,3,4]</div><div class="line">// print: f</div><div class="line">// return: false</div><div class="line">l.every(my_func)</div><div class="line">// print: f,t</div><div class="line">// return: true</div><div class="line">l.some(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">// return:[false, true, false, false, false]</div><div class="line">l.map(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">//return: undefined</div><div class="line">l.forEach(my_func)</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ng-ui-route" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/22/ng-ui-route/" class="article-date">
-      <time datetime="2017-02-22T04:10:20.000Z" itemprop="datePublished">2017-02-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>angular-ui-router路由设置</strong><br>因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试<br><a href="http://jingyan.baidu.com/article/ed2a5d1f128ff609f6be17fa.html" target="_blank" rel="external">提供一个搭建本地服务器链接 》</a><br>首先新建5个页面<br><figure class="highlight plain"><figcaption><span>[a.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是a页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[b.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是b页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[c.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是c页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Tab.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;div&gt;&lt;a ui-sref=&quot;.page1&quot;&gt;A&lt;/a&gt;&lt;a ui-sref=&quot;.page2&quot;&gt;B&lt;/a&gt;&lt;a ui-sref=&quot;.page3&quot;&gt;C&lt;/a&gt;&lt;/div&gt;&lt;br&gt;     &lt;div&gt;&lt;br&gt;          &lt;div ui-view=&quot;&quot;/&gt;&lt;br&gt;     &lt;/div&gt;&lt;br&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;br&gt;  &lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;br&gt;    &lt;title&gt;demo&lt;/title&gt;&lt;br&gt;    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;link href=&quot;&quot; rel=&quot;stylesheet&quot;&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular-ui-router.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/app.js&apos;&gt;&lt;/script&gt;&lt;br&gt;  &lt;/head&gt;&lt;br&gt;  &lt;body data-ng-app=&quot;demo&quot;&gt;&lt;br&gt;       &lt;div class=&quot;content&quot;&gt;&lt;br&gt;            &lt;div data-ui-view=&quot;&quot;&gt;&lt;/div&gt;&lt;br&gt;        &lt;/div&gt;&lt;br&gt;  &lt;/body&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br>首先注入ui.router<br>默认进入Tab.html页面<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;var demo = angular.module(“demo”, [“ui.router”]);&lt;br&gt;demo.config(function ($stateProvider, $urlRouterProvider) &#123;&lt;/p&gt;</div><div class="line"><pre><code>$urlRouterProvider.otherwise(&apos;/Tab&apos;);
-
-$stateProvider
-   .state(&quot;Tab&quot;, {
-       url: &quot;/Tab&quot;,
-       templateUrl: &quot;Tab.html&quot;
-   })
-   .state(&quot;Tab.page1&quot;, {
-       url:&quot;/page1&quot;,
-       templateUrl: &quot;page1.html&quot;
-   })
-   .state(&quot;Tab.page2&quot;, {
-       url:&quot;/page2&quot;,
-       templateUrl: &quot;page2.html&quot;
-   })
-   .state(&quot;Tab.page3&quot;, {
-       url:&quot;/page3&quot;,
-       templateUrl: &quot;page3.html&quot;
-   });
-</code></pre>&lt;p&gt;&#125;);</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ng-route" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/21/ng-route/" class="article-date">
-      <time datetime="2017-02-21T10:10:20.000Z" itemprop="datePublished">2017-02-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/ng-route/">angular ng-route</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>angular js 路由设置</strong><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;head&gt;&lt;br&gt;  &lt;meta charset=&quot;utf-8&quot; /&gt;&lt;br&gt;  &lt;title&gt;测试&lt;/title&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular-route.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;&lt;/head&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;body ng-app=&quot;myApp&quot;&gt;&lt;br&gt;  &lt;div ng-controller=&quot;TextController&quot;&gt;&lt;br&gt;     &lt;p&gt;&lt;/p&gt;&lt;br&gt;  &lt;/div&gt;&lt;br&gt;  &lt;div ng-view&gt;&lt;/div&gt;&lt;br&gt;&lt;/body&gt;&lt;br&gt;  &lt;script&gt;&lt;br&gt;    var myApp = angular.module(‘myApp’, [‘ngRoute’]);&lt;br&gt;    myApp.controller(‘TextController’, function ($scope) &#123;&lt;br&gt;      $scope.someText = ‘测试显示内容’;&lt;br&gt;    &#125;);&lt;/p&gt;</div><div class="line"><pre><code>//路由
-function emailRouteConfig($routeProvider) {
-  $routeProvider.
-  when(&apos;/&apos;, {
-    controller: ListController,
-    templateUrl: &apos;list.html&apos;
-  }).
-  when(&apos;/view/:id&apos;, { //在id前面加一个冒号，从而制订了一个参数化URL
-    controller: DetailController,
-    templateUrl: &apos;detail.html&apos;
-  }).
-  otherwise({
-    redirectTo: &apos;/&apos;
-  });
-}
-
-myApp.config(emailRouteConfig);//配置我们的路由
-
-messages = [{
-  id: 0, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
-}, {
-  id: 1, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
-}, {
-  id: 2, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
-}];
-
-function ListController($scope) {
-  $scope.messages = messages;
-}
-
-function DetailController($scope,$routeParams) {
-  $scope.message = messages[$routeParams.id];
-}
-</code></pre>&lt;p&gt;  &lt;/script&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[list.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;发件人&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;内容&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;日期&lt;/strong&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">  &lt;tr ng-repeat=&quot;message in messages&quot;&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;a href=&quot;#/view/&quot;&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>[detail.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;strong&gt;项目:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;发送者:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;日期:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">  &lt;strong&gt;To:&lt;/strong&gt;</div><div class="line">  &lt;span ng-repeat=&quot;recipient in message.recipients&quot;&gt;</div><div class="line">    </div><div class="line">  &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;a href=&quot;#/&quot;&gt;回到列表&lt;/a&gt;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ionic_plugin" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/21/ionic_plugin/" class="article-date">
-      <time datetime="2017-02-21T10:00:20.000Z" itemprop="datePublished">2017-02-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/ionic_plugin/">ionic cordova 常用插件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong> cordova 常用插件</strong><br>cordova plugin add org.apache.cordova.device                   //设备API</p>
-<p>cordova plugin add org.apache.cordova.network-information  //网络（事件）</p>
-<p>cordova plugin add org.apache.cordova.battery-status      //电池（事件）</p>
-<p>cordova plugin add org.apache.cordova.device-motion     //加速器</p>
-<p>cordova plugin add org.apache.cordova.device-orientation     //罗盘</p>
-<p>cordova plugin add org.apache.cordova.geolocation         //定位</p>
-<p>cordova plugin add org.apache.cordova.camera                 //摄像头</p>
-<p>cordova plugin add org.apache.cordova.media-capture     //媒体文件处理</p>
-<p>cordova plugin add org.apache.cordova.media                   //媒体文件处理</p>
-<p>cordova plugin add org.apache.cordova.file                        //文件访问</p>
-<p>cordova plugin add org.apache.cordova.file-transfer          //文件传输</p>
-<p>cordova plugin add org.apache.cordova.dialogs                 //对话框</p>
-<p>cordova plugin add org.apache.cordova.vibration              //震动</p>
-<p>cordova plugin add org.apache.cordova.contacts               //联系人</p>
-<p>cordova plugin add org.apache.cordova.globalization       //全球化</p>
-<p>cordova plugin add org.apache.cordova.splashscreen       //闪屏</p>
-<p>cordova plugin add org.apache.cordova.inappbrowser             //打开新的浏览器窗口</p>
-<p>cordova plugin add org.apache.cordova.console                //调试控制台</p>
-<p>你可以用以下命令查看所有已经安装的插件</p>
-<p>cordova plugin ls</p>
-<p>使用以下命令删除插件：</p>
-<p>cordova plugin rm org.apache.cordova.console    </p>
-<p>或者通过地址来添加插件：</p>
-<p>cordova plugin add <a href="https://github.com/apache/cordova-plugin-console.git" target="_blank" rel="external">https://github.com/apache/cordova-plugin-console.git</a></p>
-<p>帮助：</p>
-<p>cordova help</p>
-<p>更新cordova：</p>
-<p>npm update -g cordova</p>
-<p>cordova更新完成后，还需要更新项目：</p>
-<p>cordova platform update android</p>
 
       
     </div>

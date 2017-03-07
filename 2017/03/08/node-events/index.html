@@ -15,12 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://wangdenglin.github.io/archives/2017/02/index.html">
+<meta name="description" content="事件驱动 eventsevent 是node.js最重要的模块，没有之一，原因是nodejs本身架构就是事件式的，而他提供了唯一的接口，所以堪称nodejs事件编程的基石。events模块不仅用于用户代码与nodejs下层事件循环交互，还几乎被所有的模块依赖。1.事件发射器events模块只提供一个对象：events.EventEmitter。EventEmitter的核心就是事件发射与事件监听功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs events模块">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/03/08/node-events/index.html">
 <meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="事件驱动 eventsevent 是node.js最重要的模块，没有之一，原因是nodejs本身架构就是事件式的，而他提供了唯一的接口，所以堪称nodejs事件编程的基石。events模块不仅用于用户代码与nodejs下层事件循环交互，还几乎被所有的模块依赖。1.事件发射器events模块只提供一个对象：events.EventEmitter。EventEmitter的核心就是事件发射与事件监听功">
+<meta property="og:updated_time" content="2017-03-07T10:16:11.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
+<meta name="twitter:title" content="nodejs events模块">
+<meta name="twitter:description" content="事件驱动 eventsevent 是node.js最重要的模块，没有之一，原因是nodejs本身架构就是事件式的，而他提供了唯一的接口，所以堪称nodejs事件编程的基石。events模块不仅用于用户代码与nodejs下层事件循环交互，还几乎被所有的模块依赖。1.事件发射器events模块只提供一个对象：events.EventEmitter。EventEmitter的核心就是事件发射与事件监听功">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2017/2 | 我的博客</title>
+<title>nodejs events模块 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,8 +66,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -252,325 +256,162 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-node-events" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/28/nodejs1/" class="archive-article-date">
-      <time datetime="2017-02-28T01:50:20.000Z" itemprop="datePublished">02-28</time>
+    <div class="article-meta">
+      <a href="/2017/03/08/node-events/" class="article-date">
+      <time datetime="2017-03-08T08:31:50.000Z" itemprop="datePublished">2017-03-08</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/nodejs1/">nodejs基础</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nodejs events模块
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
+        <p><strong>事件驱动 events</strong><br>event 是node.js最重要的模块，没有之一，原因是nodejs本身架构就是事件式的，而他提供了唯一的接口，所以堪称nodejs事件编程的基石。events模块不仅用于用户代码与nodejs下层事件循环交互，还几乎被所有的模块依赖。<br>1.事件发射器<br>events模块只提供一个对象：events.EventEmitter。EventEmitter的核心就是事件发射与事件监听功能的封装。EventEmitter的每个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件，EventEmitter支持若干个事件监听器。当事件发射时，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var events = require(&apos;events&apos;); </div><div class="line"> </div><div class="line">var emitter = new events.EventEmitter(); </div><div class="line"> </div><div class="line">emitter.on(&apos;someEvent&apos;, function(arg1, arg2) &#123;   console.log(&apos;listener1&apos;, arg1, arg2); &#125;); </div><div class="line"> </div><div class="line">emitter.on(&apos;someEvent&apos;, function(arg1, arg2) &#123;   console.log(&apos;listener2&apos;, arg1, arg2); &#125;); </div><div class="line"> </div><div class="line">emitter.emit(&apos;someEvent&apos;, &apos;byvoid&apos;, 1991);</div><div class="line"></div><div class="line">运行的结果是： </div><div class="line">listener1 byvoid 1991 </div><div class="line">listener2 byvoid 1991</div></pre></td></tr></table></figure></p>
+<p>以上例子中，emitter 为事件 someEvent 注册了两个事件监听器，然后发射了 someEvent 事件。运行结果中可以看到两个事件监听器回调函数被先后调用。 这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
+<p>  EventEmitter.on(event, listener) 为指定事件注册一个监听器，接受一个字 符串 event 和一个回调函数 listener。 <br>    EventEmitter.emit(event, [arg1], [arg2], […]) 发射 event 事件，传 递若干可选参数到事件监听器的参数表。 <br>    EventEmitter.once(event, listener) 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。 <br>    EventEmitter.removeListener(event, listener) 移除指定事件的某个监听 器，listener 必须是该事件已经注册过的监听器。<br>    EventEmitter.removeAllListeners([event]) 移除所有事件的所有监听器， 如果指定 </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/08/node-events/">nodejs events模块</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
+        <p><span>发布时间:</span>2017-03-08, 16:31:50</p>
+        <p><span>最后更新:</span>2017-03-07, 18:16:11</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/08/node-events/" title="nodejs events模块">http://wangdenglin.github.io/2017/03/08/node-events/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/03/08/node-events/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/27/js_ Summary_Client/" class="archive-article-date">
-      <time datetime="2017-02-27T01:50:20.000Z" itemprop="datePublished">02-27</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/27/js_ Summary_Client/">JS中clientWidth offsetWidth scrollWidth 等的含义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/24/js_ Summary_Closure/" class="archive-article-date">
-      <time datetime="2017-02-24T07:50:20.000Z" itemprop="datePublished">02-24</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/js_ Summary_Closure/">js总结_闭包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/24/js_ Summary_Sport/" class="archive-article-date">
-      <time datetime="2017-02-24T07:16:20.000Z" itemprop="datePublished">02-24</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/24/js_ Summary_Object/" class="archive-article-date">
-      <time datetime="2017-02-24T03:46:20.000Z" itemprop="datePublished">02-24</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/js_ Summary_Object/">js总结_面向对象</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/23/js_ Summary_Dom/" class="archive-article-date">
-      <time datetime="2017-02-23T02:40:20.000Z" itemprop="datePublished">02-23</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/23/js_ Summary_func/" class="archive-article-date">
-      <time datetime="2017-02-23T01:30:20.000Z" itemprop="datePublished">02-23</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/22/js_ Summary/" class="archive-article-date">
-      <time datetime="2017-02-22T05:50:20.000Z" itemprop="datePublished">02-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/22/js_ Summary/">js总结_数组</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/22/ng-ui-route/" class="archive-article-date">
-      <time datetime="2017-02-22T04:10:20.000Z" itemprop="datePublished">02-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/21/ng-route/" class="archive-article-date">
-      <time datetime="2017-02-21T10:10:20.000Z" itemprop="datePublished">02-21</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/21/ng-route/">angular ng-route</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/02/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/02/page/2/">Next &raquo;</a>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/07/node-fs/">
+                    nodejs fs模块
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"nodejs events模块　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/07/node-fs/" title="下一篇: nodejs fs模块">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/node-events/">nodejs events模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/node-fs/">nodejs fs模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/nodejs1/">nodejs基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/js_ Summary_Client/">JS中clientWidth offsetWidth scrollWidth 等的含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Closure/">js总结_闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Object/">js总结_面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/js_ Summary/">js总结_数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/ng-route/">angular ng-route</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/ionic_plugin/">ionic cordova 常用插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/08/angular_http/">angular http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/ionic/">ionic 常见问题</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
