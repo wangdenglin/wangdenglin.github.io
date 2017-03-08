@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//www.baidu.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="wangdenglin" />
+
+
+
+<meta name="description" content="node HTTP服务器与客户端 1.http服务器http.Server是http模块中的HTTP服务器对象，它提供了一套封装级别很低的API,仅仅是流程控制和简单的消息解析，其他高级功能需要通过他的接口实现。[http.js]12345678910var http = require(&amp;apos;http&amp;apos;);  http.createServer(function(req, res">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs Http模块">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/03/08/node-Http/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="node HTTP服务器与客户端 1.http服务器http.Server是http模块中的HTTP服务器对象，它提供了一套封装级别很低的API,仅仅是流程控制和简单的消息解析，其他高级功能需要通过他的接口实现。[http.js]12345678910var http = require(&amp;apos;http&amp;apos;);  http.createServer(function(req, res">
+<meta property="og:updated_time" content="2017-03-08T07:52:15.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs Http模块">
+<meta name="twitter:description" content="node HTTP服务器与客户端 1.http服务器http.Server是http模块中的HTTP服务器对象，它提供了一套封装级别很低的API,仅仅是流程控制和简单的消息解析，其他高级功能需要通过他的接口实现。[http.js]12345678910var http = require(&amp;apos;http&amp;apos;);  http.createServer(function(req, res">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/avatar.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>nodejs Http模块 | 我的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">wangdenglin</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1574697828@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://wangdenglin.github.io/">Home</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">不要在意过去与未来，值得你注意的只有当下</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">wangdenglin</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">wangdenglin</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1574697828@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-node-Http" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/node-Http/" class="article-date">
+      <time datetime="2017-03-08T01:30:50.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nodejs Http模块
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>node HTTP服务器与客户端 </strong><br><strong>1.http服务器</strong><br>http.Server是http模块中的HTTP服务器对象，它提供了一套封装级别很低的API,仅仅是流程控制和简单的消息解析，其他高级功能需要通过他的接口实现。<br><figure class="highlight plain"><figcaption><span>[http.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;); </div><div class="line"> </div><div class="line">http.createServer(function(req, res) </div><div class="line">&#123;   </div><div class="line">	res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;);   </div><div class="line">	res.write(&apos;&lt;h1&gt;Node.js&lt;/h1&gt;&apos;);   </div><div class="line">	res.end(&apos;&lt;p&gt;wdl你好&lt;/p&gt;&apos;); </div><div class="line">&#125;).listen(3000); </div><div class="line"> console.log(&quot;HTTP server is listening at port 3000.&quot;); </div><div class="line"></div></pre></td></tr></table></figure><br>上例http.createServer创建了一个http.Server的实例，将一个函数作为HTTP请求处理函数。这个函数接受两个参数，分别是请求对象req和响应对象res。显示的写了响应代码200（成功），响应头：<br><code>&#39;{&#39;Content-Type&#39;: &#39;text/html&#39;}&#39;</code>,响应体’<code>&lt;h1&gt;Node.js&lt;/h1&gt;</code>‘,通过res.end结束并发送，最后监听port 3000.<br><strong>a.http.Server的事件</strong><br>http.Server是一个基于事件的HTTP服务器，所有请求都被独立的封装成事件，他继承自EventEmitter，提供一下几个事件。<br>1.request：当客户端请求到来时，该事件被触发，提供两个参数 req 和res，分别是 http.ServerRequest 和 http.ServerResponse 的实例，表示请求和响应信息。<br>2.connection：当 TCP 连接建立时，该事件被触发，提供一个参数 socket，为 net.Socket 的实例。connection 事件的粒度要大于 request，因为客户端在 Keep-Alive 模式下可能会在同一个连接内发送多次请求。<br>3.close ：当服务器关闭时，该事件被触发。注意不是在用户连接断开时<br>最常用的就是request了，因此http提供了一个捷径：http.createServer([requestLister]),功能是创建一个HTTP服务器并将requestLister作为事件的监听函数，这也是我们前面例子中使用的方法。<br>事实上他的显式的实现方法是：<br><figure class="highlight plain"><figcaption><span>[httpserver.js ]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line">var server = new http.Server(); </div><div class="line">server.on(&apos;request&apos;, function(req, res) </div><div class="line">	&#123;   </div><div class="line">		res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;);   </div><div class="line">		res.write(&apos;&lt;h1&gt;Node.js&lt;/h1&gt;&apos;);   </div><div class="line">		res.end(&apos;&lt;p&gt;wdllalala&lt;/p&gt;&apos;); </div><div class="line">	&#125;); </div><div class="line">server.listen(3000); </div><div class="line">console.log(&quot;HTTP server is listening at port 3000.&quot;); </div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div></pre></td></tr></table></figure><br><strong>b.http.ServerRequest </strong><br>http.ServerRequest是HTTP请求的信息,他一般由http.Server的request事件发送，作为第一个参数，通常为简写为req。<br>HTTP请求一般可分为两部分：请求头（Request Header）和请求体（Request Body）,因为请求体相对比较长，需要一定的时间传输，因此http.ServerRequest提供了3个事件用于控制请求体传输。<br> data:当请求体数据到来时，该事件提供一个参数chunk,表示收到的数据，如果该事件没有监听，那么请求体将会被放弃，该事件可能会被调用多次<br> end:当请求体数据传输完成时，该事件被触发，不会再有数据到来<br> close:用户当前请求结束时，该事件被触发，不同于end，如果用户强制终止了传输，还是会调用close.<br><strong>c.获取GET请求内容 </strong><br><figure class="highlight plain"><figcaption><span>[httpserverrequest.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line">var url = require(&apos;url&apos;); </div><div class="line">var util = require(&apos;util&apos;); </div><div class="line">http.createServer(function(req, res) </div><div class="line">	&#123;   </div><div class="line">		res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);   </div><div class="line">		res.end(util.inspect(url.parse(req.url, true))); </div><div class="line">	&#125;).listen(3000); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>在浏览器中访问 <a href="http://127.0.0.1:3000/user?name=byvoid&amp;email=byvoid@byvoid.com，我" target="_blank" rel="external">http://127.0.0.1:3000/user?name=byvoid&amp;email=byvoid@byvoid.com，我</a> 们可以看到浏览器返回的结果：<br><code>{ search: &#39;?name=byvoid&amp;email=byvoid@byvoid.com&#39;,  
+   query: { name: &#39;byvoid&#39;, email: &#39;byvoid@byvoid.com&#39; },   
+   pathname: &#39;/user&#39;,
+   path: &#39;/user?name=byvoid&amp;email=byvoid@byvoid.com&#39;,   
+   href: &#39;/user?name=byvoid&amp;email=byvoid@byvoid.com&#39; 
+  }</code><br> 通过 url.parse，原始的 path 被解析为一个对象，其中 query 就是我们所谓的 GET 请求的内容，而路径则是 pathname<br> url.parse(urlStr, [parseQueryString], [slashesDenoteHost])<br> urlStr:url字符串<br> parseQueryString：为true时将使用查询模块分析查询字符串，默认为false<br> slashesDenoteHost：默认为false，//foo/bar 形式的字符串将被解释成 { pathname: ‘//foo/bar’ }<br>            如果设置成true//foo/bar形式的字符串将被解释成{ host: ‘foo’, pathname: ‘/bar’ }<br>urlString <string> ：要解析的 URL 字符串。<br>parseQueryString <boolean>：<br> 如果为 true，则 query 属性总会通过 querystring 模块的 parse() 方法生成一个对象。<br> 如果为 false，则返回的 URL 对象上的 query 属性会是一个未解析、未解码的字符串。默认为 false。<br>slashesDenoteHost <boolean>：<br> 如果为 true，则 // 之后至下一个 / 之前的字符串会被解析作为 host。 例如，//foo/bar 会被解析为 {host: ‘foo’, pathname: ‘/bar’} 而不是 {pathname: ‘//foo/bar’}。 默认为 false。<br>url.parse() 方法会解析一个 URL 字符串并返回一个 URL 对象。<br><strong>c.获取POST请求内容 </strong><br>HTTP协议1.1版本提供了8种标准请求方法，常用的有GET和POST。POST请求的全部内容都在请求体中。http.ServerRequest并没有一个属性内容为请求体，原因是等待请求体传输可能非常耗时，恶意的POST请求会达达消耗服务器的资源，所以Node.js默认是不会解析请求体的<br><figure class="highlight plain"><figcaption><span>[httpserverrequestpost.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line">var querystring = require(&apos;querystring&apos;); </div><div class="line">var util = require(&apos;util&apos;); </div><div class="line">http.createServer(function(req, res) </div><div class="line">	&#123;   var post = &apos;&apos;; </div><div class="line"> 		req.on(&apos;data&apos;, function(chunk) </div><div class="line"> 			&#123;     </div><div class="line"> 				post += chunk;   </div><div class="line"> 			&#125;); </div><div class="line"> 		req.on(&apos;end&apos;, function() </div><div class="line"> 			&#123;     </div><div class="line"> 				post = querystring.parse(post);  //将字符串转化为JSON格式   </div><div class="line"> 				res.end(util.inspect(post));   </div><div class="line"> 			&#125;); </div><div class="line"> </div><div class="line">&#125;).listen(3000); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>上面代码并没有在请求响应函数中向客户端返回信息，而是定义了一个 post 变量，用 于在闭包中暂存请求体的信息。通过 req 的 data 事件监听函数，每当接受到请求体的数据， 就累加到 post 变量中。在 end 事件触发后，通过 querystring.parse 将 post 解析为 真正的 POST 请求格式，然后向客户端返回。<br><strong>2.HTTP客户端</strong><br>http模块提供了两个函数http.request和http.get,功能是作为客户端向Http服务器发起请求。<br>http.request(options,callback)发起HTTP请求。接受两个参数，option是一个类似关联数组的对象，表示请求的参数，callback是请求的回调函数。<br>option常用的参数如下所示：<br>    host:请求网站的域名或ip地址。<br>    port:端口<br>    method：请求方法，默认GET应该包含在其中。<br>    path:请求的相对于跟的路径，默认“/”。QueryString应该包含在其中。例：/search?query=byvoid。<br>    headers:一个关联数组对象，为请求头的内容。</boolean></boolean></string></p>
+<figure class="highlight plain"><figcaption><span>[HttpRequestPost.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> var http = require(&apos;http&apos;); </div><div class="line"> var querystring = require(&apos;querystring&apos;);  </div><div class="line"> var contents = querystring.stringify(</div><div class="line"> 	&#123;   name: &apos;byvoid&apos;,   </div><div class="line"> 		email: &apos;byvoid@byvoid.com&apos;,   </div><div class="line"> 		address: &apos;Zijing 2#, Tsinghua University&apos;, </div><div class="line"> 	&#125;); </div><div class="line"> </div><div class="line">var options = &#123;   </div><div class="line">	host: &apos;www.byvoid.com&apos;,   </div><div class="line">	path: &apos;/application/node/post.php&apos;,   </div><div class="line">	method: &apos;POST&apos;,   </div><div class="line">	headers: &#123;     &apos;Content-Type&apos;: &apos;application/x-www-form-urlencoded&apos;,     </div><div class="line">				   &apos;Content-Length&apos; : contents.length   </div><div class="line">			 &#125; &#125;; </div><div class="line"> </div><div class="line">var req = http.request(options, function(res) &#123;   </div><div class="line">	res.setEncoding(&apos;utf8&apos;);   </div><div class="line">	res.on(&apos;data&apos;, function (data) &#123;     </div><div class="line">		console.log(data);   </div><div class="line">	&#125;); </div><div class="line">&#125;); </div><div class="line">req.write(contents); </div><div class="line">req.end(); </div><div class="line">运行后结果如下： </div><div class="line">array(3) &#123;   [&quot;name&quot;]=&gt;   string(6) &quot;byvoid&quot;   </div><div class="line">			 [&quot;email&quot;]=&gt;   string(17) &quot;byvoid@byvoid.com&quot;   </div><div class="line">			 [&quot;address&quot;]=&gt;   string(30) &quot;Zijing 2#, Tsinghua University&quot; &#125; </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>http.get(options,callback) http模块还提供了一个更加简便的方法用于处理GET请求：http.get。他是http.request的简化版，唯一的区别在于http.get自动将请求方法设为了GET请求，同时不需要手动调用req.end()。<br><figure class="highlight plain"><figcaption><span>[httpget.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line"> http.get(&#123;host: &apos;www.byvoid.com&apos;&#125;, function(res) &#123;   </div><div class="line"> 			res.setEncoding(&apos;utf8&apos;);   </div><div class="line"> 			res.on(&apos;data&apos;, function (data) &#123;    </div><div class="line"> 			 console.log(data);  </div><div class="line"> 			  &#125;); </div><div class="line"> 			&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/08/node-Http/">nodejs Http模块</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
+        <p><span>发布时间:</span>2017-03-08, 09:30:50</p>
+        <p><span>最后更新:</span>2017-03-08, 15:52:15</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/08/node-Http/" title="nodejs Http模块">http://wangdenglin.github.io/2017/03/08/node-Http/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/03/08/node-Http/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/07/node-fs/">
+                    nodejs fs模块
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"nodejs Http模块　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/07/node-fs/" title="下一篇: nodejs fs模块">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/node-Http/">nodejs Http模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/node-fs/">nodejs fs模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/node-events/">nodejs events模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/nodejs1/">nodejs基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/js_ Summary_Client/">JS中clientWidth offsetWidth scrollWidth 等的含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Closure/">js总结_闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Object/">js总结_面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/js_ Summary/">js总结_数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/ng-route/">angular ng-route</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/ionic_plugin/">ionic cordova 常用插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/08/angular_http/">angular http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/ionic/">ionic 常见问题</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 wangdenglin
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
