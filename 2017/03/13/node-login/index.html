@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="JS中关于clientWidth offsetWidth scrollWidth网页可见区域宽： document.body.clientWidth;(当前元素的宽)网页可见区域高： document.body.clientHeight;网页可见区域宽： document.body.offsetWidth   (包括边线的宽);网页可见区域高： document.body.offsetHeight">
+<meta name="description" content="node-express-mongoose自己写的一个登录demohttps://github.com/wangdenglin/node-login">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中clientWidth offsetWidth scrollWidth 等的含义">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/27/js_ Summary_Client/index.html">
+<meta property="og:title" content="node-express-mongoose登录demo">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/03/13/node-login/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="JS中关于clientWidth offsetWidth scrollWidth网页可见区域宽： document.body.clientWidth;(当前元素的宽)网页可见区域高： document.body.clientHeight;网页可见区域宽： document.body.offsetWidth   (包括边线的宽);网页可见区域高： document.body.offsetHeight">
-<meta property="og:updated_time" content="2017-02-27T06:11:38.086Z">
+<meta property="og:description" content="node-express-mongoose自己写的一个登录demohttps://github.com/wangdenglin/node-login">
+<meta property="og:updated_time" content="2017-03-13T02:56:04.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS中clientWidth offsetWidth scrollWidth 等的含义">
-<meta name="twitter:description" content="JS中关于clientWidth offsetWidth scrollWidth网页可见区域宽： document.body.clientWidth;(当前元素的宽)网页可见区域高： document.body.clientHeight;网页可见区域宽： document.body.offsetWidth   (包括边线的宽);网页可见区域高： document.body.offsetHeight">
+<meta name="twitter:title" content="node-express-mongoose登录demo">
+<meta name="twitter:description" content="node-express-mongoose自己写的一个登录demohttps://github.com/wangdenglin/node-login">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JS中clientWidth offsetWidth scrollWidth 等的含义 | 我的博客</title>
+<title>node-express-mongoose登录demo | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-js_ Summary_Client" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-node-login" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/27/js_ Summary_Client/" class="article-date">
-      <time datetime="2017-02-27T01:50:20.000Z" itemprop="datePublished">2017-02-27</time>
+      <a href="/2017/03/13/node-login/" class="article-date">
+      <time datetime="2017-03-13T02:50:49.000Z" itemprop="datePublished">2017-03-13</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JS中clientWidth offsetWidth scrollWidth 等的含义
+      node-express-mongoose登录demo
     </h1>
   
 
@@ -285,10 +285,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -296,7 +292,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>JS中关于clientWidth offsetWidth scrollWidth</strong><br>网页可见区域宽： document.body.clientWidth;(当前元素的宽)<br>网页可见区域高： document.body.clientHeight;<br>网页可见区域宽： document.body.offsetWidth   (包括边线的宽);<br>网页可见区域高： document.body.offsetHeight  (包括边线的宽);<br>网页正文全文宽： document.body.scrollWidth;<br>网页正文全文高： document.body.scrollHeight;<br>网页被卷去的高： document.body.scrollTop;<br>网页被卷去的左： document.body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight;<br>屏幕可用工作区宽度：window.screen.availWidth;<br>1、offsetWidth (width+padding+border)<br>当前对象的宽度。<br>style.width也是当前对象的宽度(width+padding+border)。<br>区别：<br>      1)style.width返回值除了数字外还带有单位px；<br>      2)如对象的宽度设定值为百分比宽度,则无论页面变大还是变小，style.width都返回此百分比,而offsetWidth则返回在不同页面中对象的宽度值而不是百分比值；<br>      3)如果没有给 HTML 元素指定过 width样式，则 style.width 返回的是空字符串；<br>2、offsetLeft :<br>当前对象到其上级层左边的距离。<br>不能对其进行赋值.设置对象到其上级层左边的距离请用style.left属性。<br>style.left当前对象到其上级层左边的距离。<br>区别：<br>      1)style.left返回值除了数字外还带有单位px<br>      2)如对象到其上级层左边的距离设定值为百分比,style.left返回此百分比,而offsetLeft则返回到其上级层左边的距离的值；<br>      3)如果没有给 HTML 元素指定过 left样式，则 style.left返回的是空字符串；<br>3、scrollWidth:获取对象的滚动宽度 。<br>4、scrollHeight: 获取对象的滚动高度。<br>5、scrollLeft:设置或获取位于对象左边界和对象中目前可见内容的最左端之间的距离(width+padding为一体)<br>6、scrollTop:设置或获取位于对象最顶端和对象中可见内容的最顶端之间的距离；(height+padding为一体)<br>7、clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框；<br>8、clientHeight: 获取对象可见内容的高度，不包括滚动条，不包括边框；<br>9、clientLeft: 获取对象的border宽度<br>10、clientTop：获取对象的border高度<br>11、offsetParent :当前对象的上级层对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;title&gt;漂浮广告demo&lt;/title&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;codefans_net&quot; style=&quot;position:absolute&quot;&gt;</div><div class="line">&lt;!--链接地址--&gt;&lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;</div><div class="line">&lt;!--图片地址--&gt;&lt;img src=&quot;/images/logo.gif&quot; border=&quot;0&quot;  alt=&apos;图片&apos;&gt;</div><div class="line">&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt; </div><div class="line">var x = 50,y = 60 </div><div class="line">var xin = true, yin = true </div><div class="line">var step = 1 </div><div class="line">var delay = 10 </div><div class="line">var obj=document.getElementById(&quot;codefans_net&quot;) </div><div class="line">function float() &#123; </div><div class="line">var L=T=0</div><div class="line">var R= document.body.clientWidth-obj.offsetWidth </div><div class="line">var B = document.body.clientHeight-obj.offsetHeight </div><div class="line">obj.style.left = x + document.body.scrollLeft </div><div class="line">obj.style.top = y + document.body.scrollTop </div><div class="line">x = x + step*(xin?1:-1) </div><div class="line">if (x &lt; L) &#123; xin = true; x = L&#125; </div><div class="line">if (x &gt; R)&#123; xin = false; x = R&#125; </div><div class="line">y = y + step*(yin?1:-1) </div><div class="line">if (y &lt; T) &#123; yin = true; y = T &#125; </div><div class="line">if (y &gt; B) &#123; yin = false; y = B &#125; </div><div class="line">&#125; </div><div class="line">var itl= setInterval(&quot;float()&quot;, delay) </div><div class="line">obj.onmouseover=function()&#123;clearInterval(itl)&#125; </div><div class="line">obj.onmouseout=function()&#123;itl=setInterval(&quot;float()&quot;, delay)&#125; </div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line"> </div></pre></td></tr></table></figure><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"> &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div><div class="line">&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot; /&gt;</div><div class="line">&lt;title&gt;标准对联广告Js代码&lt;/title&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">&lt;!--</div><div class="line">#lovexin12,#lovexin14&#123;</div><div class="line">width:90px;</div><div class="line">height:230px;</div><div class="line">background-color:#ededed;</div><div class="line">border:1px solid #ddd;</div><div class="line">&#125;</div><div class="line">html,body&#123;</div><div class="line">height:1203px;</div><div class="line">&#125;</div><div class="line">#mm&#123;</div><div class="line">height:1000px;</div><div class="line">&#125;</div><div class="line">--&gt;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;</div><div class="line">lastScrollY=0;</div><div class="line">function heartBeat()&#123; </div><div class="line">var diffY;</div><div class="line">if (document.documentElement &amp;&amp; document.documentElement.scrollTop)</div><div class="line">diffY = document.documentElement.scrollTop;</div><div class="line">else if (document.body)</div><div class="line">diffY = document.body.scrollTop</div><div class="line">else</div><div class="line">&#123;/*Netscape stuff*/&#125;</div><div class="line">percent=.1*(diffY-lastScrollY); </div><div class="line">if(percent&gt;0)percent=Math.ceil(percent); </div><div class="line">else percent=Math.floor(percent); </div><div class="line">document.getElementById(&quot;lovexin12&quot;).style.top=parseInt(document.getElementById</div><div class="line">(&quot;lovexin12&quot;).style.top)+percent+&quot;px&quot;;</div><div class="line">document.getElementById(&quot;lovexin14&quot;).style.top=parseInt(document.getElementById</div><div class="line">(&quot;lovexin12&quot;).style.top)+percent+&quot;px&quot;;</div><div class="line">lastScrollY=lastScrollY+percent; </div><div class="line">&#125;</div><div class="line">suspendcode12=&quot;&lt;DIV id=\&quot;lovexin12\&quot; style=&apos;left:2px;POSITION:absolute;TOP:120px;&apos;&gt;ad1&lt;/div&gt;&quot;</div><div class="line">suspendcode14=&quot;&lt;DIV id=\&quot;lovexin14\&quot; style=&apos;right:2px;POSITION:absolute;TOP:120px;&apos;&gt;ad2&lt;/div&gt;&quot;</div><div class="line">document.write(suspendcode12); </div><div class="line">document.write(suspendcode14); </div><div class="line">window.setInterval(&quot;heartBeat()&quot;,1);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;mm&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line"> </div></pre></td></tr></table></figure><br> <a href="http://www.codefans.net/jscss/top100.shtml" target="_blank" rel="external">特效网址</a></p>
+        <p><strong>node-express-mongoose</strong><br>自己写的一个登录demo<br><a href="https://github.com/wangdenglin/node-login" target="_blank" rel="external">https://github.com/wangdenglin/node-login</a></p>
 
       
     </div>
@@ -305,13 +301,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/02/27/js_ Summary_Client/">JS中clientWidth offsetWidth scrollWidth 等的含义</a></p>
+        <p><span>Title:</span><a href="/2017/03/13/node-login/">node-express-mongoose登录demo</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wangdenglin</a></p>
-        <p><span>Created:</span>2017-02-27, 09:50:20</p>
-        <p><span>Updated:</span>2017-02-27, 14:11:38</p>
+        <p><span>Created:</span>2017-03-13, 10:50:49</p>
+        <p><span>Updated:</span>2017-03-13, 10:56:04</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/02/27/js_ Summary_Client/" title="JS中clientWidth offsetWidth scrollWidth 等的含义">http://wangdenglin.github.io/2017/02/27/js_ Summary_Client/</a>
-            <span class="copy-path" data-clipboard-text="From http://wangdenglin.github.io/2017/02/27/js_ Summary_Client/　　By wangdenglin" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/03/13/node-login/" title="node-express-mongoose登录demo">http://wangdenglin.github.io/2017/03/13/node-login/</a>
+            <span class="copy-path" data-clipboard-text="From http://wangdenglin.github.io/2017/03/13/node-login/　　By wangdenglin" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -323,16 +319,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/28/nodejs1/">
-                    nodejs基础
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/24/js_ Summary_Closure/">
-                    js总结_闭包
+                <a href="/2017/03/09/node-path/">
+                    nodejs path模块
                 </a>
             </div>
         
@@ -380,7 +370,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"JS中clientWidth offsetWidth scrollWidth 等的含义　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"node-express-mongoose登录demo　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -400,15 +390,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/28/nodejs1/" title="Pre: nodejs基础">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/24/js_ Summary_Closure/" title="Next: js总结_闭包">
+            <a href="/2017/03/09/node-path/" title="Next: nodejs path模块">
                 <i class="fa fa-angle-right"></i>
             </a>
         

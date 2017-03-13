@@ -14,17 +14,16 @@
 <meta name="author" content="wangdenglin" />
 
 
+    
+    
 
-<meta name="description" content="rem尽可能的先执行该js[Js]12&amp;lt;br&amp;gt;    (function (doc, win)&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;        var docEl = doc.documentElement;&amp;lt;br&amp;gt;        var resizeEvt = “onorientationchange” in win ? “orientation">
-<meta property="og:type" content="article">
-<meta property="og:title" content="一段js 适应所有的屏幕（rem）">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/Rem/index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://wangdenglin.github.io/page/3/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="rem尽可能的先执行该js[Js]12&amp;lt;br&amp;gt;    (function (doc, win)&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;        var docEl = doc.documentElement;&amp;lt;br&amp;gt;        var resizeEvt = “onorientationchange” in win ? “orientation">
-<meta property="og:updated_time" content="2017-02-21T08:54:19.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一段js 适应所有的屏幕（rem）">
-<meta name="twitter:description" content="rem尽可能的先执行该js[Js]12&amp;lt;br&amp;gt;    (function (doc, win)&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;        var docEl = doc.documentElement;&amp;lt;br&amp;gt;        var resizeEvt = “onorientationchange” in win ? “orientation">
+<meta name="twitter:title" content="我的博客">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,11 +51,13 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+    <style> .article { opacity: 0;} </style>
+
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>一段js 适应所有的屏幕（rem） | 我的博客</title>
+<title>我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,8 +66,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: false,
-        isPost: true,
+        isHome: true,
+        isPost: false,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -256,11 +257,13 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Rem" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-ionic" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/21/Rem/" class="article-date">
-      <time datetime="2017-02-21T08:50:49.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/2016/09/13/ionic/" class="article-date">
+      <time datetime="2016-09-13T06:31:49.000Z" itemprop="datePublished">2016-09-13</time>
 </a>
 
 
@@ -274,135 +277,109 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      一段js 适应所有的屏幕（rem）
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/13/ionic/">ionic 常见问题</a>
     </h1>
   
 
       </header>
       
-      <div class="article-info article-info-post">
-        
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>如何在ionic中嵌入网页代码?</strong></p>
+<p>使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页<br><strong>1.如何将template加载到某个tab或某个sidemenu项目下?</strong><br>  <a href="http://www.baidu.com" target="_blank" rel="external">百度搜索</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;&lt;ion-nav-view name=&quot;menuContent&quot;&gt; </div></pre></td></tr></table></figure>可以指定name，然后在子状态中使用该name，ionic就知道该把该状态的template渲染到哪边了。例如：<br><figure class="highlight plain"><figcaption><span>[路由设置] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;.state(&apos;auth.signup&apos;, &#123;</div><div class="line">      url: &apos;/signup&apos;,</div><div class="line">      views: &#123;</div><div class="line">          &apos;auth-signup&apos;: &#123;</div><div class="line">              templateUrl: &apos;templates/auth-signup.html&apos;,</div><div class="line">              controller: &apos;SignUpCtrl&apos;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    另有一个tabs中声明该auth-signup:</div><div class="line">    &apos;&lt;ion-tab title=&quot;Sign Up&quot; icon-on=&quot;ion-ios-personadd&quot;</div><div class="line">      icon-off=&quot;ion-ios-personadd-outline&quot; href=&quot;#/auth/signup&quot;&gt;</div><div class="line">      &lt;ion-nav-view name=&quot;auth-signup&quot;&gt;&lt;/ion-nav-view&gt;</div><div class="line">   &lt;/ion-tab&gt;&apos;</div></pre></td></tr></table></figure><br><strong>2.如何关闭应用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic.Platform.exitApp();</div></pre></td></tr></table></figure><br><strong>3.APP开启检测网络并提示开启</strong></p>
+<blockquote>
+<p>需要三个插件<br>  <div>1. <a href="https://github.com/apache/cordova-plugin-network-information" target="_blank" rel="external">https://github.com/apache/cordova-plugin-network-information</a></div><br>  <div>2. <a href="https://github.com/apache/cordova-plugin-dialogs" target="_blank" rel="external">https://github.com/apache/cordova-plugin-dialogs</a></div><br>  <div>3. <a href="https://github.com/deefactorial/Cordova-open-native-settings" target="_blank" rel="external">https://github.com/deefactorial/Cordova-open-native-settings</a></div><br>然后在APP.JS中，divicesReady中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">if (navigator.connection) &#123;</div><div class="line">            var tmptypes = navigator.connection.type;</div><div class="line">            if (tmptypes.toUpperCase().indexOf(&apos;NONE&apos;) &gt; -1 || tmptypes.toUpperCase().indexOf(&apos;UNKNOWN&apos;) &gt; -1) &#123;</div><div class="line">                if (navigator.notification) &#123;</div><div class="line">                    navigator.notification.confirm(</div><div class="line">                    &apos;您的设备未开启网络&apos;,</div><div class="line">                       function (buttonIndex) &#123;</div><div class="line">                             if (buttonIndex == 1) &#123;</div><div class="line">                               if (cordova.plugins.settings) &#123;</div><div class="line">                                   cordova.plugins.settings.openSetting(&quot;wifi&quot;, function () &#123; console.log(&quot;network setting openning&quot;); &#125;, function () &#123; console.log(&quot;open network setting failed&quot;); &#125;);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                         &#125;,            // callback to invoke with index of button pressed</div><div class="line">                       &apos;提示&apos;,           // title</div><div class="line">                       [&apos;开启&apos;, &apos;取消&apos;]     // buttonLabels</div><div class="line">                               );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;）</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>4.hide-back-button -是否隐藏导航栏中的返回按钮</strong><br>当模板被载入导航视图时，如果之前有其他的模板，那么在导航栏ion-nav-bar上默认会自动 显示返回按钮（使用指令ion-nav-back-button定义）。点击该按钮将返回前一个模板。<br>hide-back-button的允许值为：true | false ，默认为false<br>注意：必须在导航栏中显式地声明返回按钮，否则即使将hide-back-button属性设为false， 这个按钮也不会出现;<br><strong>5.hide-nav-bar - 是否隐藏导航栏</strong><br>允许值为：true | false ,默认为false<br>在<ion-view>中添加 hide-nav-bar 属性</ion-view></p>
+<p><ion-view title="title Policy" hide-nav-bar="true"><br></ion-view></p>
 
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-github_upload" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/16/github_upload/" class="article-date">
+      <time datetime="2016-06-16T02:31:49.000Z" itemprop="datePublished">2016-06-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        <div class="clearfix"></div>
-      </div>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/16/github_upload/">github upload</a>
+    </h1>
+  
+
+      </header>
       
     
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>rem</strong><br>尽可能的先执行该js<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;    (function (doc, win)&lt;br&gt;    &#123;&lt;br&gt;        var docEl = doc.documentElement;&lt;br&gt;        var resizeEvt = “onorientationchange” in win ? “orientationchange” : “resize”;&lt;br&gt;        var Timer = null;&lt;br&gt;        function recalc()&lt;br&gt;        &#123;&lt;br&gt;            var clientWidth = docEl.clientWidth || win.innerWidth;&lt;br&gt;            //设计稿是640px&lt;br&gt;            var initSize = (clientWidth / 640) * 100;&lt;br&gt;            var fontSize = clientWidth &amp;gt; 768 ? 120 : (initSize &amp;lt; 50 ? 50 : initSize);&lt;br&gt;            docEl.style.fontSize = fontSize + “px”;&lt;br&gt;        &#125;&lt;br&gt;        doc.addEventListener(“DOMContendLoaded”, recalc, false);&lt;/p&gt;</div><div class="line"><pre><code>    //转屏
-    win.addEventListener(resizeEvt, function ()
-    {
-        clearTimeout(Timer);
-        Timer = setTimeout(recalc, 300)
-    }, false);
+        <p><strong>如何将本地项目上传到github</strong></p>
+<p>首先你要有个github账号,怎么申请账号在这里我就不介绍了。下面开始讲解怎么上传本地项目到github.<br>1.创建一个仓库</p>
+<p><img src="/2016/06/16/github_upload/1.png" alt="1"></p>
+<p>2.创建好后，复制链接(后面会用)</p>
+<p><img src="/2016/06/16/github_upload/link.png" alt="link"></p>
+<p>3.接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入如下界面，node-login即为我的项目名。</p>
+<p>4.接下来输入如下代码（关键步骤），把github上面的仓库克隆到本地</p>
+<p>git clone <a href="https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）" target="_blank" rel="external">https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）</a></p>
+<p>5.这个步骤以后你的本地项目文件夹下面就会多出个文件夹，该文件夹名即为你github上面的项目名，我多出了个node-login文件夹，我们把本地项目文件夹下的所有文件（除了新多出的那个文件夹不用），其余都复制到那个新多出的文件夹下</p>
+<p>6.接着继续输入命令 cd node-login，进入node-login文件夹</p>
+<p>7.接下来依次输入以下代码即可完成其他剩余操作<br>  git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）</p>
+<p>  git commit  -m  “提交信息”  （注：“提交信息”里面换成你需要，如“first commit”）</p>
+<p>  git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）<br>出现如下图表示成功<br><img src="/2016/06/16/github_upload/4.png" alt="4"></p>
 
-    //pageshow,缓存相关
-    win.addEventListener(&quot;pageshow&quot;, function (e)
-    {
-        if (e.persisted)
-        {
-            clearTimeout(Timer);
-            Timer = setTimeout(recalc, 300)
-        }
-    }, false);
-
-    // 初始化
-    recalc();
-
-})(document, window);
-</code></pre></div></pre></td></tr></table></figure>
-</p>
       
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
     </div>
     
   </div>
   
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">wangdenglin</a></p>
-        <p><span>Created:</span>2017-02-21, 16:50:49</p>
-        <p><span>Updated:</span>2017-02-21, 16:54:19</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/02/21/Rem/" title="一段js 适应所有的屏幕（rem）">http://wangdenglin.github.io/2017/02/21/Rem/</a>
-            <span class="copy-path" data-clipboard-text="From http://wangdenglin.github.io/2017/02/21/Rem/　　By wangdenglin" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/21/angular_way/">
-                    angular 常用指令和使用方法
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/08/angular_http/">
-                    angular http请求
-                </a>
-            </div>
-        
-    </nav>
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"一段js 适应所有的屏幕（rem）　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
 
 
 
@@ -410,35 +387,13 @@
 
 
 
-    
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/02/21/angular_way/" title="Pre: angular 常用指令和使用方法">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/11/08/angular_http/" title="Next: angular http请求">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/node-login/">node-express-mongoose登录demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/node-path/">nodejs path模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/node-Http/">nodejs Http模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/node-fs/">nodejs fs模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/node-events/">nodejs events模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/nodejs1/">nodejs基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/js_ Summary_Client/">JS中clientWidth offsetWidth scrollWidth 等的含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Closure/">js总结_闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/js_ Summary_Object/">js总结_面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/js_ Summary/">js总结_数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/ng-route/">angular ng-route</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/ionic_plugin/">ionic cordova 常用插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/08/angular_http/">angular http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/ionic/">ionic 常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/16/github_upload/">github upload</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
