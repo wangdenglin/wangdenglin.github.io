@@ -137,13 +137,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -255,9 +255,68 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ionic_2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/20/ionic_2/" class="article-date">
+      <time datetime="2017-03-20T06:31:49.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/ionic_2/">ionic 常见问题2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>1.ionic中如何打开微信（或者其他应用）</strong><br>使用协议weixin://<br><code>&lt;a class=&quot;button button-block button-light&quot; href=&quot;weixin://&quot;&gt;打开微信&lt;/a&gt;</code><br><code>&lt;access origin=&quot;weixin:*&quot; launch-external=&quot;yes&quot;/&gt;  //打开微信的</code></p>
+<p><strong>2.ionic.Platform.exitApp()退出后，再进入应用 splashscreen不显示</strong><br>在config.xml文件里添加<br><code>&lt;preference name=&quot;SplashShowOnlyFirstTime&quot; value=&quot;false&quot; /&gt;</code><br><strong>3.微信的分享功能</strong><br><code>http://www.iamsuperman.cn/2016/10/09/ionic/ionic-wechat-share/</code><br><strong>4.隐藏后退按钮的文字</strong><br>CSS方式<br>/<em>隐藏后退按钮文字</em>/<br><code>.bar .buttons .back-text {
+  display: none !important;
+}</code><br>js方式:在config()中添加<br><code>$ionicConfigProvider.backButton.previousTitleText(false);</code><br><strong>ionic在装载ion-view的时候如何隐藏ion-nav-header</strong><br>只需为ion-view添加属性：hide-nav-bar=“true”即可实现隐藏父ion-nav-bar<br><strong>pdf</strong><br><a href="http://www.iamsuperman.cn/2016/08/19/angular/angular-download-pdf/" target="_blank" rel="external">http://www.iamsuperman.cn/2016/08/19/angular/angular-download-pdf/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-node-login" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -784,62 +843,6 @@ path.normalize(&#39;/foo/bar//baz/asdf...&#39;)
 
 
   
-    <article id="post-js_ Summary_Object" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/24/js_ Summary_Object/" class="article-date">
-      <time datetime="2017-02-24T03:46:20.000Z" itemprop="datePublished">2017-02-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/js_ Summary_Object/">js总结_面向对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>JS 面向对象</strong><br>面向对象：无序属性的集合，其属性可以包含基本值、对象或者函数。可以简单理解为JS的对象是一组无序的值，其中的属性或方法都有一个名字，根据这个名字可以访问相映射的值（值可以是基本值/对象/方法）<br>对象：对象就是由属性和方法组成的，JS 中一切皆对象，那在 JS 中，属性和方法到底该怎么理解呢？属性就是变量，方法就是函数。属性代表状态，就像动物的属性记录他具体是哪一种动物一样，他是静态的，变量名称也可以说是方法名称，是对方法的描述。而方法也就是行为，是完成某种任务的过程，他是动态的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> //创建一个对象</div><div class="line"> var obj = new Object();</div><div class="line"> //可写为：var obj=&#123;&#125;;</div><div class="line"> </div><div class="line"> //给对象添加属性</div><div class="line"> obj.name = &apos;小白&apos;;</div><div class="line"> obj.qq = &apos;89898989&apos;;</div><div class="line"> </div><div class="line"> //给对象添加方法</div><div class="line"> obj.showName = function ()&#123;</div><div class="line">   alert(&apos;我的名字叫：&apos;+this.name);</div><div class="line"> &#125;;</div><div class="line"> obj.showQQ = function ()&#123;</div><div class="line">     alert(&apos;我的QQ是：&apos;+this.qq);</div><div class="line"> &#125;;</div><div class="line"> obj.showName();    //返回：我的名字叫：小白</div><div class="line"> obj.showQQ();    //返回：我的QQ是：89898989</div><div class="line"> </div><div class="line"> //再创建一个对象</div><div class="line"> var obj2 = new Object();</div><div class="line"> </div><div class="line">  obj2.name = &apos;小明&apos;;</div><div class="line"> obj2.qq = &apos;12345678&apos;;</div><div class="line"> </div><div class="line"> obj2.showName = function ()&#123;</div><div class="line">     alert(&apos;我的名字叫：&apos;+this.name);</div><div class="line"> &#125;;</div><div class="line"> obj2.showQQ = function ()&#123;</div><div class="line">     alert(&apos;我的QQ是：&apos;+this.qq);</div><div class="line"> &#125;;</div><div class="line"> obj2.showName();    //返回：我的名字叫：小明</div><div class="line"> obj2.showQQ();        //返回：我的QQ是：12345678</div><div class="line"> &lt;/script&gt;</div><div class="line"> </div></pre></td></tr></table></figure><br> 这就是一个最简单的面向对象编程，创建一个对象，给对象添加属性和方法，模拟现实情况，针对对象进行编程。这个小程序运行是没有什么问题，但是存在很严重的缺陷，一个网站中不可能只有一个用户对象，可能有成千上万个，不可能给每个用户都 new 一个 object。其实可以将其封装为一个函数，然后再调用，有多少个用户，调用多少次，这样的函数就被称为构造函数。<br> <strong>构造函数</strong><br>工厂模式：构造函数作为对象的类，提供一个模具，用来生产用户对象，我们以后在使用时，只调用这个模板，就可以无限创建用户对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//工厂模式</div><div class="line">  function createPerson(name, age, job) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.job = job;</div><div class="line">    o.getName = function () &#123;</div><div class="line">        return this.name;</div><div class="line">    &#125;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line">var person = createPerson(&apos;Jack&apos;, 19, &apos;SoftWare Engineer&apos;);</div><div class="line">console.log(JSON.stringify(person.getName()));</div></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//构造函数模式</div><div class="line">function Person(name,age,job)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.getName =  function () &#123;</div><div class="line"></div><div class="line">        return this.name;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&apos;Jack&apos;, 19, &apos;SoftWare Engineer&apos;);</div><div class="line">person1.getName();</div><div class="line"></div><div class="line">var person2 = new Person(&apos;Liye&apos;, 23, &apos;Mechanical Engineer&apos;);</div></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//组合模式</div><div class="line">function Person(name, age, job) &#123;</div><div class="line">          this.name = name;</div><div class="line">          this.age = age;</div><div class="line">          this.job = job;</div><div class="line">          this.lessons = [&apos;Math&apos;, &apos;Physics&apos;];</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">    constructor:Person</div><div class="line">  &#125;,</div><div class="line">    getName: function () &#123;</div><div class="line">        return this.name;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&apos;Jack&apos;, 19, &apos;SoftWare Engneer&apos;);</div><div class="line">person1.lessons.push(&apos;Biology&apos;);</div><div class="line">var person2 = new Person(&apos;Lily&apos;, 39, &apos;Mechanical Engneer&apos;);</div><div class="line">alert(person1.lessons);//Math,Physics,Biology</div><div class="line">alert(person2.lessons);//Math,Physics</div><div class="line">alert(person1.getName === person2.getName);//true,</div></pre></td></tr></table></figure><br>共享原型中定义方法<br>最后一种结合了构造函数和原型的优点是推荐方式。<br><strong>原型</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">var arr1 = new Array(2,8,8);</div><div class="line">var arr2 = new Array(5,5,10);</div><div class="line">  </div><div class="line"> Array.prototype.sum = function ()&#123;</div><div class="line">     var result = 0;</div><div class="line">     for(var i=0; i&lt;this.length; i++)&#123;</div><div class="line">         result += this[i];</div><div class="line">     &#125;     return result;</div><div class="line"> &#125;;</div><div class="line"> </div><div class="line"> alert(arr1.sum());    //返回：18</div><div class="line"> alert(arr2.sum());    //返回：20</div><div class="line"> &lt;/script&gt;</div><div class="line"> &lt;script&gt;</div><div class="line">function UserInfo(name, qq)&#123;</div><div class="line">      this.name = name;</div><div class="line">      this.qq = qq;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  UserInfo.prototype.showName = function ()&#123;</div><div class="line">      alert(&apos;我的名字叫：&apos; + this.name);</div><div class="line">  &#125;; UserInfo.prototype.showQQ = function ()&#123;</div><div class="line">     alert(&apos;我的QQ是：&apos; + this.qq);</div><div class="line"> &#125;;</div><div class="line"> </div><div class="line"> var obj1 = new UserInfo(&apos;小白&apos;, &apos;89898989&apos;);</div><div class="line"> var obj2 = new UserInfo(&apos;小明&apos;, &apos;1234567&apos;);</div><div class="line">  obj1.showName();</div><div class="line"> obj1.showQQ();</div><div class="line"> obj2.showName();</div><div class="line"> obj2.showQQ();</div><div class="line"> </div><div class="line"> alert(obj1.showName == obj2.showName);    //返回：true</div><div class="line"> &lt;/script&gt;</div><div class="line"> </div></pre></td></tr></table></figure><br> <strong>面向过程的选项卡</strong><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;JavaScript实例&lt;/title&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#div1 input&#123;background:white;&#125;</div><div class="line">#div1 input.active&#123;background:green;color:white;&#125;</div><div class="line">#div1 div&#123;</div><div class="line">    width:200px;</div><div class="line">    height:200px;</div><div class="line">  background:#ccc;</div><div class="line">    display:none;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script&gt;</div><div class="line">window.onload = function ()&#123;</div><div class="line">    var oDiv = document.getElementById(&apos;div1&apos;);</div><div class="line">    var oBtn = oDiv.getElementsByTagName(&apos;input&apos;);</div><div class="line">    var aDiv= oDiv.getElementsByTagName(&apos;div&apos;);</div><div class="line">  for(var i=0;i&lt;oBtn.length;i++)</div><div class="line">    &#123;</div><div class="line">     oBtn[i].index = i;</div><div class="line">     oBtn[i].onclick=function()</div><div class="line">     &#123;</div><div class="line">       for(i=0;i&lt;aDiv.length;i++)</div><div class="line">       &#123;</div><div class="line">         aDiv[i].style.display=&quot;none&quot;</div><div class="line">         oBtn[i].className=&apos;&apos;;</div><div class="line">       &#125;</div><div class="line">        this.className = &apos;active&apos;;</div><div class="line">           aDiv[this.index].style.display = &apos;block&apos;;</div><div class="line">     &#125; </div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;div1&quot;&gt;</div><div class="line">    &lt;input class=&quot;active&quot; type=&quot;button&quot; value=&quot;新闻&quot;&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;热点&quot;&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;推荐&quot;&gt;</div><div class="line">    &lt;div style=&quot;display:block;&quot;&gt;天气预报&lt;/div&gt;</div><div class="line">    &lt;div&gt;历史实事&lt;/div&gt;</div><div class="line">    &lt;div&gt;人文地理&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure><br> <strong>面向对象选项卡</strong><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">   &lt;!DOCTYPE html&gt;</div><div class="line">  &lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">      &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">      &lt;title&gt;JavaScript实例&lt;/title&gt;</div><div class="line">  &lt;style&gt;</div><div class="line"> div1 input&#123;background:white;&#125;</div><div class="line"> div1 input.active&#123;background:green;color:white;&#125;</div><div class="line"> #div1 div&#123;</div><div class="line">     width:200px;</div><div class="line">     height:200px;</div><div class="line">     background:#ccc;</div><div class="line">     display:none;</div><div class="line"> &#125;</div><div class="line"> &lt;/style&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> window.onload = function()&#123;</div><div class="line">     new TabShow(&apos;div1&apos;);</div><div class="line"> &#125;;</div><div class="line"> </div><div class="line"> function TabShow(id)&#123;</div><div class="line">     var _this = this;</div><div class="line">     var oDiv = document.getElementById(id);</div><div class="line">   this.oBtn = oDiv.getElementsByTagName(&apos;input&apos;);</div><div class="line">     this.aDiv = oDiv.getElementsByTagName(&apos;div&apos;);</div><div class="line">     for(var i=0; i&lt;this.oBtn.length; i++)&#123;</div><div class="line">         this.oBtn[i].index = i;</div><div class="line">         this.oBtn[i].onclick = function ()&#123;</div><div class="line">             _this.fnClick(this);</div><div class="line">         &#125;;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"> TabShow.prototype.fnClick = function (oBtn)&#123;</div><div class="line">     for(var i=0; i&lt;this.oBtn.length; i++)&#123;</div><div class="line">         this.oBtn[i].className = &apos;&apos;;</div><div class="line">         this.aDiv[i].style.display = &apos;none&apos;;</div><div class="line">     &#125;</div><div class="line">     oBtn.className = &apos;active&apos;;</div><div class="line">   this.aDiv[oBtn.index].style.display = &apos;block&apos;;</div><div class="line"> &#125;;</div><div class="line"> &lt;/script&gt;</div><div class="line"> &lt;/head&gt;</div><div class="line"> &lt;body&gt;</div><div class="line"> &lt;div id=&quot;div1&quot;&gt;</div><div class="line">     &lt;input class=&quot;active&quot; type=&quot;button&quot; value=&quot;新闻&quot;&gt;</div><div class="line">     &lt;input type=&quot;button&quot; value=&quot;热点&quot;&gt;</div><div class="line">     &lt;input type=&quot;button&quot; value=&quot;推荐&quot;&gt;</div><div class="line">     &lt;div style=&quot;display:block;&quot;&gt;天气预报&lt;/div&gt;</div><div class="line">     &lt;div&gt;历史实事&lt;/div&gt;</div><div class="line">     &lt;div&gt;人文地理&lt;/div&gt;</div><div class="line"> &lt;/div&gt;</div><div class="line"> &lt;/body&gt;</div><div class="line"> &lt;/html&gt;</div><div class="line"> </div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -854,14 +857,14 @@ path.normalize(&#39;/foo/bar//baz/asdf...&#39;)
                 2016-2017 wangdenglin
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -870,7 +873,7 @@ path.normalize(&#39;/foo/bar//baz/asdf...&#39;)
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -903,9 +906,9 @@ path.normalize(&#39;/foo/bar//baz/asdf...&#39;)
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
