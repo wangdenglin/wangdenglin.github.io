@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="JS ajax[封装]12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182&amp;lt;script type=&amp;quot;text/javascr">
+<meta name="description" content="申请appid首先要进入微信开放平台https://open.weixin.qq.com,申请appid,填写信息时一定要确认包名和应用签名的正确，（我就错误的把SHA1当成了应用签名。。。）添加插件cordova plugin add https://github.com/xu-li/cordova-plugin-wechat –variable wechatappid=YOUR_WECHAT_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js总结_Ajax">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/24/js_ Summary_Sport/index.html">
+<meta property="og:title" content="ionic+angular+cordova微信分享">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/03/20/ionic_wechat/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="JS ajax[封装]12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182&amp;lt;script type=&amp;quot;text/javascr">
-<meta property="og:updated_time" content="2017-02-24T07:34:58.617Z">
+<meta property="og:description" content="申请appid首先要进入微信开放平台https://open.weixin.qq.com,申请appid,填写信息时一定要确认包名和应用签名的正确，（我就错误的把SHA1当成了应用签名。。。）添加插件cordova plugin add https://github.com/xu-li/cordova-plugin-wechat –variable wechatappid=YOUR_WECHAT_">
+<meta property="og:updated_time" content="2017-03-21T01:23:54.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js总结_Ajax">
-<meta name="twitter:description" content="JS ajax[封装]12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182&amp;lt;script type=&amp;quot;text/javascr">
+<meta name="twitter:title" content="ionic+angular+cordova微信分享">
+<meta name="twitter:description" content="申请appid首先要进入微信开放平台https://open.weixin.qq.com,申请appid,填写信息时一定要确认包名和应用签名的正确，（我就错误的把SHA1当成了应用签名。。。）添加插件cordova plugin add https://github.com/xu-li/cordova-plugin-wechat –variable wechatappid=YOUR_WECHAT_">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js总结_Ajax | 我的博客</title>
+<title>ionic+angular+cordova微信分享 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-js_ Summary_Sport" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ionic_wechat" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/24/js_ Summary_Sport/" class="article-date">
-      <time datetime="2017-02-24T07:16:20.000Z" itemprop="datePublished">2017-02-24</time>
+      <a href="/2017/03/20/ionic_wechat/" class="article-date">
+      <time datetime="2017-03-20T10:34:49.000Z" itemprop="datePublished">2017-03-20</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js总结_Ajax
+      ionic+angular+cordova微信分享
     </h1>
   
 
@@ -292,7 +292,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>JS ajax</strong><br><figure class="highlight plain"><figcaption><span>[封装]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">/**    </div><div class="line">* 执行基本ajax请求,返回XMLHttpRequest    </div><div class="line">*  Ajax.request(&#123;    </div><div class="line">*  url </div><div class="line">*  async 是否异步 true(默认)   </div><div class="line">*  method 请求方式 POST or GET(默认)   </div><div class="line">*  data 请求参数 (键值对字符串)   </div><div class="line">*  success 请求成功后响应函数，参数为xhr   </div><div class="line">*  error 请求失败后响应函数，参数为xhr   </div><div class="line">*  &#125;);    </div><div class="line">*/     </div><div class="line">Ajax = function() &#123;  </div><div class="line">    function request(opt) &#123;  </div><div class="line">        function fn() &#123;  </div><div class="line">        &#125;  </div><div class="line">        var url = opt.url || &quot;&quot;;  </div><div class="line">        var async = opt.async !== false, method = opt.method || &apos;GET&apos;, data = opt.data  </div><div class="line">                || null, success = opt.success || fn, error = opt.failure  </div><div class="line">                || fn;  </div><div class="line">        method = method.toUpperCase();  </div><div class="line">        if (method == &apos;GET&apos; &amp;&amp; data) &#123;  </div><div class="line">            var args = &quot;&quot;;  </div><div class="line">            if(typeof data == &apos;string&apos;)&#123;  </div><div class="line">                //alert(&quot;string&quot;)  </div><div class="line">            args = data;  </div><div class="line">            &#125;else if(typeof data == &apos;object&apos;)&#123;  </div><div class="line">                //alert(&quot;object&quot;)  </div><div class="line">                var arr = new Array();  </div><div class="line">                for(var k in data)&#123;  </div><div class="line">                    var v = data[k];  </div><div class="line">                    arr.push(k + &quot;=&quot; + v);  </div><div class="line">                &#125;  </div><div class="line">                args = arr.join(&quot;&amp;&quot;);  </div><div class="line">            &#125;  </div><div class="line">        url += (url.indexOf(&apos;?&apos;) == -1 ? &apos;?&apos; : &apos;&amp;&apos;) + args;  </div><div class="line">            data = null;  </div><div class="line">        &#125;  </div><div class="line">        var xhr = window.XMLHttpRequest ? new XMLHttpRequest()  </div><div class="line">                : new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);  </div><div class="line">        xhr.onreadystatechange = function() &#123;  </div><div class="line">            _onStateChange(xhr, success, error);  </div><div class="line">        &#125;;  </div><div class="line">        xhr.open(method, url, async);  </div><div class="line">        if (method == &apos;POST&apos;) &#123;  </div><div class="line">            xhr.setRequestHeader(&apos;Content-type&apos;,  </div><div class="line">                    &apos;application/x-www-form-urlencoded;&apos;);  </div><div class="line">        &#125;  </div><div class="line">        xhr.send(data);  </div><div class="line">        return xhr;  </div><div class="line">    &#125;  </div><div class="line">    function _onStateChange(xhr, success, failure) &#123;  </div><div class="line">        if (xhr.readyState == 4) &#123;  </div><div class="line">            var s = xhr.status;  </div><div class="line">            if (s &gt;= 200 &amp;&amp; s &lt; 300) &#123;  </div><div class="line">                success(xhr);  </div><div class="line">            &#125; else &#123;  </div><div class="line">                failure(xhr);  </div><div class="line">            &#125;  </div><div class="line">        &#125; else &#123;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    return &#123;  </div><div class="line">        request : request  </div><div class="line">    &#125;;  </div><div class="line">&#125;();  </div><div class="line">  &lt;/script&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"> Ajax.request(&#123;  </div><div class="line">    url : path + &quot;/report/topn/topn_data.jsp&quot;,  </div><div class="line">    data : &#123;  </div><div class="line">        datatype : datatype  </div><div class="line">    &#125;,  </div><div class="line">    success : function(xhr) &#123;  </div><div class="line">        onData(xhr.responseText);  </div><div class="line">    &#125;,  </div><div class="line">    error : function(xhr) &#123;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;);  </div><div class="line"> &lt;/script&gt;</div><div class="line"> </div></pre></td></tr></table></figure></p>
+        <p><strong>申请appid</strong><br>首先要进入微信开放平台<a href="https://open.weixin.qq.com,申请appid,填写信息时一定要确认" target="_blank" rel="external">https://open.weixin.qq.com,申请appid,填写信息时一定要确认</a><br>包名和应用签名的正确，（我就错误的把SHA1当成了应用签名。。。）<br><strong>添加插件</strong><br>cordova plugin add <a href="https://github.com/xu-li/cordova-plugin-wechat" target="_blank" rel="external">https://github.com/xu-li/cordova-plugin-wechat</a> –variable wechatappid=YOUR_WECHAT_APPID</p>
+<p>下面demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">try&#123;</div><div class="line">                 Wechat.isInstalled(function (installed) </div><div class="line">                &#123;</div><div class="line">                 if((installed ? &quot;Yes&quot; : &quot;No&quot;)==&quot;Yes&quot;)&#123;</div><div class="line">                    // var scope = &quot;snsapi_userinfo&quot;,</div><div class="line">                    // state = &quot;_&quot; + (+new Date());</div><div class="line">                    // Wechat.auth(scope, state, function (response) </div><div class="line">                    // &#123;</div><div class="line">                    //     alert(JSON.stringify(response));</div><div class="line">                    // &#125;, function (reason) &#123;</div><div class="line">                    //     alert(&quot;auth: &quot; + reason);</div><div class="line">                    // &#125;);</div><div class="line">                     Wechat.share(&#123;</div><div class="line">                     text: &quot;This is just a plain string&quot;,</div><div class="line">                     scene: Wechat.Scene.TIMELINE   // share to Timeline</div><div class="line">                     &#125;, function () &#123;</div><div class="line">                        alert(&quot;Success&quot;);</div><div class="line">                    &#125;, function (reason) &#123;</div><div class="line">                        alert(&quot;Failed: &quot; + reason);</div><div class="line">                    &#125;);</div><div class="line">                 &#125;;</div><div class="line">                &#125;, function (reason) </div><div class="line">                &#123;</div><div class="line">                    alert(&quot;Failed: &quot; + reason);</div><div class="line">                &#125;); </div><div class="line">            &#125;</div><div class="line">        catch(err)</div><div class="line">        &#123;</div><div class="line">                alert(err.message+&apos;1&apos;);</div><div class="line">        &#125; </div><div class="line"></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -301,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a></p>
+        <p><span>Title:</span><a href="/2017/03/20/ionic_wechat/">ionic+angular+cordova微信分享</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wangdenglin</a></p>
-        <p><span>Created:</span>2017-02-24, 15:16:20</p>
-        <p><span>Updated:</span>2017-02-24, 15:34:58</p>
+        <p><span>Created:</span>2017-03-20, 18:34:49</p>
+        <p><span>Updated:</span>2017-03-21, 09:23:54</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/02/24/js_ Summary_Sport/" title="js总结_Ajax">http://wangdenglin.github.io/2017/02/24/js_ Summary_Sport/</a>
-            <span class="copy-path" data-clipboard-text="From http://wangdenglin.github.io/2017/02/24/js_ Summary_Sport/　　By wangdenglin" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/03/20/ionic_wechat/" title="ionic+angular+cordova微信分享">http://wangdenglin.github.io/2017/03/20/ionic_wechat/</a>
+            <span class="copy-path" data-clipboard-text="From http://wangdenglin.github.io/2017/03/20/ionic_wechat/　　By wangdenglin" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -319,16 +320,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/24/js_ Summary_Closure/">
-                    js总结_闭包
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/24/js_ Summary_Object/">
-                    js总结_面向对象
+                <a href="/2017/03/20/ionic_2/">
+                    ionic 常见问题2
                 </a>
             </div>
         
@@ -376,7 +371,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js总结_Ajax　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ionic+angular+cordova微信分享　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -396,15 +391,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/24/js_ Summary_Closure/" title="Pre: js总结_闭包">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/24/js_ Summary_Object/" title="Next: js总结_面向对象">
+            <a href="/2017/03/20/ionic_2/" title="Next: ionic 常见问题2">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -137,13 +137,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -255,9 +255,65 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-js_ Summary_Sport" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/24/js_ Summary_Sport/" class="article-date">
+      <time datetime="2017-02-24T07:16:20.000Z" itemprop="datePublished">2017-02-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>JS ajax</strong><br><figure class="highlight plain"><figcaption><span>[封装]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">/**    </div><div class="line">* 执行基本ajax请求,返回XMLHttpRequest    </div><div class="line">*  Ajax.request(&#123;    </div><div class="line">*  url </div><div class="line">*  async 是否异步 true(默认)   </div><div class="line">*  method 请求方式 POST or GET(默认)   </div><div class="line">*  data 请求参数 (键值对字符串)   </div><div class="line">*  success 请求成功后响应函数，参数为xhr   </div><div class="line">*  error 请求失败后响应函数，参数为xhr   </div><div class="line">*  &#125;);    </div><div class="line">*/     </div><div class="line">Ajax = function() &#123;  </div><div class="line">    function request(opt) &#123;  </div><div class="line">        function fn() &#123;  </div><div class="line">        &#125;  </div><div class="line">        var url = opt.url || &quot;&quot;;  </div><div class="line">        var async = opt.async !== false, method = opt.method || &apos;GET&apos;, data = opt.data  </div><div class="line">                || null, success = opt.success || fn, error = opt.failure  </div><div class="line">                || fn;  </div><div class="line">        method = method.toUpperCase();  </div><div class="line">        if (method == &apos;GET&apos; &amp;&amp; data) &#123;  </div><div class="line">            var args = &quot;&quot;;  </div><div class="line">            if(typeof data == &apos;string&apos;)&#123;  </div><div class="line">                //alert(&quot;string&quot;)  </div><div class="line">            args = data;  </div><div class="line">            &#125;else if(typeof data == &apos;object&apos;)&#123;  </div><div class="line">                //alert(&quot;object&quot;)  </div><div class="line">                var arr = new Array();  </div><div class="line">                for(var k in data)&#123;  </div><div class="line">                    var v = data[k];  </div><div class="line">                    arr.push(k + &quot;=&quot; + v);  </div><div class="line">                &#125;  </div><div class="line">                args = arr.join(&quot;&amp;&quot;);  </div><div class="line">            &#125;  </div><div class="line">        url += (url.indexOf(&apos;?&apos;) == -1 ? &apos;?&apos; : &apos;&amp;&apos;) + args;  </div><div class="line">            data = null;  </div><div class="line">        &#125;  </div><div class="line">        var xhr = window.XMLHttpRequest ? new XMLHttpRequest()  </div><div class="line">                : new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);  </div><div class="line">        xhr.onreadystatechange = function() &#123;  </div><div class="line">            _onStateChange(xhr, success, error);  </div><div class="line">        &#125;;  </div><div class="line">        xhr.open(method, url, async);  </div><div class="line">        if (method == &apos;POST&apos;) &#123;  </div><div class="line">            xhr.setRequestHeader(&apos;Content-type&apos;,  </div><div class="line">                    &apos;application/x-www-form-urlencoded;&apos;);  </div><div class="line">        &#125;  </div><div class="line">        xhr.send(data);  </div><div class="line">        return xhr;  </div><div class="line">    &#125;  </div><div class="line">    function _onStateChange(xhr, success, failure) &#123;  </div><div class="line">        if (xhr.readyState == 4) &#123;  </div><div class="line">            var s = xhr.status;  </div><div class="line">            if (s &gt;= 200 &amp;&amp; s &lt; 300) &#123;  </div><div class="line">                success(xhr);  </div><div class="line">            &#125; else &#123;  </div><div class="line">                failure(xhr);  </div><div class="line">            &#125;  </div><div class="line">        &#125; else &#123;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    return &#123;  </div><div class="line">        request : request  </div><div class="line">    &#125;;  </div><div class="line">&#125;();  </div><div class="line">  &lt;/script&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"> Ajax.request(&#123;  </div><div class="line">    url : path + &quot;/report/topn/topn_data.jsp&quot;,  </div><div class="line">    data : &#123;  </div><div class="line">        datatype : datatype  </div><div class="line">    &#125;,  </div><div class="line">    success : function(xhr) &#123;  </div><div class="line">        onData(xhr.responseText);  </div><div class="line">    &#125;,  </div><div class="line">    error : function(xhr) &#123;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;);  </div><div class="line"> &lt;/script&gt;</div><div class="line"> </div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-js_ Summary_Object" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -862,83 +918,6 @@ function DetailController($scope,$routeParams) {
 
 
   
-    <article id="post-Rem" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/21/Rem/" class="article-date">
-      <time datetime="2017-02-21T08:50:49.000Z" itemprop="datePublished">2017-02-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>rem</strong><br>尽可能的先执行该js<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;    (function (doc, win)&lt;br&gt;    &#123;&lt;br&gt;        var docEl = doc.documentElement;&lt;br&gt;        var resizeEvt = “onorientationchange” in win ? “orientationchange” : “resize”;&lt;br&gt;        var Timer = null;&lt;br&gt;        function recalc()&lt;br&gt;        &#123;&lt;br&gt;            var clientWidth = docEl.clientWidth || win.innerWidth;&lt;br&gt;            //设计稿是640px&lt;br&gt;            var initSize = (clientWidth / 640) * 100;&lt;br&gt;            var fontSize = clientWidth &amp;gt; 768 ? 120 : (initSize &amp;lt; 50 ? 50 : initSize);&lt;br&gt;            docEl.style.fontSize = fontSize + “px”;&lt;br&gt;        &#125;&lt;br&gt;        doc.addEventListener(“DOMContendLoaded”, recalc, false);&lt;/p&gt;</div><div class="line"><pre><code>    //转屏
-    win.addEventListener(resizeEvt, function ()
-    {
-        clearTimeout(Timer);
-        Timer = setTimeout(recalc, 300)
-    }, false);
-
-    //pageshow,缓存相关
-    win.addEventListener(&quot;pageshow&quot;, function (e)
-    {
-        if (e.persisted)
-        {
-            clearTimeout(Timer);
-            Timer = setTimeout(recalc, 300)
-        }
-    }, false);
-
-    // 初始化
-    recalc();
-
-})(document, window);
-</code></pre></div></pre></td></tr></table></figure>
-</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -953,14 +932,14 @@ function DetailController($scope,$routeParams) {
                 2016-2017 wangdenglin
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -969,7 +948,7 @@ function DetailController($scope,$routeParams) {
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -1002,9 +981,9 @@ function DetailController($scope,$routeParams) {
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
