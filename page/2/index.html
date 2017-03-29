@@ -259,6 +259,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-node-events" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/07/node-events/" class="article-date">
+      <time datetime="2017-03-07T08:31:50.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/07/node-events/">nodejs events模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>事件驱动 events</strong><br>event 是node.js最重要的模块，没有之一，原因是nodejs本身架构就是事件式的，而他提供了唯一的接口，所以堪称nodejs事件编程的基石。events模块不仅用于用户代码与nodejs下层事件循环交互，还几乎被所有的模块依赖。<br>1.事件发射器<br>events模块只提供一个对象：events.EventEmitter。EventEmitter的核心就是事件发射与事件监听功能的封装。EventEmitter的每个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件，EventEmitter支持若干个事件监听器。当事件发射时，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var events = require(&apos;events&apos;); </div><div class="line"> </div><div class="line">var emitter = new events.EventEmitter(); </div><div class="line"> </div><div class="line">emitter.on(&apos;someEvent&apos;, function(arg1, arg2) &#123;   console.log(&apos;listener1&apos;, arg1, arg2); &#125;); </div><div class="line"> </div><div class="line">emitter.on(&apos;someEvent&apos;, function(arg1, arg2) &#123;   console.log(&apos;listener2&apos;, arg1, arg2); &#125;); </div><div class="line"> </div><div class="line">emitter.emit(&apos;someEvent&apos;, &apos;byvoid&apos;, 1991);</div><div class="line"></div><div class="line">运行的结果是： </div><div class="line">listener1 byvoid 1991 </div><div class="line">listener2 byvoid 1991</div></pre></td></tr></table></figure></p>
+<p>以上例子中，emitter 为事件 someEvent 注册了两个事件监听器，然后发射了 someEvent 事件。运行结果中可以看到两个事件监听器回调函数被先后调用。 这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
+<p>  EventEmitter.on(event, listener) 为指定事件注册一个监听器，接受一个字 符串 event 和一个回调函数 listener。 <br>    EventEmitter.emit(event, [arg1], [arg2], […]) 发射 event 事件，传 递若干可选参数到事件监听器的参数表。 <br>    EventEmitter.once(event, listener) 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。 <br>    EventEmitter.removeListener(event, listener) 移除指定事件的某个监听 器，listener 必须是该事件已经注册过的监听器。<br>    EventEmitter.removeAllListeners([event]) 移除所有事件的所有监听器，如果指定 event，则移除指定事件的所有监听器</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-nodejs1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -769,96 +827,6 @@ $stateProvider
        templateUrl: &quot;page3.html&quot;
    });
 </code></pre>&lt;p&gt;&#125;);</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ng-route" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/21/ng-route/" class="article-date">
-      <time datetime="2017-02-21T10:10:20.000Z" itemprop="datePublished">2017-02-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/ng-route/">angular ng-route</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>angular js 路由设置</strong><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;head&gt;&lt;br&gt;  &lt;meta charset=&quot;utf-8&quot; /&gt;&lt;br&gt;  &lt;title&gt;测试&lt;/title&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular-route.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;&lt;/head&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;body ng-app=&quot;myApp&quot;&gt;&lt;br&gt;  &lt;div ng-controller=&quot;TextController&quot;&gt;&lt;br&gt;     &lt;p&gt;&lt;/p&gt;&lt;br&gt;  &lt;/div&gt;&lt;br&gt;  &lt;div ng-view&gt;&lt;/div&gt;&lt;br&gt;&lt;/body&gt;&lt;br&gt;  &lt;script&gt;&lt;br&gt;    var myApp = angular.module(‘myApp’, [‘ngRoute’]);&lt;br&gt;    myApp.controller(‘TextController’, function ($scope) &#123;&lt;br&gt;      $scope.someText = ‘测试显示内容’;&lt;br&gt;    &#125;);&lt;/p&gt;</div><div class="line"><pre><code>//路由
-function emailRouteConfig($routeProvider) {
-  $routeProvider.
-  when(&apos;/&apos;, {
-    controller: ListController,
-    templateUrl: &apos;list.html&apos;
-  }).
-  when(&apos;/view/:id&apos;, { //在id前面加一个冒号，从而制订了一个参数化URL
-    controller: DetailController,
-    templateUrl: &apos;detail.html&apos;
-  }).
-  otherwise({
-    redirectTo: &apos;/&apos;
-  });
-}
-
-myApp.config(emailRouteConfig);//配置我们的路由
-
-messages = [{
-  id: 0, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
-}, {
-  id: 1, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
-}, {
-  id: 2, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
-}];
-
-function ListController($scope) {
-  $scope.messages = messages;
-}
-
-function DetailController($scope,$routeParams) {
-  $scope.message = messages[$routeParams.id];
-}
-</code></pre>&lt;p&gt;  &lt;/script&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[list.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;发件人&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;内容&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;日期&lt;/strong&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">  &lt;tr ng-repeat=&quot;message in messages&quot;&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;a href=&quot;#/view/&quot;&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>[detail.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;strong&gt;项目:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;发送者:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;日期:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">  &lt;strong&gt;To:&lt;/strong&gt;</div><div class="line">  &lt;span ng-repeat=&quot;recipient in message.recipients&quot;&gt;</div><div class="line">    </div><div class="line">  &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;a href=&quot;#/&quot;&gt;回到列表&lt;/a&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
