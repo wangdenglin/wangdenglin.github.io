@@ -259,6 +259,254 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-js_ Summary_Dom" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/23/js_ Summary_Dom/" class="article-date">
+      <time datetime="2017-02-23T02:40:20.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>JS dom基本操作</strong><br><strong><em>获取节点</em></strong><br><code>document.getElementById(元素ID);</code><br><code>document.getElementsByName(元素name);</code><br><code>document.getElementsByTagName(元素标签);</code><br><strong><em>节点指针</em></strong><br><code>firstChild:获取元素的首个子节点;</code><br><code>lastChild:取元素的最后一个子节点;</code><br><code>childNodes:获取元素的子节点列表;</code><br><code>parentNode:获取已知节点的父节点;</code><br><code>previousSibling:获取已知元素的前一个节点(同级);</code><br><code>nextSibling:获取已知元素的后一个节点(同级);</code><br><figure class="highlight plain"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;demo&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;123&quot; value=&quot;123&quot;/&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</div><div class="line">&lt;button onclick=&quot;myFunction()&quot;&gt;试一下&lt;/button&gt; </div><div class="line">&lt;script&gt;</div><div class="line">function myFunction()</div><div class="line">&#123;</div><div class="line">  var x=document.getElementById(&quot;demo&quot;);</div><div class="line">  console.log(x.firstChild);  //&lt;input type=&quot;text&quot; id=&quot;123&quot; value=&quot;123&quot;/&gt;</div><div class="line">  console.log(x.firstChild.value);//123</div><div class="line">  console.log(x.childNodes.length);//2 注意空格</div><div class="line">  console.log(x.childNodes[0].innerHTML); //</div><div class="line">  console.log(1);//1</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br><strong><em>节点操作</em></strong><br>1.创建节点<br><code>createElement 创建元素节点,创建p标签document.createElement(&quot;p&quot;);</code><br><code>createAttribute 创建元素属性,document.createAttribute(元素属性);</code><br><code>createTextNode 创建文本节点,document.createTextNode(文本内容);</code><br>2.插入节点<br><code>appendChild 向节点的子节点列表的末尾添加新的子节点</code><br><code>insertBefore 在已知子节点前插入一个新的子节点</code><br>3.替换节点<br><code>replaceChild 将某个子节点替换成另一个,replaceChild(&#39;要插入的新元素&#39;,&#39;将被替换的老元素&#39;)</code><br>4.复制节点<br><code>cloneNode创建指定节点的副本，需要被复制的节点.cloneNode(true/false)</code><br>5.删除节点<br><code>removeChild 删除指定节点， removeChild(要删除的节点)</code><br><strong><em>属性操作</em></strong><br><code>getAttribute获取元素属性;</code><br><code>setAttribute设置元素属性;</code><br><code>removeAttribute移除元素属性;</code><br><strong><em>文本操作</em></strong><br><code>insertData(offset,String) 从offset的指定位置插入string;</code><br><code>appendData(String) 将string插入文本节点的末尾处;</code><br><code>deleteData(offset,count) 从offset起删除count个字符;</code><br><code>spiltData(offset) 从offset处将文本节点分为两个节点;</code><br><code>substring(offset,count) 返回由offset起的count个节点;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">  &lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">      &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">      &lt;title&gt;事件&lt;/title&gt;    </div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line"> &lt;div id=&quot;box&quot;&gt;</div><div class="line">     &lt;a href=&quot;http://www.baidu.com&quot; id=&quot;go&quot;&gt;跳转&lt;/a&gt;</div><div class="line"> &lt;/div&gt;</div><div class="line">     &lt;script&gt;</div><div class="line">     var oDiv = document.getElementById(&apos;box&apos;);</div><div class="line">     var oA = document.getElementById(&apos;go&apos;);</div><div class="line">     oDiv.onclick = function ()&#123;</div><div class="line">         alert(&apos;我是a链接的父容器&apos;);</div><div class="line">     &#125;</div><div class="line">     oA.onclick = function (ev)&#123;</div><div class="line">         ev = event || window.event;</div><div class="line">         if(ev.stopPropagation)&#123;</div><div class="line">           ev.stopPropagation();</div><div class="line">         &#125;</div><div class="line">         else&#123;</div><div class="line">             ev.cancelBubble = true;</div><div class="line">         &#125;</div><div class="line">         if(ev.preventDefault)&#123;</div><div class="line">             ev.preventDefault();</div><div class="line">         &#125;</div><div class="line">         else&#123;</div><div class="line">             ev.returnValue = false;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">     &lt;/script&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-js_ Summary_func" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/23/js_ Summary_func/" class="article-date">
+      <time datetime="2017-02-23T01:30:20.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>JS函数基础</strong><br>1.调用方法<br>直接调用：函数名(实参列表)<br>在链接中调用：<code>&lt;a href=&quot;javascript:函数名()&quot;&gt;啦啦啦啦&lt;/a&gt;</code><br>在事件中调用：事件类型=”函数名()”;<br>递归调用：在函数内部调用函数自身，<code>function aaa(){alert(&#39;1111&#39;);aaa()}</code><br><figure class="highlight plain"><figcaption><span>[递归调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var i=0;</div><div class="line">function aaa()</div><div class="line">&#123;</div><div class="line">  console.log(i++);</div><div class="line">  if(i&lt;6)&#123;</div><div class="line">    aaa() </div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br>2.方法<br>apply 将函数作为对象的方法来调用，将参数以数组形式传递给该方法;<br>call 将函数作为对象的方法来调用，将指定参数传递给该方法;<br>toString 返回函数的字符串表示<br>apply和call的区别是传入参数的形式不一样，其作用并无本质差别,都是改变this的指向。第一个是改变改变this的指向，其后就是传入的参数<br>如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]);<br><figure class="highlight plain"><figcaption><span>[1]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; id=&quot;myText&quot;   value=&quot;input text&quot;&gt;</div><div class="line">&lt;script&gt;</div><div class="line">   function Obj()&#123;</div><div class="line">    this.value=&quot;对象！&quot;;</div><div class="line">   &#125;</div><div class="line">   var value=&quot;global 变量&quot;;</div><div class="line">   function Fun1()&#123;</div><div class="line">    alert(this.value);</div><div class="line">   &#125;</div><div class="line">   window.Fun1();   //global 变量</div><div class="line">   Fun1.call(window);  //global 变量</div><div class="line">   Fun1.call(document.getElementById(&apos;myText&apos;));  //input text</div><div class="line">   Fun1.call(new Obj());   //对象！</div><div class="line">   window.Fun1(); //global 变量</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>下例分别弹出了func和var。先调用func函数，用this.a=”func”替换myfunc中的this.a ; 然后将”var”传递给方法myfunc的参数x可见分别弹出了func和var。<br>对于apply和call两者在作用上是相同的，但两者在参数上有区别的。<br>第一个参数意义都一样。第二个参数：apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。<br>如 func.call(func1,var1,var2,var3)  对应的apply写法为：func.apply(func1,[var1,var2,var3])，同时使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入。 　<br><figure class="highlight plain"><figcaption><span>[2]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  var func=new function()&#123;this.a=&quot;func&quot;&#125;</div><div class="line">  var myfunc=function(x)&#123;</div><div class="line">       var a=&quot;myfunc&quot;;</div><div class="line">       alert(this.a);</div><div class="line">       alert(x);</div><div class="line">   &#125;</div><div class="line">   myfunc.call(func,&quot;var&quot;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>下例将add替换sub,运行结果为4;<br><figure class="highlight plain"><figcaption><span>[3]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function add(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a + b);</div><div class="line">&#125;</div><div class="line">function sub(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a - b);</div><div class="line">&#125;</div><div class="line">add.call(sub, 3, 1);</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.cnblogs.com/huyong/p/4139875.html" target="_blank" rel="external">apply和call参考资料</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-js_ Summary" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/22/js_ Summary/" class="article-date">
+      <time datetime="2017-02-22T05:50:20.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/js_ Summary/">js总结_数组</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>JS数组</strong><br>1.创建数组</p>
+<p>  <code>空数组：var Obj=new Array() 或var Obj=[];</code><br>  <code>指定长度的数组：var Obj=new Array(Size);</code><br>  <code>指定元素的数组：var Obj=new Array(元素1,元素2...)</code><br>  <code>单维数组      ：var Obj=[元素a,元素b,元素c...];</code><br>  <code>多维数组      ：var Obj=[[a],[b],[c]]</code><br>2.删除数组<br>delete 数组名加下标<br>3.遍历数组<br>for…in…<br><code>var example=[1,2,3,4];</code><br><code>for(a in example){
+ console.log(&#39;a在数组里&#39;);
+}</code><br>4.数组的添加与删除<br><code>push() 在数组末尾添加数组</code><br><code>unshift() 在数组头部添加元素</code><br><code>concat() 合并两个数组</code><br><code>pop() 删除并返回数值的最后一个元素</code><br><code>shift() 删除并返回数组的第一个元素</code><br><code>splice() 可以在指定位置删除插入或替换</code><br><code>slice() 从已有数组中选取部分元素组成数组，如果是正值从前外后，如果是负值从后往前</code><br><code>reverse() 颠倒数组元素的顺序</code><br><code>sort() 排序</code><br><figure class="highlight plain"><figcaption><span>[升序]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function UpSort(a,b)&#123;</div><div class="line">  if(a&gt;b)&#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else if(b&gt;a)</div><div class="line">  &#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else&#123;</div><div class="line">    return 0</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br><code>toString() 转化成字符串并返回  var aaa=[1,2,3,4] console.log(aaa.toString())  输出1,2,3,4</code><br><code>join() 用指定分隔符分割数组并转化成字符串 var aaa=[1,2,3,4] console.log(aaa.join(&#39;-&#39;))  输出1-2-3-4</code><br><code>indexOf() 从数组起始位置开始查找，如果有就返回&gt;=0</code><br><code>every() 如果该函数的每项都为true,则返回true</code><br><code>some() 如果该函数的有一项都为true,则返回true</code><br><code>map() 返回每次函数调用的结果数组</code><br><code>forEach():没有返回值，只是针对每个元素调用func</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function my_func(item) &#123;</div><div class="line">  if (item == 1) &#123;</div><div class="line">    console.log(&apos;t&apos;);</div><div class="line">    return true;</div><div class="line">  &#125;</div><div class="line">  console.log(&apos;f&apos;);</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// init an array</div><div class="line">l = [0,1,2,3,4]</div><div class="line">// print: f</div><div class="line">// return: false</div><div class="line">l.every(my_func)</div><div class="line">// print: f,t</div><div class="line">// return: true</div><div class="line">l.some(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">// return:[false, true, false, false, false]</div><div class="line">l.map(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">//return: undefined</div><div class="line">l.forEach(my_func)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ng-ui-route" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/22/ng-ui-route/" class="article-date">
+      <time datetime="2017-02-22T04:10:20.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angular-ui-router路由设置</strong><br>因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试<br><a href="http://jingyan.baidu.com/article/ed2a5d1f128ff609f6be17fa.html" target="_blank" rel="external">提供一个搭建本地服务器链接 》</a><br>首先新建5个页面<br><figure class="highlight plain"><figcaption><span>[a.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是a页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[b.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是b页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[c.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是c页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Tab.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;div&gt;&lt;a ui-sref=&quot;.page1&quot;&gt;A&lt;/a&gt;&lt;a ui-sref=&quot;.page2&quot;&gt;B&lt;/a&gt;&lt;a ui-sref=&quot;.page3&quot;&gt;C&lt;/a&gt;&lt;/div&gt;&lt;br&gt;     &lt;div&gt;&lt;br&gt;          &lt;div ui-view=&quot;&quot;/&gt;&lt;br&gt;     &lt;/div&gt;&lt;br&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;br&gt;  &lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;br&gt;    &lt;title&gt;demo&lt;/title&gt;&lt;br&gt;    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;link href=&quot;&quot; rel=&quot;stylesheet&quot;&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular-ui-router.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/app.js&apos;&gt;&lt;/script&gt;&lt;br&gt;  &lt;/head&gt;&lt;br&gt;  &lt;body data-ng-app=&quot;demo&quot;&gt;&lt;br&gt;       &lt;div class=&quot;content&quot;&gt;&lt;br&gt;            &lt;div data-ui-view=&quot;&quot;&gt;&lt;/div&gt;&lt;br&gt;        &lt;/div&gt;&lt;br&gt;  &lt;/body&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br>首先注入ui.router<br>默认进入Tab.html页面<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;var demo = angular.module(“demo”, [“ui.router”]);&lt;br&gt;demo.config(function ($stateProvider, $urlRouterProvider) &#123;&lt;/p&gt;</div><div class="line"><pre><code>$urlRouterProvider.otherwise(&apos;/Tab&apos;);
+
+$stateProvider
+   .state(&quot;Tab&quot;, {
+       url: &quot;/Tab&quot;,
+       templateUrl: &quot;Tab.html&quot;
+   })
+   .state(&quot;Tab.page1&quot;, {
+       url:&quot;/page1&quot;,
+       templateUrl: &quot;page1.html&quot;
+   })
+   .state(&quot;Tab.page2&quot;, {
+       url:&quot;/page2&quot;,
+       templateUrl: &quot;page2.html&quot;
+   })
+   .state(&quot;Tab.page3&quot;, {
+       url:&quot;/page3&quot;,
+       templateUrl: &quot;page3.html&quot;
+   });
+</code></pre>&lt;p&gt;&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ng-route" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -692,139 +940,9 @@ function DetailController($scope,$routeParams) {
 
 
   
-    <article id="post-ionic" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/13/ionic/" class="article-date">
-      <time datetime="2016-09-13T06:31:49.000Z" itemprop="datePublished">2016-09-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/13/ionic/">ionic 常见问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>如何在ionic中嵌入网页代码?</strong></p>
-<p>使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页<br><strong>1.如何将template加载到某个tab或某个sidemenu项目下?</strong><br>  <a href="http://www.baidu.com" target="_blank" rel="external">百度搜索</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;&lt;ion-nav-view name=&quot;menuContent&quot;&gt; </div></pre></td></tr></table></figure>可以指定name，然后在子状态中使用该name，ionic就知道该把该状态的template渲染到哪边了。例如：<br><figure class="highlight plain"><figcaption><span>[路由设置] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;.state(&apos;auth.signup&apos;, &#123;</div><div class="line">      url: &apos;/signup&apos;,</div><div class="line">      views: &#123;</div><div class="line">          &apos;auth-signup&apos;: &#123;</div><div class="line">              templateUrl: &apos;templates/auth-signup.html&apos;,</div><div class="line">              controller: &apos;SignUpCtrl&apos;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    另有一个tabs中声明该auth-signup:</div><div class="line">    &apos;&lt;ion-tab title=&quot;Sign Up&quot; icon-on=&quot;ion-ios-personadd&quot;</div><div class="line">      icon-off=&quot;ion-ios-personadd-outline&quot; href=&quot;#/auth/signup&quot;&gt;</div><div class="line">      &lt;ion-nav-view name=&quot;auth-signup&quot;&gt;&lt;/ion-nav-view&gt;</div><div class="line">   &lt;/ion-tab&gt;&apos;</div></pre></td></tr></table></figure><br><strong>2.如何关闭应用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic.Platform.exitApp();</div></pre></td></tr></table></figure><br><strong>3.APP开启检测网络并提示开启</strong></p>
-<blockquote>
-<p>需要三个插件<br>  <div>1. <a href="https://github.com/apache/cordova-plugin-network-information" target="_blank" rel="external">https://github.com/apache/cordova-plugin-network-information</a></div><br>  <div>2. <a href="https://github.com/apache/cordova-plugin-dialogs" target="_blank" rel="external">https://github.com/apache/cordova-plugin-dialogs</a></div><br>  <div>3. <a href="https://github.com/deefactorial/Cordova-open-native-settings" target="_blank" rel="external">https://github.com/deefactorial/Cordova-open-native-settings</a></div><br>然后在APP.JS中，divicesReady中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">if (navigator.connection) &#123;</div><div class="line">            var tmptypes = navigator.connection.type;</div><div class="line">            if (tmptypes.toUpperCase().indexOf(&apos;NONE&apos;) &gt; -1 || tmptypes.toUpperCase().indexOf(&apos;UNKNOWN&apos;) &gt; -1) &#123;</div><div class="line">                if (navigator.notification) &#123;</div><div class="line">                    navigator.notification.confirm(</div><div class="line">                    &apos;您的设备未开启网络&apos;,</div><div class="line">                       function (buttonIndex) &#123;</div><div class="line">                             if (buttonIndex == 1) &#123;</div><div class="line">                               if (cordova.plugins.settings) &#123;</div><div class="line">                                   cordova.plugins.settings.openSetting(&quot;wifi&quot;, function () &#123; console.log(&quot;network setting openning&quot;); &#125;, function () &#123; console.log(&quot;open network setting failed&quot;); &#125;);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                         &#125;,            // callback to invoke with index of button pressed</div><div class="line">                       &apos;提示&apos;,           // title</div><div class="line">                       [&apos;开启&apos;, &apos;取消&apos;]     // buttonLabels</div><div class="line">                               );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;）</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>4.hide-back-button -是否隐藏导航栏中的返回按钮</strong><br>当模板被载入导航视图时，如果之前有其他的模板，那么在导航栏ion-nav-bar上默认会自动 显示返回按钮（使用指令ion-nav-back-button定义）。点击该按钮将返回前一个模板。<br>hide-back-button的允许值为：true | false ，默认为false<br>注意：必须在导航栏中显式地声明返回按钮，否则即使将hide-back-button属性设为false， 这个按钮也不会出现;<br><strong>5.hide-nav-bar - 是否隐藏导航栏</strong><br>允许值为：true | false ,默认为false<br>在<ion-view>中添加 hide-nav-bar 属性</ion-view></p>
-<p><ion-view title="title Policy" hide-nav-bar="true"><br></ion-view></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github_upload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/16/github_upload/" class="article-date">
-      <time datetime="2016-06-16T02:31:49.000Z" itemprop="datePublished">2016-06-16</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/16/github_upload/">github upload</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>如何将本地项目上传到github</strong></p>
-<p>首先你要有个github账号,怎么申请账号在这里我就不介绍了。下面开始讲解怎么上传本地项目到github.<br>1.创建一个仓库</p>
-<p><img src="/2016/06/16/github_upload/1.png" alt="1"></p>
-<p>2.创建好后，复制链接(后面会用)</p>
-<p><img src="/2016/06/16/github_upload/link.png" alt="link"></p>
-<p>3.接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入如下界面，node-login即为我的项目名。</p>
-<p>4.接下来输入如下代码（关键步骤），把github上面的仓库克隆到本地</p>
-<p>git clone <a href="https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）" target="_blank" rel="external">https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）</a></p>
-<p>5.这个步骤以后你的本地项目文件夹下面就会多出个文件夹，该文件夹名即为你github上面的项目名，我多出了个node-login文件夹，我们把本地项目文件夹下的所有文件（除了新多出的那个文件夹不用），其余都复制到那个新多出的文件夹下</p>
-<p>6.接着继续输入命令 cd node-login，进入node-login文件夹</p>
-<p>7.接下来依次输入以下代码即可完成其他剩余操作<br>  git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）</p>
-<p>  git commit  -m  “提交信息”  （注：“提交信息”里面换成你需要，如“first commit”）</p>
-<p>  git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）<br>出现如下图表示成功<br><img src="/2016/06/16/github_upload/4.png" alt="4"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="JS函数基础1.调用方法直接调用：函数名(实参列表)在链接中调用：&amp;lt;a href=&amp;quot;javascript:函数名()&amp;quot;&amp;gt;啦啦啦啦&amp;lt;/a&amp;gt;在事件中调用：事件类型=”函数名()”;递归调用：在函数内部调用函数自身，function aaa(){alert(&amp;#39;1111&amp;#39;);aaa()}[递归调用]123456789var i=0;functio">
+<meta name="description" content="js 正则正则我也反反复复看了好几遍了，但实际到应用的时候，还是不行，越发感觉发明正则的那小伙，真是太牛了，这小伙怎么想到这么多火星文的。佩服佩服!,这次我把正则稍微整理一下，方便自己下次查看用。i    执行对大小写不敏感的匹配。g    执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。m    执行多行匹配。1.方括号方括号用于查找某个范围内的字符：表达式    描述[abc]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js总结_函数基础">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/23/js_ Summary_func/index.html">
+<meta property="og:title" content="js 正则">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/03/31/js_ RegExp/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="JS函数基础1.调用方法直接调用：函数名(实参列表)在链接中调用：&amp;lt;a href=&amp;quot;javascript:函数名()&amp;quot;&amp;gt;啦啦啦啦&amp;lt;/a&amp;gt;在事件中调用：事件类型=”函数名()”;递归调用：在函数内部调用函数自身，function aaa(){alert(&amp;#39;1111&amp;#39;);aaa()}[递归调用]123456789var i=0;functio">
-<meta property="og:updated_time" content="2017-02-23T02:39:45.906Z">
+<meta property="og:description" content="js 正则正则我也反反复复看了好几遍了，但实际到应用的时候，还是不行，越发感觉发明正则的那小伙，真是太牛了，这小伙怎么想到这么多火星文的。佩服佩服!,这次我把正则稍微整理一下，方便自己下次查看用。i    执行对大小写不敏感的匹配。g    执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。m    执行多行匹配。1.方括号方括号用于查找某个范围内的字符：表达式    描述[abc]">
+<meta property="og:updated_time" content="2017-03-31T07:28:32.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js总结_函数基础">
-<meta name="twitter:description" content="JS函数基础1.调用方法直接调用：函数名(实参列表)在链接中调用：&amp;lt;a href=&amp;quot;javascript:函数名()&amp;quot;&amp;gt;啦啦啦啦&amp;lt;/a&amp;gt;在事件中调用：事件类型=”函数名()”;递归调用：在函数内部调用函数自身，function aaa(){alert(&amp;#39;1111&amp;#39;);aaa()}[递归调用]123456789var i=0;functio">
+<meta name="twitter:title" content="js 正则">
+<meta name="twitter:description" content="js 正则正则我也反反复复看了好几遍了，但实际到应用的时候，还是不行，越发感觉发明正则的那小伙，真是太牛了，这小伙怎么想到这么多火星文的。佩服佩服!,这次我把正则稍微整理一下，方便自己下次查看用。i    执行对大小写不敏感的匹配。g    执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。m    执行多行匹配。1.方括号方括号用于查找某个范围内的字符：表达式    描述[abc]">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js总结_函数基础 | 我的博客</title>
+<title>js 正则 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-js_ Summary_func" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js_ RegExp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/23/js_ Summary_func/" class="article-date">
-      <time datetime="2017-02-23T01:30:20.000Z" itemprop="datePublished">2017-02-23</time>
+      <a href="/2017/03/31/js_ RegExp/" class="article-date">
+      <time datetime="2017-03-31T07:27:20.000Z" itemprop="datePublished">2017-03-31</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js总结_函数基础
+      js 正则
     </h1>
   
 
@@ -292,9 +292,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>JS函数基础</strong><br>1.调用方法<br>直接调用：函数名(实参列表)<br>在链接中调用：<code>&lt;a href=&quot;javascript:函数名()&quot;&gt;啦啦啦啦&lt;/a&gt;</code><br>在事件中调用：事件类型=”函数名()”;<br>递归调用：在函数内部调用函数自身，<code>function aaa(){alert(&#39;1111&#39;);aaa()}</code><br><figure class="highlight plain"><figcaption><span>[递归调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var i=0;</div><div class="line">function aaa()</div><div class="line">&#123;</div><div class="line">  console.log(i++);</div><div class="line">  if(i&lt;6)&#123;</div><div class="line">    aaa() </div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br>2.方法<br>apply 将函数作为对象的方法来调用，将参数以数组形式传递给该方法;<br>call 将函数作为对象的方法来调用，将指定参数传递给该方法;<br>toString 返回函数的字符串表示<br>apply和call的区别是传入参数的形式不一样，其作用并无本质差别,都是改变this的指向。第一个是改变改变this的指向，其后就是传入的参数<br>如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]);<br><figure class="highlight plain"><figcaption><span>[1]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; id=&quot;myText&quot;   value=&quot;input text&quot;&gt;</div><div class="line">&lt;script&gt;</div><div class="line">   function Obj()&#123;</div><div class="line">    this.value=&quot;对象！&quot;;</div><div class="line">   &#125;</div><div class="line">   var value=&quot;global 变量&quot;;</div><div class="line">   function Fun1()&#123;</div><div class="line">    alert(this.value);</div><div class="line">   &#125;</div><div class="line">   window.Fun1();   //global 变量</div><div class="line">   Fun1.call(window);  //global 变量</div><div class="line">   Fun1.call(document.getElementById(&apos;myText&apos;));  //input text</div><div class="line">   Fun1.call(new Obj());   //对象！</div><div class="line">   window.Fun1(); //global 变量</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>下例分别弹出了func和var。先调用func函数，用this.a=”func”替换myfunc中的this.a ; 然后将”var”传递给方法myfunc的参数x可见分别弹出了func和var。<br>对于apply和call两者在作用上是相同的，但两者在参数上有区别的。<br>第一个参数意义都一样。第二个参数：apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。<br>如 func.call(func1,var1,var2,var3)  对应的apply写法为：func.apply(func1,[var1,var2,var3])，同时使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入。 　<br><figure class="highlight plain"><figcaption><span>[2]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  var func=new function()&#123;this.a=&quot;func&quot;&#125;</div><div class="line">  var myfunc=function(x)&#123;</div><div class="line">       var a=&quot;myfunc&quot;;</div><div class="line">       alert(this.a);</div><div class="line">       alert(x);</div><div class="line">   &#125;</div><div class="line">   myfunc.call(func,&quot;var&quot;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>下例将add替换sub,运行结果为4;<br><figure class="highlight plain"><figcaption><span>[3]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function add(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a + b);</div><div class="line">&#125;</div><div class="line">function sub(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a - b);</div><div class="line">&#125;</div><div class="line">add.call(sub, 3, 1);</div></pre></td></tr></table></figure></p>
-<p><a href="http://www.cnblogs.com/huyong/p/4139875.html" target="_blank" rel="external">apply和call参考资料</a></p>
+        <p><strong>js 正则</strong><br>正则我也反反复复看了好几遍了，但实际到应用的时候，还是不行，越发感觉发明正则的那小伙，真是太牛了，这小伙怎么想到这么多火星文的。佩服佩服!,这次我把正则稍微整理一下，方便自己下次查看用。<br>i    执行对大小写不敏感的匹配。<br>g    执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。<br>m    执行多行匹配。<br><strong>1.方括号</strong><br>方括号用于查找某个范围内的字符：<br>表达式    描述<br>[abc]    查找方括号之间的任何字符。<br>[^abc]    查找任何不在方括号之间的字符。<br>[0-9]    查找任何从 0 至 9 的数字。<br>[a-z]    查找任何从小写 a 到小写 z 的字符。<br>[A-Z]    查找任何从大写 A 到大写 Z 的字符。<br>[A-z]    查找任何从大写 A 到小写 z 的字符。<br>[adgk]    查找给定集合内的任何字符。<br>[^adgk]    查找给定集合外的任何字符。<br>(red|blue|green)    查找任何指定的选项。<br><strong>2.元字符</strong><br>元字符（Metacharacter）是拥有特殊含义的字符：<br>元字符    描述<br>.    查找单个字符，除了换行和行结束符。<br>\w    查找单词字符（用于匹配字母，数字或下划线字符 ）。<br>\W    查找非单词字符。<br>\d    查找数字。<br>\D    查找非数字字符。<br>\s    查找空白字符。<br>\S    查找非空白字符。<br>\b    匹配单词边界。<br>\B    匹配非单词边界。<br>\0    查找 NUL 字符。<br>\n    查找换行符。<br>\f    查找换页符。<br>\r    查找回车符。<br>\t    查找制表符。<br>\v    查找垂直制表符。<br>\xxx    查找以八进制数 xxx 规定的字符。<br>\xdd    查找以十六进制数 dd 规定的字符。<br>\uxxxx    查找以十六进制数 xxxx 规定的 Unicode 字符。<br><strong>3.量词</strong><br>量词    描述<br>n+    匹配任何包含至少一个 n 的字符串。<br>n*    匹配任何包含零个或多个 n 的字符串。<br>n?    匹配任何包含零个或一个 n 的字符串。<br>n{X}    匹配包含 X 个 n 的序列的字符串。<br>n{X,Y}    匹配包含 X 至 Y 个 n 的序列的字符串。<br>n{X,}    匹配包含至少 X 个 n 的序列的字符串。<br>n$    匹配任何结尾为 n 的字符串。<br>^n    匹配任何开头为 n 的字符串。<br>?=n    匹配任何其后紧接指定字符串 n 的字符串。<br>?!n    匹配任何其后没有紧接指定字符串 n 的字符串。</p>
+<ul>
+<li>匹配前面的子表达式零次或多次。例如，zo<em> 能匹配 “z” 以及 “zoo”。</em> 等价于{0,}。</li>
+</ul>
+<ul>
+<li>匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。<br>?    匹配前面的子表达式零次或一次。例如，”do(es)?” 可以匹配 “do” 或 “does” 中的”do” 。? 等价于 {0,1}。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">小例子1：只能输入5-20个以字母开头、可带数字、“_”、“.”的字串 </div><div class="line">function isRegisterUserName(s) </div><div class="line">&#123; </div><div class="line">	var patrn=/^[a-zA-Z]&#123;1&#125;([a-zA-Z0-9]|[._])&#123;4,19&#125;$/; //^n表示匹配任何以n开头的字符串，&#123;n&#125;匹配几个字符串</div><div class="line">	if (!patrn.exec(s)) </div><div class="line">	&#123;</div><div class="line">		return false</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		return true </div><div class="line">	&#125; </div><div class="line">&#125;</div><div class="line">var a=&apos;c2345&apos;;</div><div class="line">console.log(isRegisterUserName(a))//true;</div><div class="line">1.验证数字：</div><div class="line">只能输入1个数字 </div><div class="line">表达式 ^\d$ </div><div class="line">描述 匹配一个数字 </div><div class="line">匹配的例子 0,1,2,3 </div><div class="line">2.只能输入n个数字 </div><div class="line">表达式 ^\d&#123;n&#125;$    例如^\d&#123;8&#125;$ </div><div class="line">描述 匹配8个数字 </div><div class="line">匹配的例子 12345678,22223334,12344321 </div><div class="line">3.只能输入至少n个数字 </div><div class="line">表达式 ^\d&#123;n,&#125;$ 例如^\d&#123;8,&#125;$ </div><div class="line">描述 匹配最少n个数字 </div><div class="line">匹配的例子 12345678,123456789,12344321 </div><div class="line">4.只能输入m到n个数字 </div><div class="line">表达式 ^\d&#123;m,n&#125;$ 例如^\d&#123;7,8&#125;$ </div><div class="line">描述 匹配m到n个数字 </div><div class="line">匹配的例子 12345678,1234567 </div><div class="line">5.只能输入某个区间数字 </div><div class="line">表达式 ^[12-15]$ </div><div class="line">描述 匹配某个区间的数字 </div><div class="line">匹配的例子 12,13,14,15 </div><div class="line"></div></pre></td></tr></table></figure>
+<strong>利用正则表达式限制网页表单里的文本框输入内容：</strong></li>
+</ul>
+<p>　　用正则表达式限制只能输入中文：onkeyup=”value=value.replace(/[^”u4E00-“u9FA5] /g,’’)” onbeforepaste=”clipboardData.setData(’text’,clipboardData.getData(’text’).replace(/[^”u4E00-“u9FA5]/g,’’))”</p>
+<p>　　用正则表达式限制只能输入全角字符： onkeyup=”value=value.replace(/[^”uFF00-“uFFFF]/g,’’)” onbeforepaste=”clipboardData.setData(’text’,clipboardData.getData(’text’).replace(/[^”uFF00-“uFFFF]/g,’’))”</p>
+<p>　　用正则表达式限制只能输入数字：onkeyup=”value=value.replace(/[^”d]/g,’’) “onbeforepaste=”clipboardData.setData(’text’,clipboardData.getData(’text’).replace(/[^”d]/g,’’))”</p>
+<p>　　用正则表达式限制只能输入数字和英文：onkeyup=”value=value.replace(/[“W]/g,’’) “onbeforepaste=”clipboardData.setData(’text’,clipboardData.getData(’text’).replace(/[^”d]/g,’’))”</p>
 
       
     </div>
@@ -303,13 +312,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a></p>
+        <p><span>本文标题:</span><a href="/2017/03/31/js_ RegExp/">js 正则</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2017-02-23, 09:30:20</p>
-        <p><span>最后更新:</span>2017-02-23, 10:39:45</p>
+        <p><span>发布时间:</span>2017-03-31, 15:27:20</p>
+        <p><span>最后更新:</span>2017-03-31, 15:28:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/23/js_ Summary_func/" title="js总结_函数基础">http://wangdenglin.github.io/2017/02/23/js_ Summary_func/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/23/js_ Summary_func/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/31/js_ RegExp/" title="js 正则">http://wangdenglin.github.io/2017/03/31/js_ RegExp/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/03/31/js_ RegExp/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -322,15 +331,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/23/js_ Summary_Dom/">
-                    js总结_Dom基本操作
+                <a href="/2017/03/31/js_ foolish/">
+                    js 愚人节恶搞
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/22/js_ Summary/">
-                    js总结_数组
+                <a href="/2017/03/31/ionic_ angular/">
+                    ionic框架下移除angularjs下面的井号
                 </a>
             </div>
         
@@ -378,7 +387,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js总结_函数基础　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js 正则　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +407,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/23/js_ Summary_Dom/" title="上一篇: js总结_Dom基本操作">
+            <a href="/2017/03/31/js_ foolish/" title="上一篇: js 愚人节恶搞">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -406,7 +415,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/22/js_ Summary/" title="下一篇: js总结_数组">
+            <a href="/2017/03/31/ionic_ angular/" title="下一篇: ionic框架下移除angularjs下面的井号">
                 <i class="fa fa-angle-right"></i>
             </a>
         

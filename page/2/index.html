@@ -259,6 +259,241 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-node-login" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/13/node-login/" class="article-date">
+      <time datetime="2017-03-13T02:50:49.000Z" itemprop="datePublished">2017-03-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/13/node-login/">node-express-mongoose登录demo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>node-express-mongoose</strong><br>自己写的一个登录demo<br><a href="https://github.com/wangdenglin/node-login" target="_blank" rel="external">https://github.com/wangdenglin/node-login</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node-path" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/09/node-path/" class="article-date">
+      <time datetime="2017-03-09T07:54:55.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/node-path/">nodejs path模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>规范化路径</strong><br>path模块中的normalize()函数来规范路径字符串<br><code>var path=require(&#39;path&#39;);
+path.normalize(&#39;/foo/bar//baz/asdf...&#39;)
+//=&gt;&#39;/foo/bar/baz/asdf.&#39;</code><br>path.join()函数，可以连接多个路径字符串,并对路径规范话<br>例<code>var path=require(&#39;path&#39;);</code><br><code>path.join(&#39;/foo&#39;,&#39;/bar&#39;,&#39;baz&#39;)</code><br>//=&gt;<code>/foo/bar/baz</code><br>path.dirname()获取文件路径的目录部分，例如：<br><code>path.dirname(&#39;/foo/bar/asdf/aaa.txt&#39;)</code><br><code>=&gt;/foo/bar/asdf;</code><br>path.basename()获取文件路径下的文件名，例如：<br><code>path.basename(&#39;/foo/bar/baz/asdf/bbb.html&#39;)</code><br><code>=&gt;bbb.html</code><br>另外可以将扩展名，传递给path.basename函数，作为其第二个参数，以此在文件中提取扩展名，例子如下：<br><code>path.basename(&#39;foo/bar/baz/ccc.html&#39;,&#39;.html&#39;)</code><br><code>=&gt;ccc</code><br>path.extname()获取扩展名。<br>path.exists()确定路径是否存在(需使用回调函数如下)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var path=require(&apos;path&apos;);</div><div class="line">path.exists(&apos;/etc/passwd&apos;,function(exists)&#123;</div><div class="line">  console.log(&apos;exists:&apos;,exists);</div><div class="line">  //=&gt;true</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>path.existsSync()可直接返回路径是否存在。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node-Http" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/node-Http/" class="article-date">
+      <time datetime="2017-03-08T01:30:50.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/node-Http/">nodejs Http模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>node HTTP服务器与客户端 </strong><br><strong>1.http服务器</strong><br>http.Server是http模块中的HTTP服务器对象，它提供了一套封装级别很低的API,仅仅是流程控制和简单的消息解析，其他高级功能需要通过他的接口实现。<br><figure class="highlight plain"><figcaption><span>[http.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;); </div><div class="line"> </div><div class="line">http.createServer(function(req, res) </div><div class="line">&#123;   </div><div class="line">	res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;);   </div><div class="line">	res.write(&apos;&lt;h1&gt;Node.js&lt;/h1&gt;&apos;);   </div><div class="line">	res.end(&apos;&lt;p&gt;wdl你好&lt;/p&gt;&apos;); </div><div class="line">&#125;).listen(3000); </div><div class="line"> console.log(&quot;HTTP server is listening at port 3000.&quot;); </div><div class="line"></div></pre></td></tr></table></figure><br>上例http.createServer创建了一个http.Server的实例，将一个函数作为HTTP请求处理函数。这个函数接受两个参数，分别是请求对象req和响应对象res。显示的写了响应代码200（成功），响应头：<br><code>&#39;{&#39;Content-Type&#39;: &#39;text/html&#39;}&#39;</code>,响应体’<code>&lt;h1&gt;Node.js&lt;/h1&gt;</code>‘,通过res.end结束并发送，最后监听port 3000.<br><strong>a.http.Server的事件</strong><br>http.Server是一个基于事件的HTTP服务器，所有请求都被独立的封装成事件，他继承自EventEmitter，提供一下几个事件。<br>1.request：当客户端请求到来时，该事件被触发，提供两个参数 req 和res，分别是 http.ServerRequest 和 http.ServerResponse 的实例，表示请求和响应信息。<br>2.connection：当 TCP 连接建立时，该事件被触发，提供一个参数 socket，为 net.Socket 的实例。connection 事件的粒度要大于 request，因为客户端在 Keep-Alive 模式下可能会在同一个连接内发送多次请求。<br>3.close ：当服务器关闭时，该事件被触发。注意不是在用户连接断开时<br>最常用的就是request了，因此http提供了一个捷径：http.createServer([requestLister]),功能是创建一个HTTP服务器并将requestLister作为事件的监听函数，这也是我们前面例子中使用的方法。<br>事实上他的显式的实现方法是：<br><figure class="highlight plain"><figcaption><span>[httpserver.js ]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line">var server = new http.Server(); </div><div class="line">server.on(&apos;request&apos;, function(req, res) </div><div class="line">	&#123;   </div><div class="line">		res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;);   </div><div class="line">		res.write(&apos;&lt;h1&gt;Node.js&lt;/h1&gt;&apos;);   </div><div class="line">		res.end(&apos;&lt;p&gt;wdllalala&lt;/p&gt;&apos;); </div><div class="line">	&#125;); </div><div class="line">server.listen(3000); </div><div class="line">console.log(&quot;HTTP server is listening at port 3000.&quot;); </div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div></pre></td></tr></table></figure><br><strong>b.http.ServerRequest </strong><br>http.ServerRequest是HTTP请求的信息,他一般由http.Server的request事件发送，作为第一个参数，通常为简写为req。<br>HTTP请求一般可分为两部分：请求头（Request Header）和请求体（Request Body）,因为请求体相对比较长，需要一定的时间传输，因此http.ServerRequest提供了3个事件用于控制请求体传输。<br> data:当请求体数据到来时，该事件提供一个参数chunk,表示收到的数据，如果该事件没有监听，那么请求体将会被放弃，该事件可能会被调用多次<br> end:当请求体数据传输完成时，该事件被触发，不会再有数据到来<br> close:用户当前请求结束时，该事件被触发，不同于end，如果用户强制终止了传输，还是会调用close.<br><strong>c.获取GET请求内容 </strong><br><figure class="highlight plain"><figcaption><span>[httpserverrequest.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line">var url = require(&apos;url&apos;); </div><div class="line">var util = require(&apos;util&apos;); </div><div class="line">http.createServer(function(req, res) </div><div class="line">	&#123;   </div><div class="line">		res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);   </div><div class="line">		res.end(util.inspect(url.parse(req.url, true))); </div><div class="line">	&#125;).listen(3000); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>在浏览器中访问 <a href="http://127.0.0.1:3000/user?name=byvoid&amp;email=byvoid@byvoid.com，我" target="_blank" rel="external">http://127.0.0.1:3000/user?name=byvoid&amp;email=byvoid@byvoid.com，我</a> 们可以看到浏览器返回的结果：<br><code>{ search: &#39;?name=byvoid&amp;email=byvoid@byvoid.com&#39;,  
+   query: { name: &#39;byvoid&#39;, email: &#39;byvoid@byvoid.com&#39; },   
+   pathname: &#39;/user&#39;,
+   path: &#39;/user?name=byvoid&amp;email=byvoid@byvoid.com&#39;,   
+   href: &#39;/user?name=byvoid&amp;email=byvoid@byvoid.com&#39; 
+  }</code><br> 通过 url.parse，原始的 path 被解析为一个对象，其中 query 就是我们所谓的 GET 请求的内容，而路径则是 pathname<br> url.parse(urlStr, [parseQueryString], [slashesDenoteHost])<br> urlStr:url字符串<br> parseQueryString：为true时将使用查询模块分析查询字符串，默认为false<br> slashesDenoteHost：默认为false，//foo/bar 形式的字符串将被解释成 { pathname: ‘//foo/bar’ }<br>            如果设置成true//foo/bar形式的字符串将被解释成{ host: ‘foo’, pathname: ‘/bar’ }<br>urlString <string> ：要解析的 URL 字符串。<br>parseQueryString <boolean>：<br> 如果为 true，则 query 属性总会通过 querystring 模块的 parse() 方法生成一个对象。<br> 如果为 false，则返回的 URL 对象上的 query 属性会是一个未解析、未解码的字符串。默认为 false。<br>slashesDenoteHost <boolean>：<br> 如果为 true，则 // 之后至下一个 / 之前的字符串会被解析作为 host。 例如，//foo/bar 会被解析为 {host: ‘foo’, pathname: ‘/bar’} 而不是 {pathname: ‘//foo/bar’}。 默认为 false。<br>url.parse() 方法会解析一个 URL 字符串并返回一个 URL 对象。<br><strong>c.获取POST请求内容 </strong><br>HTTP协议1.1版本提供了8种标准请求方法，常用的有GET和POST。POST请求的全部内容都在请求体中。http.ServerRequest并没有一个属性内容为请求体，原因是等待请求体传输可能非常耗时，恶意的POST请求会达达消耗服务器的资源，所以Node.js默认是不会解析请求体的<br><figure class="highlight plain"><figcaption><span>[httpserverrequestpost.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line">var querystring = require(&apos;querystring&apos;); </div><div class="line">var util = require(&apos;util&apos;); </div><div class="line">http.createServer(function(req, res) </div><div class="line">	&#123;   var post = &apos;&apos;; </div><div class="line"> 		req.on(&apos;data&apos;, function(chunk) </div><div class="line"> 			&#123;     </div><div class="line"> 				post += chunk;   </div><div class="line"> 			&#125;); </div><div class="line"> 		req.on(&apos;end&apos;, function() </div><div class="line"> 			&#123;     </div><div class="line"> 				post = querystring.parse(post);  //将字符串转化为JSON格式   </div><div class="line"> 				res.end(util.inspect(post));   </div><div class="line"> 			&#125;); </div><div class="line"> </div><div class="line">&#125;).listen(3000); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>上面代码并没有在请求响应函数中向客户端返回信息，而是定义了一个 post 变量，用 于在闭包中暂存请求体的信息。通过 req 的 data 事件监听函数，每当接受到请求体的数据， 就累加到 post 变量中。在 end 事件触发后，通过 querystring.parse 将 post 解析为 真正的 POST 请求格式，然后向客户端返回。<br><strong>2.HTTP客户端</strong><br>http模块提供了两个函数http.request和http.get,功能是作为客户端向Http服务器发起请求。<br>http.request(options,callback)发起HTTP请求。接受两个参数，option是一个类似关联数组的对象，表示请求的参数，callback是请求的回调函数。<br>option常用的参数如下所示：<br>    host:请求网站的域名或ip地址。<br>    port:端口<br>    method：请求方法，默认GET应该包含在其中。<br>    path:请求的相对于跟的路径，默认“/”。QueryString应该包含在其中。例：/search?query=byvoid。<br>    headers:一个关联数组对象，为请求头的内容。</boolean></boolean></string></p>
+<figure class="highlight plain"><figcaption><span>[HttpRequestPost.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> var http = require(&apos;http&apos;); </div><div class="line"> var querystring = require(&apos;querystring&apos;);  </div><div class="line"> var contents = querystring.stringify(</div><div class="line"> 	&#123;   name: &apos;byvoid&apos;,   </div><div class="line"> 		email: &apos;byvoid@byvoid.com&apos;,   </div><div class="line"> 		address: &apos;Zijing 2#, Tsinghua University&apos;, </div><div class="line"> 	&#125;); </div><div class="line"> </div><div class="line">var options = &#123;   </div><div class="line">	host: &apos;www.byvoid.com&apos;,   </div><div class="line">	path: &apos;/application/node/post.php&apos;,   </div><div class="line">	method: &apos;POST&apos;,   </div><div class="line">	headers: &#123;     &apos;Content-Type&apos;: &apos;application/x-www-form-urlencoded&apos;,     </div><div class="line">				   &apos;Content-Length&apos; : contents.length   </div><div class="line">			 &#125; &#125;; </div><div class="line"> </div><div class="line">var req = http.request(options, function(res) &#123;   </div><div class="line">	res.setEncoding(&apos;utf8&apos;);   </div><div class="line">	res.on(&apos;data&apos;, function (data) &#123;     </div><div class="line">		console.log(data);   </div><div class="line">	&#125;); </div><div class="line">&#125;); </div><div class="line">req.write(contents); </div><div class="line">req.end(); </div><div class="line">运行后结果如下： </div><div class="line">array(3) &#123;   [&quot;name&quot;]=&gt;   string(6) &quot;byvoid&quot;   </div><div class="line">			 [&quot;email&quot;]=&gt;   string(17) &quot;byvoid@byvoid.com&quot;   </div><div class="line">			 [&quot;address&quot;]=&gt;   string(30) &quot;Zijing 2#, Tsinghua University&quot; &#125; </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>http.get(options,callback) http模块还提供了一个更加简便的方法用于处理GET请求：http.get。他是http.request的简化版，唯一的区别在于http.get自动将请求方法设为了GET请求，同时不需要手动调用req.end()。<br><figure class="highlight plain"><figcaption><span>[httpget.js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var http = require(&apos;http&apos;); </div><div class="line"> http.get(&#123;host: &apos;www.byvoid.com&apos;&#125;, function(res) &#123;   </div><div class="line"> 			res.setEncoding(&apos;utf8&apos;);   </div><div class="line"> 			res.on(&apos;data&apos;, function (data) &#123;    </div><div class="line"> 			 console.log(data);  </div><div class="line"> 			  &#125;); </div><div class="line"> 			&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node-fs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/07/node-fs/" class="article-date">
+      <time datetime="2017-03-07T10:16:55.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/07/node-fs/">nodejs fs模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>文件系统fs</strong><br>fs模块是文件操作的封装，它提供了文件的读取、写入、更名、删除、遍历目录、链接等POSIX文件系统操作。与其他模板不同的是，fs模板中所有的操作都提供了异步的和同步的两个版本，例如读取文件内容的函数有异步的fs.readFile()和同步的fs.readFileSync().我们以几个函数为代表，介绍fs的常用功能，并列出fs所有函数的定义和功能。<br>fs.readFile<br>fs.readFile(filename,[encoding],[callback(err,data)])<br>一个必选参数filename，表示读取的文件名，第二个参数encoding是可选的，表示文件的字符编码。callback是回调还数，用于接受文件内容，如果不指定encoding，则callback就是第二个参数。回调函数提供两个参数err和data,err表示没有错误发生，data是文件内容，如果指定了encoding，data是一个解析后的字符串，否则data将会是以Buffer的形式表示的二进制数据。<br>例：不指定编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var fs = require(&apos;fs&apos;); </div><div class="line"> </div><div class="line">fs.readFile(&apos;content.txt&apos;, </div><div class="line">    function(err, data)</div><div class="line">     &#123;   </div><div class="line">        if (err) </div><div class="line">        &#123; </div><div class="line"></div><div class="line">            console.error(err);  </div><div class="line">         &#125;</div><div class="line">        else </div><div class="line">        &#123;     console.log(data);   </div><div class="line">        &#125; </div><div class="line">    &#125;); </div><div class="line">//假设 content.txt 中的内容是 UTF-8 编码的 Text 文本文件示例，运行结果如下： </div><div class="line">&lt;Buffer 54 65 78 74 20 e6 96 87 e6 9c ac e6 96 87 e4 bb b6 e7 a4 ba e4 be 8b&gt; </div><div class="line">这个程序以二进制的模式读取了文件的内容，data 的值是 Buffer 对象。</div><div class="line">如果我们给 fs.readFile 的 encoding 指定编码： </div><div class="line">var fs = require(&apos;fs&apos;); </div><div class="line">fs.readFile(&apos;content.txt&apos;, &apos;utf-8&apos;, function(err, data) </div><div class="line">    &#123;   </div><div class="line">        if (err)</div><div class="line">         &#123;     </div><div class="line">            console.error(err);  </div><div class="line">         &#125; else </div><div class="line">         &#123;    </div><div class="line">            console.log(data);  </div><div class="line">           &#125; </div><div class="line">       &#125;); </div><div class="line">那么运行结果则是： </div><div class="line">Text 文本文件示例 </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>fs.readFileSync<br>fs.readFileSync(filename, [encoding])是 fs.readFile 同步的版本。它接受 的参数和 fs.readFile 相同，而读取到的文件内容会以函数返回值的形式返回。如果有错 误发生，fs 将会抛出异常，你需要使用 try 和 catch 捕捉并处理异常。<br>fs.open<br>fs.open(path, flags, [mode], [callback(err, fd)])是 POSIX open 函数的 封装，与 C 语言标准库中的 fopen 函数类似。它接受两个必选参数，path 为文件的路径， flags 可以是以下值。 r ：以读取模式打开文件。 <br>r+ ：以读写模式打开文件。 <br>w ：以写入模式打开文件，如果文件不存在则创建。 <br>w+ ：以读写模式打开文件，如果文件不存在则创建。 <br>a ：以追加模式打开文件，如果文件不存在则创建。 <br>a+ ：以读取追加模式打开文件，如果文件不存在则创建。<br>mode 参数用于创建文件时给文件指定权限，默认是 0666①。回调函数将会传递一个文 件描述符 fd②。<br>① 文件权限指的是 POSIX 操作系统中对文件读取和访问权限的规范，通常用一个八进制数来表示。例如 0754 表 示文件所有者的权限是 7 （读、写、执行），同组的用户权限是 5 （读、执行），其他用户的权限是 4 （读）， 写成字符表示就是 -rwxr-xr–。<br>② 文件描述符是一个非负整数，表示操作系统内核为当前进程所维护的打开文件的记录表索引</p>
+<p>fs.read<br>fs.read(fd, buffer, offset, length, position, [callback(err, bytesRead, buffer)])是 POSIX read 函数的封装，相比 fs.readFile 提供了更底层的接口。fs.read 的功能是从指定的文件描述符<br>fd 中读取数据并写入 buffer 指向的缓冲区对象。<br>offset 是 buffer 的写入偏移量。<br>length 是要从文件中读取的字节数。<br>position 是文件读取的起始 位置，如果 position 的值为 null，则会从当前文件指针的位置读取。<br>回调函数传递 bytesRead 和 buffer，分别表示读取的字节数和缓冲区对象。<br>以下是一个使用 fs.open 和 fs.read 的示例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt; </div><div class="line">var fs = require(&apos;fs&apos;); </div><div class="line"> </div><div class="line">fs.open(&apos;content.txt&apos;, &apos;r&apos;, function(err, fd) &#123; </div><div class="line">  if (err) </div><div class="line">  &#123;     </div><div class="line">    console.error(err);     </div><div class="line">    return;   </div><div class="line">  &#125;      </div><div class="line">  var buf = new Buffer(8);   </div><div class="line">  fs.read(fd, buf, 0, 8, null, function(err, bytesRead, buffer)</div><div class="line">   &#123;     </div><div class="line">    if(err) </div><div class="line">    &#123;       </div><div class="line">        console.error(err);       </div><div class="line">        return;     </div><div class="line">    &#125;          </div><div class="line">    console.log(&apos;bytesRead: &apos; + bytesRead);    </div><div class="line">    console.log(buffer);   </div><div class="line">    &#125;)</div><div class="line"> &#125;); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>一般来说，除非必要，否则不要使用这种方式读取文件，因为它要求你手动管理缓冲区 和文件指针，尤其是在你不知道文件大小的时候，这将会是一件很麻烦的事情</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-node-events" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -605,257 +840,9 @@
 
 
   
-    <article id="post-js_ Summary_Dom" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/23/js_ Summary_Dom/" class="article-date">
-      <time datetime="2017-02-23T02:40:20.000Z" itemprop="datePublished">2017-02-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/js_ Summary_Dom/">js总结_Dom基本操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>JS dom基本操作</strong><br><strong><em>获取节点</em></strong><br><code>document.getElementById(元素ID);</code><br><code>document.getElementsByName(元素name);</code><br><code>document.getElementsByTagName(元素标签);</code><br><strong><em>节点指针</em></strong><br><code>firstChild:获取元素的首个子节点;</code><br><code>lastChild:取元素的最后一个子节点;</code><br><code>childNodes:获取元素的子节点列表;</code><br><code>parentNode:获取已知节点的父节点;</code><br><code>previousSibling:获取已知元素的前一个节点(同级);</code><br><code>nextSibling:获取已知元素的后一个节点(同级);</code><br><figure class="highlight plain"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;demo&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;123&quot; value=&quot;123&quot;/&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</div><div class="line">&lt;button onclick=&quot;myFunction()&quot;&gt;试一下&lt;/button&gt; </div><div class="line">&lt;script&gt;</div><div class="line">function myFunction()</div><div class="line">&#123;</div><div class="line">  var x=document.getElementById(&quot;demo&quot;);</div><div class="line">  console.log(x.firstChild);  //&lt;input type=&quot;text&quot; id=&quot;123&quot; value=&quot;123&quot;/&gt;</div><div class="line">  console.log(x.firstChild.value);//123</div><div class="line">  console.log(x.childNodes.length);//2 注意空格</div><div class="line">  console.log(x.childNodes[0].innerHTML); //</div><div class="line">  console.log(1);//1</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br><strong><em>节点操作</em></strong><br>1.创建节点<br><code>createElement 创建元素节点,创建p标签document.createElement(&quot;p&quot;);</code><br><code>createAttribute 创建元素属性,document.createAttribute(元素属性);</code><br><code>createTextNode 创建文本节点,document.createTextNode(文本内容);</code><br>2.插入节点<br><code>appendChild 向节点的子节点列表的末尾添加新的子节点</code><br><code>insertBefore 在已知子节点前插入一个新的子节点</code><br>3.替换节点<br><code>replaceChild 将某个子节点替换成另一个,replaceChild(&#39;要插入的新元素&#39;,&#39;将被替换的老元素&#39;)</code><br>4.复制节点<br><code>cloneNode创建指定节点的副本，需要被复制的节点.cloneNode(true/false)</code><br>5.删除节点<br><code>removeChild 删除指定节点， removeChild(要删除的节点)</code><br><strong><em>属性操作</em></strong><br><code>getAttribute获取元素属性;</code><br><code>setAttribute设置元素属性;</code><br><code>removeAttribute移除元素属性;</code><br><strong><em>文本操作</em></strong><br><code>insertData(offset,String) 从offset的指定位置插入string;</code><br><code>appendData(String) 将string插入文本节点的末尾处;</code><br><code>deleteData(offset,count) 从offset起删除count个字符;</code><br><code>spiltData(offset) 从offset处将文本节点分为两个节点;</code><br><code>substring(offset,count) 返回由offset起的count个节点;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">  &lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">      &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">      &lt;title&gt;事件&lt;/title&gt;    </div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line"> &lt;div id=&quot;box&quot;&gt;</div><div class="line">     &lt;a href=&quot;http://www.baidu.com&quot; id=&quot;go&quot;&gt;跳转&lt;/a&gt;</div><div class="line"> &lt;/div&gt;</div><div class="line">     &lt;script&gt;</div><div class="line">     var oDiv = document.getElementById(&apos;box&apos;);</div><div class="line">     var oA = document.getElementById(&apos;go&apos;);</div><div class="line">     oDiv.onclick = function ()&#123;</div><div class="line">         alert(&apos;我是a链接的父容器&apos;);</div><div class="line">     &#125;</div><div class="line">     oA.onclick = function (ev)&#123;</div><div class="line">         ev = event || window.event;</div><div class="line">         if(ev.stopPropagation)&#123;</div><div class="line">           ev.stopPropagation();</div><div class="line">         &#125;</div><div class="line">         else&#123;</div><div class="line">             ev.cancelBubble = true;</div><div class="line">         &#125;</div><div class="line">         if(ev.preventDefault)&#123;</div><div class="line">             ev.preventDefault();</div><div class="line">         &#125;</div><div class="line">         else&#123;</div><div class="line">             ev.returnValue = false;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">     &lt;/script&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js_ Summary_func" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/23/js_ Summary_func/" class="article-date">
-      <time datetime="2017-02-23T01:30:20.000Z" itemprop="datePublished">2017-02-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/js_ Summary_func/">js总结_函数基础</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>JS函数基础</strong><br>1.调用方法<br>直接调用：函数名(实参列表)<br>在链接中调用：<code>&lt;a href=&quot;javascript:函数名()&quot;&gt;啦啦啦啦&lt;/a&gt;</code><br>在事件中调用：事件类型=”函数名()”;<br>递归调用：在函数内部调用函数自身，<code>function aaa(){alert(&#39;1111&#39;);aaa()}</code><br><figure class="highlight plain"><figcaption><span>[递归调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var i=0;</div><div class="line">function aaa()</div><div class="line">&#123;</div><div class="line">  console.log(i++);</div><div class="line">  if(i&lt;6)&#123;</div><div class="line">    aaa() </div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br>2.方法<br>apply 将函数作为对象的方法来调用，将参数以数组形式传递给该方法;<br>call 将函数作为对象的方法来调用，将指定参数传递给该方法;<br>toString 返回函数的字符串表示<br>apply和call的区别是传入参数的形式不一样，其作用并无本质差别,都是改变this的指向。第一个是改变改变this的指向，其后就是传入的参数<br>如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]);<br><figure class="highlight plain"><figcaption><span>[1]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; id=&quot;myText&quot;   value=&quot;input text&quot;&gt;</div><div class="line">&lt;script&gt;</div><div class="line">   function Obj()&#123;</div><div class="line">    this.value=&quot;对象！&quot;;</div><div class="line">   &#125;</div><div class="line">   var value=&quot;global 变量&quot;;</div><div class="line">   function Fun1()&#123;</div><div class="line">    alert(this.value);</div><div class="line">   &#125;</div><div class="line">   window.Fun1();   //global 变量</div><div class="line">   Fun1.call(window);  //global 变量</div><div class="line">   Fun1.call(document.getElementById(&apos;myText&apos;));  //input text</div><div class="line">   Fun1.call(new Obj());   //对象！</div><div class="line">   window.Fun1(); //global 变量</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>下例分别弹出了func和var。先调用func函数，用this.a=”func”替换myfunc中的this.a ; 然后将”var”传递给方法myfunc的参数x可见分别弹出了func和var。<br>对于apply和call两者在作用上是相同的，但两者在参数上有区别的。<br>第一个参数意义都一样。第二个参数：apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。<br>如 func.call(func1,var1,var2,var3)  对应的apply写法为：func.apply(func1,[var1,var2,var3])，同时使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入。 　<br><figure class="highlight plain"><figcaption><span>[2]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  var func=new function()&#123;this.a=&quot;func&quot;&#125;</div><div class="line">  var myfunc=function(x)&#123;</div><div class="line">       var a=&quot;myfunc&quot;;</div><div class="line">       alert(this.a);</div><div class="line">       alert(x);</div><div class="line">   &#125;</div><div class="line">   myfunc.call(func,&quot;var&quot;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>下例将add替换sub,运行结果为4;<br><figure class="highlight plain"><figcaption><span>[3]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function add(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a + b);</div><div class="line">&#125;</div><div class="line">function sub(a, b)</div><div class="line">&#123;</div><div class="line">  alert(a - b);</div><div class="line">&#125;</div><div class="line">add.call(sub, 3, 1);</div></pre></td></tr></table></figure></p>
-<p><a href="http://www.cnblogs.com/huyong/p/4139875.html" target="_blank" rel="external">apply和call参考资料</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js_ Summary" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/22/js_ Summary/" class="article-date">
-      <time datetime="2017-02-22T05:50:20.000Z" itemprop="datePublished">2017-02-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/js_ Summary/">js总结_数组</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>JS数组</strong><br>1.创建数组</p>
-<p>  <code>空数组：var Obj=new Array() 或var Obj=[];</code><br>  <code>指定长度的数组：var Obj=new Array(Size);</code><br>  <code>指定元素的数组：var Obj=new Array(元素1,元素2...)</code><br>  <code>单维数组      ：var Obj=[元素a,元素b,元素c...];</code><br>  <code>多维数组      ：var Obj=[[a],[b],[c]]</code><br>2.删除数组<br>delete 数组名加下标<br>3.遍历数组<br>for…in…<br><code>var example=[1,2,3,4];</code><br><code>for(a in example){
- console.log(&#39;a在数组里&#39;);
-}</code><br>4.数组的添加与删除<br><code>push() 在数组末尾添加数组</code><br><code>unshift() 在数组头部添加元素</code><br><code>concat() 合并两个数组</code><br><code>pop() 删除并返回数值的最后一个元素</code><br><code>shift() 删除并返回数组的第一个元素</code><br><code>splice() 可以在指定位置删除插入或替换</code><br><code>slice() 从已有数组中选取部分元素组成数组，如果是正值从前外后，如果是负值从后往前</code><br><code>reverse() 颠倒数组元素的顺序</code><br><code>sort() 排序</code><br><figure class="highlight plain"><figcaption><span>[升序]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function UpSort(a,b)&#123;</div><div class="line">  if(a&gt;b)&#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else if(b&gt;a)</div><div class="line">  &#123;</div><div class="line">    return -1</div><div class="line">  &#125;</div><div class="line">  else&#123;</div><div class="line">    return 0</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure><br><code>toString() 转化成字符串并返回  var aaa=[1,2,3,4] console.log(aaa.toString())  输出1,2,3,4</code><br><code>join() 用指定分隔符分割数组并转化成字符串 var aaa=[1,2,3,4] console.log(aaa.join(&#39;-&#39;))  输出1-2-3-4</code><br><code>indexOf() 从数组起始位置开始查找，如果有就返回&gt;=0</code><br><code>every() 如果该函数的每项都为true,则返回true</code><br><code>some() 如果该函数的有一项都为true,则返回true</code><br><code>map() 返回每次函数调用的结果数组</code><br><code>forEach():没有返回值，只是针对每个元素调用func</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function my_func(item) &#123;</div><div class="line">  if (item == 1) &#123;</div><div class="line">    console.log(&apos;t&apos;);</div><div class="line">    return true;</div><div class="line">  &#125;</div><div class="line">  console.log(&apos;f&apos;);</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// init an array</div><div class="line">l = [0,1,2,3,4]</div><div class="line">// print: f</div><div class="line">// return: false</div><div class="line">l.every(my_func)</div><div class="line">// print: f,t</div><div class="line">// return: true</div><div class="line">l.some(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">// return:[false, true, false, false, false]</div><div class="line">l.map(my_func)</div><div class="line">// print: f,t,f,f,f</div><div class="line">//return: undefined</div><div class="line">l.forEach(my_func)</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ng-ui-route" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/22/ng-ui-route/" class="article-date">
-      <time datetime="2017-02-22T04:10:20.000Z" itemprop="datePublished">2017-02-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>angular-ui-router路由设置</strong><br>因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试<br><a href="http://jingyan.baidu.com/article/ed2a5d1f128ff609f6be17fa.html" target="_blank" rel="external">提供一个搭建本地服务器链接 》</a><br>首先新建5个页面<br><figure class="highlight plain"><figcaption><span>[a.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是a页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[b.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是b页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[c.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是c页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Tab.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;div&gt;&lt;a ui-sref=&quot;.page1&quot;&gt;A&lt;/a&gt;&lt;a ui-sref=&quot;.page2&quot;&gt;B&lt;/a&gt;&lt;a ui-sref=&quot;.page3&quot;&gt;C&lt;/a&gt;&lt;/div&gt;&lt;br&gt;     &lt;div&gt;&lt;br&gt;          &lt;div ui-view=&quot;&quot;/&gt;&lt;br&gt;     &lt;/div&gt;&lt;br&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;br&gt;  &lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;br&gt;    &lt;title&gt;demo&lt;/title&gt;&lt;br&gt;    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;link href=&quot;&quot; rel=&quot;stylesheet&quot;&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular-ui-router.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/app.js&apos;&gt;&lt;/script&gt;&lt;br&gt;  &lt;/head&gt;&lt;br&gt;  &lt;body data-ng-app=&quot;demo&quot;&gt;&lt;br&gt;       &lt;div class=&quot;content&quot;&gt;&lt;br&gt;            &lt;div data-ui-view=&quot;&quot;&gt;&lt;/div&gt;&lt;br&gt;        &lt;/div&gt;&lt;br&gt;  &lt;/body&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br>首先注入ui.router<br>默认进入Tab.html页面<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;var demo = angular.module(“demo”, [“ui.router”]);&lt;br&gt;demo.config(function ($stateProvider, $urlRouterProvider) &#123;&lt;/p&gt;</div><div class="line"><pre><code>$urlRouterProvider.otherwise(&apos;/Tab&apos;);
-
-$stateProvider
-   .state(&quot;Tab&quot;, {
-       url: &quot;/Tab&quot;,
-       templateUrl: &quot;Tab.html&quot;
-   })
-   .state(&quot;Tab.page1&quot;, {
-       url:&quot;/page1&quot;,
-       templateUrl: &quot;page1.html&quot;
-   })
-   .state(&quot;Tab.page2&quot;, {
-       url:&quot;/page2&quot;,
-       templateUrl: &quot;page2.html&quot;
-   })
-   .state(&quot;Tab.page3&quot;, {
-       url:&quot;/page3&quot;,
-       templateUrl: &quot;page3.html&quot;
-   });
-</code></pre>&lt;p&gt;&#125;);</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

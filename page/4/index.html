@@ -14,10 +14,13 @@
 <meta name="author" content="wangdenglin" />
 
 
+    
+    
+
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://wangdenglin.github.io/archives/page/2/index.html">
+<meta property="og:url" content="http://wangdenglin.github.io/page/4/index.html">
 <meta property="og:site_name" content="我的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的博客">
@@ -48,11 +51,13 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+    <style> .article { opacity: 0;} </style>
+
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | 我的博客</title>
+<title>我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -61,9 +66,9 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: false,
+        isHome: true,
         isPost: false,
-        isArchive: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -254,323 +259,141 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ionic" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/09/13/ionic/" class="article-date">
+      <time datetime="2016-09-13T06:31:49.000Z" itemprop="datePublished">2016-09-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/13/ionic/">ionic 常见问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>如何在ionic中嵌入网页代码?</strong></p>
+<p>使用ng-bind-html这个类,不过它会过滤原始html的标签，我们可以引入$scope模块，用$scope.trustAsHtml()方法信任我们获取的网页<br><strong>1.如何将template加载到某个tab或某个sidemenu项目下?</strong><br>  <a href="http://www.baidu.com" target="_blank" rel="external">百度搜索</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;&lt;ion-nav-view name=&quot;menuContent&quot;&gt; </div></pre></td></tr></table></figure>可以指定name，然后在子状态中使用该name，ionic就知道该把该状态的template渲染到哪边了。例如：<br><figure class="highlight plain"><figcaption><span>[路由设置] []</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;.state(&apos;auth.signup&apos;, &#123;</div><div class="line">      url: &apos;/signup&apos;,</div><div class="line">      views: &#123;</div><div class="line">          &apos;auth-signup&apos;: &#123;</div><div class="line">              templateUrl: &apos;templates/auth-signup.html&apos;,</div><div class="line">              controller: &apos;SignUpCtrl&apos;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    另有一个tabs中声明该auth-signup:</div><div class="line">    &apos;&lt;ion-tab title=&quot;Sign Up&quot; icon-on=&quot;ion-ios-personadd&quot;</div><div class="line">      icon-off=&quot;ion-ios-personadd-outline&quot; href=&quot;#/auth/signup&quot;&gt;</div><div class="line">      &lt;ion-nav-view name=&quot;auth-signup&quot;&gt;&lt;/ion-nav-view&gt;</div><div class="line">   &lt;/ion-tab&gt;&apos;</div></pre></td></tr></table></figure><br><strong>2.如何关闭应用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic.Platform.exitApp();</div></pre></td></tr></table></figure><br><strong>3.APP开启检测网络并提示开启</strong></p>
+<blockquote>
+<p>需要三个插件<br>  <div>1. <a href="https://github.com/apache/cordova-plugin-network-information" target="_blank" rel="external">https://github.com/apache/cordova-plugin-network-information</a></div><br>  <div>2. <a href="https://github.com/apache/cordova-plugin-dialogs" target="_blank" rel="external">https://github.com/apache/cordova-plugin-dialogs</a></div><br>  <div>3. <a href="https://github.com/deefactorial/Cordova-open-native-settings" target="_blank" rel="external">https://github.com/deefactorial/Cordova-open-native-settings</a></div><br>然后在APP.JS中，divicesReady中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">if (navigator.connection) &#123;</div><div class="line">            var tmptypes = navigator.connection.type;</div><div class="line">            if (tmptypes.toUpperCase().indexOf(&apos;NONE&apos;) &gt; -1 || tmptypes.toUpperCase().indexOf(&apos;UNKNOWN&apos;) &gt; -1) &#123;</div><div class="line">                if (navigator.notification) &#123;</div><div class="line">                    navigator.notification.confirm(</div><div class="line">                    &apos;您的设备未开启网络&apos;,</div><div class="line">                       function (buttonIndex) &#123;</div><div class="line">                             if (buttonIndex == 1) &#123;</div><div class="line">                               if (cordova.plugins.settings) &#123;</div><div class="line">                                   cordova.plugins.settings.openSetting(&quot;wifi&quot;, function () &#123; console.log(&quot;network setting openning&quot;); &#125;, function () &#123; console.log(&quot;open network setting failed&quot;); &#125;);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                         &#125;,            // callback to invoke with index of button pressed</div><div class="line">                       &apos;提示&apos;,           // title</div><div class="line">                       [&apos;开启&apos;, &apos;取消&apos;]     // buttonLabels</div><div class="line">                               );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;）</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>4.hide-back-button -是否隐藏导航栏中的返回按钮</strong><br>当模板被载入导航视图时，如果之前有其他的模板，那么在导航栏ion-nav-bar上默认会自动 显示返回按钮（使用指令ion-nav-back-button定义）。点击该按钮将返回前一个模板。<br>hide-back-button的允许值为：true | false ，默认为false<br>注意：必须在导航栏中显式地声明返回按钮，否则即使将hide-back-button属性设为false， 这个按钮也不会出现;<br><strong>5.hide-nav-bar - 是否隐藏导航栏</strong><br>允许值为：true | false ,默认为false<br>在<ion-view>中添加 hide-nav-bar 属性</ion-view></p>
+<p><ion-view title="title Policy" hide-nav-bar="true"><br></ion-view></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/13/node-login/" class="archive-article-date">
-      <time datetime="2017-03-13T02:50:49.000Z" itemprop="datePublished">03-13</time>
-</a>
 
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/13/node-login/">node-express-mongoose登录demo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/09/node-path/" class="archive-article-date">
-      <time datetime="2017-03-09T07:54:55.000Z" itemprop="datePublished">03-09</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/09/node-path/">nodejs path模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/08/node-Http/" class="archive-article-date">
-      <time datetime="2017-03-08T01:30:50.000Z" itemprop="datePublished">03-08</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/08/node-Http/">nodejs Http模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/07/node-fs/" class="archive-article-date">
-      <time datetime="2017-03-07T10:16:55.000Z" itemprop="datePublished">03-07</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/07/node-fs/">nodejs fs模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/07/node-events/" class="archive-article-date">
-      <time datetime="2017-03-07T08:31:50.000Z" itemprop="datePublished">03-07</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/07/node-events/">nodejs events模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/28/nodejs1/" class="archive-article-date">
-      <time datetime="2017-02-28T01:50:20.000Z" itemprop="datePublished">02-28</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/nodejs1/">nodejs基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
+      
+      
+      <div class="clearfix"></div>
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/27/js_ Summary_Client/" class="archive-article-date">
-      <time datetime="2017-02-27T01:50:20.000Z" itemprop="datePublished">02-27</time>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-github_upload" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/16/github_upload/" class="article-date">
+      <time datetime="2016-06-16T02:31:49.000Z" itemprop="datePublished">2016-06-16</time>
 </a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/27/js_ Summary_Client/">JS中clientWidth offsetWidth scrollWidth 等的含义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/24/js_ Summary_Closure/" class="archive-article-date">
-      <time datetime="2017-02-24T07:50:20.000Z" itemprop="datePublished">02-24</time>
-</a>
-
-
-        </div>
-         
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/js_ Summary_Closure/">js总结_闭包</a>
+      <a class="article-title" href="/2016/06/16/github_upload/">github upload</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p><strong>如何将本地项目上传到github</strong></p>
+<p>首先你要有个github账号,怎么申请账号在这里我就不介绍了。下面开始讲解怎么上传本地项目到github.<br>1.创建一个仓库</p>
+<p><img src="/2016/06/16/github_upload/1.png" alt="1"></p>
+<p>2.创建好后，复制链接(后面会用)</p>
+<p><img src="/2016/06/16/github_upload/link.png" alt="link"></p>
+<p>3.接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入如下界面，node-login即为我的项目名。</p>
+<p>4.接下来输入如下代码（关键步骤），把github上面的仓库克隆到本地</p>
+<p>git clone <a href="https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）" target="_blank" rel="external">https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）</a></p>
+<p>5.这个步骤以后你的本地项目文件夹下面就会多出个文件夹，该文件夹名即为你github上面的项目名，我多出了个node-login文件夹，我们把本地项目文件夹下的所有文件（除了新多出的那个文件夹不用），其余都复制到那个新多出的文件夹下</p>
+<p>6.接着继续输入命令 cd node-login，进入node-login文件夹</p>
+<p>7.接下来依次输入以下代码即可完成其他剩余操作<br>  git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）</p>
+<p>  git commit  -m  “提交信息”  （注：“提交信息”里面换成你需要，如“first commit”）</p>
+<p>  git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）<br>出现如下图表示成功<br><img src="/2016/06/16/github_upload/4.png" alt="4"></p>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/24/js_ Summary_Sport/" class="archive-article-date">
-      <time datetime="2017-02-24T07:16:20.000Z" itemprop="datePublished">02-24</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/js_ Summary_Sport/">js总结_Ajax</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/02/24/js_ Summary_Object/" class="archive-article-date">
-      <time datetime="2017-02-24T03:46:20.000Z" itemprop="datePublished">02-24</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/js_ Summary_Object/">js总结_面向对象</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+  
+  
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
     </nav>
   
-
 </div>
       <footer id="footer">
     <div class="outer">
