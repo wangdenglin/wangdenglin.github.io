@@ -259,6 +259,118 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SQL_ex" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/12/SQL_ex/" class="article-date">
+      <time datetime="2017-04-12T02:30:49.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/SQL_ex/">SQL  小例子</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong> SQL  小例子</strong><br>例子一<br>1.创建表<br>我们先两个表，testTable1和testTable2<br><figure class="highlight plain"><figcaption><span>[testtable1]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">create table testtable1</div><div class="line">(</div><div class="line">id int IDENTITY,</div><div class="line">department varchar(12) </div><div class="line">)</div><div class="line"></div><div class="line">select * from testtable1</div><div class="line">insert into testtable1 values(&apos;设计&apos;)</div><div class="line">insert into testtable1 values(&apos;市场&apos;)</div><div class="line">insert into testtable1 values(&apos;售后&apos;)</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[testtable2]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">create table testtable2</div><div class="line">(</div><div class="line">id int IDENTITY,</div><div class="line">dptID int,</div><div class="line">name varchar(12)</div><div class="line">)</div><div class="line">insert into testtable2 values(1,&apos;张三&apos;)</div><div class="line">insert into testtable2 values(1,&apos;李四&apos;)</div><div class="line">insert into testtable2 values(2,&apos;王五&apos;)</div><div class="line">insert into testtable2 values(3,&apos;彭六&apos;)</div><div class="line">insert into testtable2 values(4,&apos;陈七&apos;)</div></pre></td></tr></table></figure><br>现在要求查询出如下内容：<br>id    dptID    name    (No column name)<br>5    4    陈七    没有<br>4    3    彭六    售后<br>3    2    王五    市场<br>2    1    李四    设计<br>1    1    张三    设计<br><figure class="highlight plain"><figcaption><span>[查询方法]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SELECT [testtable2].* , ISNULL(department,&apos;没有&apos;)</div><div class="line">FROM[testtable1] </div><div class="line">right join [testtable2] </div><div class="line">on [testtable2].dptID = [testtable1].ID </div><div class="line">order by [testtable2].id desc</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular_ex" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/10/angular_ex/" class="article-date">
+      <time datetime="2017-04-10T03:50:49.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/angular_ex/">angular 搜索</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angular 搜索电话号码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container-fluid&quot;&gt;</div><div class="line">  &lt;div class=&quot;row-fluid&quot;&gt;</div><div class="line">    &lt;div class=&quot;span2&quot;&gt;</div><div class="line">      &lt;!--Sidebar content--&gt;</div><div class="line">      Search: &lt;input ng-model=&quot;query&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;span10&quot;&gt;</div><div class="line">      &lt;!--Body content--&gt;</div><div class="line">      &lt;ul class=&quot;phones&quot;&gt;</div><div class="line">        &lt;li ng-repeat=&quot;phone in phones | filter:query&quot;&gt;</div><div class="line">          </div><div class="line">        &lt;p&gt;&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">      &lt;/ul&gt;</div><div class="line">       &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-react_dayone" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -694,121 +806,6 @@
       
           
         <p><strong>JS ajax</strong><br><figure class="highlight plain"><figcaption><span>[demo]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">1.替换空格为wdl</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">function replaceSpace(str)</div><div class="line">&#123;</div><div class="line">    return str.replace(/\s/g,&apos;wdl&apos;);</div><div class="line">&#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">2.js拉起或下载app</div><div class="line">http://www.cnblogs.com/ytu2010dt/p/6429376.html</div><div class="line">3.Javascript中最常用的55个经典技巧</div><div class="line">http://www.cnblogs.com/yuzhihui/p/6386127.html</div><div class="line"> </div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ionic_orientationScreen" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/21/ionic_orientationScreen/" class="article-date">
-      <time datetime="2017-03-21T10:15:49.000Z" itemprop="datePublished">2017-03-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/21/ionic_orientationScreen/">ionic开发--禁止手机横屏</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>申请appid在ionic开发中，但是我们手机屏幕设置成自动选择后，在手机横屏后，可能会打乱布局，解决办法如下：</strong><br>1.进入cmd项目目录安装插件，命令如下（此命令时基于cordova的plugin的插件）：<br>    <code>ionic plugin add cordova-plugin-screen-orientation</code><br>2.在config.xml文件中，添加如下内容：</p>
-<p>   <code>&lt;preference name=&quot;orientation&quot; value=&quot;portrait&quot; /&gt;</code><br>orientation设置可以让你锁定应用程序屏幕方向以阻止屏幕自动翻转。可选的值有：default，landscape(横屏)，portrait(竖屏)。</p>
-<p>处理img不存在的方法<a href="http://blog.csdn.net/liayn523/article/details/52586531" target="_blank" rel="external">http://blog.csdn.net/liayn523/article/details/52586531</a><br>javascript表格操作大全：表格排序/倒序、动态添加列、批量删除、删除一行、隔行变色、鼠标悬浮切换背景色、全选/反选。（IE、火狐都兼容）<br><a href="http://blog.csdn.net/qy1387/article/details/7874743" target="_blank" rel="external">http://blog.csdn.net/qy1387/article/details/7874743</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ionic_wechat" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/20/ionic_wechat/" class="article-date">
-      <time datetime="2017-03-20T10:34:49.000Z" itemprop="datePublished">2017-03-20</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/ionic_wechat/">ionic+angular+cordova微信分享</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>申请appid</strong><br>首先要进入微信开放平台<a href="https://open.weixin.qq.com,申请appid,填写信息时一定要确认" target="_blank" rel="external">https://open.weixin.qq.com,申请appid,填写信息时一定要确认</a><br>包名和应用签名的正确，（我就错误的把SHA1当成了应用签名。。。）<br><strong>添加插件</strong><br>cordova plugin add <a href="https://github.com/xu-li/cordova-plugin-wechat" target="_blank" rel="external">https://github.com/xu-li/cordova-plugin-wechat</a> –variable wechatappid=YOUR_WECHAT_APPID</p>
-<p>下面demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">try&#123;</div><div class="line">                 Wechat.isInstalled(function (installed) </div><div class="line">                &#123;</div><div class="line">                 if((installed ? &quot;Yes&quot; : &quot;No&quot;)==&quot;Yes&quot;)&#123;</div><div class="line">                    // var scope = &quot;snsapi_userinfo&quot;,</div><div class="line">                    // state = &quot;_&quot; + (+new Date());</div><div class="line">                    // Wechat.auth(scope, state, function (response) </div><div class="line">                    // &#123;</div><div class="line">                    //     alert(JSON.stringify(response));</div><div class="line">                    // &#125;, function (reason) &#123;</div><div class="line">                    //     alert(&quot;auth: &quot; + reason);</div><div class="line">                    // &#125;);</div><div class="line">                     Wechat.share(&#123;</div><div class="line">                     text: &quot;This is just a plain string&quot;,</div><div class="line">                     scene: Wechat.Scene.TIMELINE   // share to Timeline</div><div class="line">                     &#125;, function () &#123;</div><div class="line">                        alert(&quot;Success&quot;);</div><div class="line">                    &#125;, function (reason) &#123;</div><div class="line">                        alert(&quot;Failed: &quot; + reason);</div><div class="line">                    &#125;);</div><div class="line">                 &#125;;</div><div class="line">                &#125;, function (reason) </div><div class="line">                &#123;</div><div class="line">                    alert(&quot;Failed: &quot; + reason);</div><div class="line">                &#125;); </div><div class="line">            &#125;</div><div class="line">        catch(err)</div><div class="line">        &#123;</div><div class="line">                alert(err.message+&apos;1&apos;);</div><div class="line">        &#125; </div><div class="line"></div></pre></td></tr></table></figure></p>
 
       
     </div>

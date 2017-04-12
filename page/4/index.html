@@ -259,6 +259,141 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-angular_way" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/angular_way/" class="article-date">
+      <time datetime="2017-02-21T08:55:49.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/angular_way/">angular 常用指令和使用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angularjs常用指令和使用方法</strong><br>1.ng-app指令<br>划分区域，表明哪一块属于angularjs<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body ng-app=&quot;&quot;&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure><br>2.ng-init 指令<br>初始化值<br>使用ng-init指令使open的初始化值为true<br>使用example如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init=&apos;open=true&apos;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>3.ng-show 指令和ng-hide<br>分别表示目标的显示和隐藏<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之显示关闭。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-show=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div ng-hide=&apos;IfSwitch&apos;&gt;</div><div class="line">		关闭</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>4.ng-if 指令<br>ng-if 指令不同于 ng-hide和ng-show 隐藏或显示元素，ng-if 是从 DOM 中移除元素。<br>使用example如下：<br>当$scope.IfSwitch=true时显示打开，反之移除dom。<br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-if=&apos;IfSwitch&apos;&gt;</div><div class="line">		打开</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure><br>5.ng-class 指令<br>a.ng-class通过对象数组绑定，当$scope.isSelected=true时，增加class .selected反之增加class .unselected<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">    $scope.isSelected = true;  </div><div class="line">&#125; </div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-class=&quot;&#123;true:&apos;selected&apos;,false:&apos;unselected&apos;&#125;[isSelected]&quot;&gt;&lt;/div&gt;  </div></pre></td></tr></table></figure><br>b.ng-class通过key/value键值对绑定，当$scope.IfA=true时，增加class .A反之增加class .B或.C<br>使用example如下：<br><figure class="highlight plain"><figcaption><span>[js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function ctrl($scope) &#123;   </div><div class="line">	$scope.IfA = true;  </div><div class="line">	$scope.IfB = false;  </div><div class="line">	$scope.IfC = false;  </div><div class="line">&#125;  </div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>[HTML]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>&lt;div ng-class=&quot;{&apos;A&apos;:IfA,&apos;B&apos;:IfB,&apos;C&apos;:IfC}&quot;&gt;&lt;/div&gt;    
+</code></pre></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Rem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/Rem/" class="article-date">
+      <time datetime="2017-02-21T08:50:49.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/Rem/">一段js 适应所有的屏幕（rem）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>rem</strong><br>尽可能的先执行该js<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;    (function (doc, win)&lt;br&gt;    &#123;&lt;br&gt;        var docEl = doc.documentElement;&lt;br&gt;        var resizeEvt = “onorientationchange” in win ? “orientationchange” : “resize”;&lt;br&gt;        var Timer = null;&lt;br&gt;        function recalc()&lt;br&gt;        &#123;&lt;br&gt;            var clientWidth = docEl.clientWidth || win.innerWidth;&lt;br&gt;            //设计稿是640px&lt;br&gt;            var initSize = (clientWidth / 640) * 100;&lt;br&gt;            var fontSize = clientWidth &amp;gt; 768 ? 120 : (initSize &amp;lt; 50 ? 50 : initSize);&lt;br&gt;            docEl.style.fontSize = fontSize + “px”;&lt;br&gt;        &#125;&lt;br&gt;        doc.addEventListener(“DOMContendLoaded”, recalc, false);&lt;/p&gt;</div><div class="line"><pre><code>    //转屏
+    win.addEventListener(resizeEvt, function ()
+    {
+        clearTimeout(Timer);
+        Timer = setTimeout(recalc, 300)
+    }, false);
+
+    //pageshow,缓存相关
+    win.addEventListener(&quot;pageshow&quot;, function (e)
+    {
+        if (e.persisted)
+        {
+            clearTimeout(Timer);
+            Timer = setTimeout(recalc, 300)
+        }
+    }, false);
+
+    // 初始化
+    recalc();
+
+})(document, window);
+</code></pre></div></pre></td></tr></table></figure>
+</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular_http" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
