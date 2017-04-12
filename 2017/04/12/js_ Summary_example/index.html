@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios的刷">
+<meta name="description" content="JS 例子1.声明提前,在函数内部方法或变量会提前到函数顶部。[封装]123456789&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;//声明提前,函数内部的声明会提前到函数顶部var scope =&amp;quot;global&amp;quot;;function myFunc() &amp;#123;    console.log(scope);    var sc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angularjs 页面刷新与ionic的局部刷新">
-<meta property="og:url" content="http://wangdenglin.github.io/2017/02/21/Refresh/index.html">
+<meta property="og:title" content="js总结_例子">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/04/12/js_ Summary_example/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios的刷">
-<meta property="og:updated_time" content="2017-02-21T09:42:28.834Z">
+<meta property="og:description" content="JS 例子1.声明提前,在函数内部方法或变量会提前到函数顶部。[封装]123456789&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;//声明提前,函数内部的声明会提前到函数顶部var scope =&amp;quot;global&amp;quot;;function myFunc() &amp;#123;    console.log(scope);    var sc">
+<meta property="og:updated_time" content="2017-04-12T09:35:29.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angularjs 页面刷新与ionic的局部刷新">
-<meta name="twitter:description" content="$scope.resume 刷新$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。android的刷新[Js]1&amp;lt;br&amp;gt;     $scope.resume = function ()&amp;lt;br&amp;gt;    &amp;#123;&amp;lt;br&amp;gt;       alert(‘注册刷新’)；&amp;lt;br&amp;gt;    &amp;#125;;&amp;lt;br&amp;gt;ios的刷">
+<meta name="twitter:title" content="js总结_例子">
+<meta name="twitter:description" content="JS 例子1.声明提前,在函数内部方法或变量会提前到函数顶部。[封装]123456789&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;//声明提前,函数内部的声明会提前到函数顶部var scope =&amp;quot;global&amp;quot;;function myFunc() &amp;#123;    console.log(scope);    var sc">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angularjs 页面刷新与ionic的局部刷新 | 我的博客</title>
+<title>js总结_例子 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Refresh" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js_ Summary_example" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/21/Refresh/" class="article-date">
-      <time datetime="2017-02-21T09:30:49.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/2017/04/12/js_ Summary_example/" class="article-date">
+      <time datetime="2017-04-12T09:27:20.000Z" itemprop="datePublished">2017-04-12</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angularjs 页面刷新与ionic的局部刷新
+      js总结_例子
     </h1>
   
 
@@ -292,17 +292,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> $scope.resume 刷新</strong><br>$scope.resume监听是home键，当屏幕锁定再唤醒时也会调用该方法。<br>android的刷新<br><figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;     $scope.resume = function ()&lt;br&gt;    &#123;&lt;br&gt;       alert(‘注册刷新’)；&lt;br&gt;    &#125;;&lt;br&gt;</div></pre></td></tr></table></figure><br>ios的刷新必须放在settimeout($scope.resume,0)</p>
-<p>缺点：如果该页面是cache=false,那么每次页面刷新都会注册一起监听事件，导致页面卡顿，<br>解决方法：为了减少资源消耗，我们可以采用局部刷新，$scope.resume事件不用刷新，只刷新我们需要刷新的事件。例子如下：</p>
-<figure class="highlight plain"><figcaption><span>[Js]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><pre><code>$scope.$on(&apos;$ionicView.beforeEnter&apos;, function ()
-{
-   alert(&quot;刷新内容&quot;)
-})
- $scope.resume = function ()
-{
-   alert(&apos;注册刷新&apos;)；
-};
-</code></pre></div></pre></td></tr></table></figure>
+        <p><strong>JS 例子</strong><br>1.声明提前,在函数内部方法或变量会提前到函数顶部。<br><figure class="highlight plain"><figcaption><span>[封装]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">//声明提前,函数内部的声明会提前到函数顶部</div><div class="line">var scope =&quot;global&quot;;</div><div class="line">function myFunc() &#123;</div><div class="line">    console.log(scope);</div><div class="line">    var scope =&quot;local&quot;;</div><div class="line">&#125;</div><div class="line">myFunc();//undefined</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>2.删除数组中的重复项<br>想了半天(遗忘了数组里也能用indexof())<br><figure class="highlight plain"><figcaption><span>[封装]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var arr = [1,2,3,1,43,12,12,1];</div><div class="line">var newArr=[];</div><div class="line">for ( var i=0;i&lt;arr.length;i++)</div><div class="line">&#123;</div><div class="line">    if(newArr.indexOf(arr[i])==-1)&#123;</div><div class="line">        newArr.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line">//排序</div><div class="line">function FnSort(a,b)</div><div class="line">&#123;</div><div class="line">    return a-b;</div><div class="line">&#125;</div><div class="line">console.log(newArr.sort(FnSort));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -311,13 +301,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/21/Refresh/">angularjs 页面刷新与ionic的局部刷新</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/12/js_ Summary_example/">js总结_例子</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2017-02-21, 17:30:49</p>
-        <p><span>最后更新:</span>2017-02-21, 17:42:28</p>
+        <p><span>发布时间:</span>2017-04-12, 17:27:20</p>
+        <p><span>最后更新:</span>2017-04-12, 17:35:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/21/Refresh/" title="angularjs 页面刷新与ionic的局部刷新">http://wangdenglin.github.io/2017/02/21/Refresh/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/02/21/Refresh/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/12/js_ Summary_example/" title="js总结_例子">http://wangdenglin.github.io/2017/04/12/js_ Summary_example/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/04/12/js_ Summary_example/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -329,16 +319,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/21/ionic_plugin/">
-                    ionic cordova 常用插件
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/21/angular_way/">
-                    angular 常用指令和使用方法
+                <a href="/2017/04/12/SQL_ex/">
+                    SQL  小例子
                 </a>
             </div>
         
@@ -386,7 +370,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angularjs 页面刷新与ionic的局部刷新　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js总结_例子　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,15 +390,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/21/ionic_plugin/" title="上一篇: ionic cordova 常用插件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/21/angular_way/" title="下一篇: angular 常用指令和使用方法">
+            <a href="/2017/04/12/SQL_ex/" title="下一篇: SQL  小例子">
                 <i class="fa fa-angle-right"></i>
             </a>
         
