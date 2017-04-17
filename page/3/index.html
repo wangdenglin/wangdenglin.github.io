@@ -259,6 +259,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-nodejs1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/28/nodejs1/" class="article-date">
+      <time datetime="2017-02-28T01:50:20.000Z" itemprop="datePublished">2017-02-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/nodejs1/">nodejs基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>util.inherits实现继承</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var util = require(&apos;util&apos;); </div><div class="line">function Base() &#123; </div><div class="line">  this.name = &apos;base&apos;; </div><div class="line">  this.base = 1991; </div><div class="line">  this.sayHello = function() &#123; </div><div class="line">  console.log(&apos;Hello &apos; + this.name); </div><div class="line">  &#125;; </div><div class="line">&#125; </div><div class="line">Base.prototype.showName = function() &#123; </div><div class="line">  console.log(this.name);</div><div class="line">&#125;; </div><div class="line">function Sub() &#123; </div><div class="line">  this.name = &apos;sub&apos;; </div><div class="line">&#125; </div><div class="line">util.inherits(Sub, Base); </div><div class="line">var objBase = new Base(); </div><div class="line">objBase.showName(); </div><div class="line">objBase.sayHello(); </div><div class="line">console.log(objBase); </div><div class="line">var objSub = new Sub(); </div><div class="line">objSub.showName(); </div><div class="line">//objSub.sayHello(); </div><div class="line">console.log(objSub); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><br>上例的Sub继承Base中的方法，且只能继承原型中的方法。Sub和Base都为构造函数<br><a href="http://yijiebuyi.com/blog/ea4b2a30f73596a08ce85211626b68e5.html" target="_blank" rel="external">详情点击此处：</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js_ Summary_Client" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -799,91 +859,6 @@ function DetailController($scope,$routeParams) {
 }
 </code></pre>&lt;p&gt;  &lt;/script&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[list.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;发件人&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;内容&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;日期&lt;/strong&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">  &lt;tr ng-repeat=&quot;message in messages&quot;&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;a href=&quot;#/view/&quot;&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><figcaption><span>[detail.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;strong&gt;项目:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;发送者:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;日期:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">  &lt;strong&gt;To:&lt;/strong&gt;</div><div class="line">  &lt;span ng-repeat=&quot;recipient in message.recipients&quot;&gt;</div><div class="line">    </div><div class="line">  &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;a href=&quot;#/&quot;&gt;回到列表&lt;/a&gt;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ionic_plugin" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/21/ionic_plugin/" class="article-date">
-      <time datetime="2017-02-21T10:00:20.000Z" itemprop="datePublished">2017-02-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/ionic_plugin/">ionic cordova 常用插件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong> cordova 常用插件</strong><br>cordova plugin add org.apache.cordova.device                   //设备API</p>
-<p>cordova plugin add org.apache.cordova.network-information  //网络（事件）</p>
-<p>cordova plugin add org.apache.cordova.battery-status      //电池（事件）</p>
-<p>cordova plugin add org.apache.cordova.device-motion     //加速器</p>
-<p>cordova plugin add org.apache.cordova.device-orientation     //罗盘</p>
-<p>cordova plugin add org.apache.cordova.geolocation         //定位</p>
-<p>cordova plugin add org.apache.cordova.camera                 //摄像头</p>
-<p>cordova plugin add org.apache.cordova.media-capture     //媒体文件处理</p>
-<p>cordova plugin add org.apache.cordova.media                   //媒体文件处理</p>
-<p>cordova plugin add org.apache.cordova.file                        //文件访问</p>
-<p>cordova plugin add org.apache.cordova.file-transfer          //文件传输</p>
-<p>cordova plugin add org.apache.cordova.dialogs                 //对话框</p>
-<p>cordova plugin add org.apache.cordova.vibration              //震动</p>
-<p>cordova plugin add org.apache.cordova.contacts               //联系人</p>
-<p>cordova plugin add org.apache.cordova.globalization       //全球化</p>
-<p>cordova plugin add org.apache.cordova.splashscreen       //闪屏</p>
-<p>cordova plugin add org.apache.cordova.inappbrowser             //打开新的浏览器窗口</p>
-<p>cordova plugin add org.apache.cordova.console                //调试控制台</p>
-<p>你可以用以下命令查看所有已经安装的插件</p>
-<p>cordova plugin ls</p>
-<p>使用以下命令删除插件：</p>
-<p>cordova plugin rm org.apache.cordova.console    </p>
-<p>或者通过地址来添加插件：</p>
-<p>cordova plugin add <a href="https://github.com/apache/cordova-plugin-console.git" target="_blank" rel="external">https://github.com/apache/cordova-plugin-console.git</a></p>
-<p>帮助：</p>
-<p>cordova help</p>
-<p>更新cordova：</p>
-<p>npm update -g cordova</p>
-<p>cordova更新完成后，还需要更新项目：</p>
-<p>cordova platform update android</p>
 
       
     </div>
