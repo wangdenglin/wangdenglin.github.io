@@ -182,7 +182,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自我学习使用，文章可能未注明转载/">自我学习使用，文章可能未注明转载</a></li></ul>
                     </div>
                 </section>
                 
@@ -258,6 +258,171 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ng-ui-route" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/22/ng-ui-route/" class="article-date">
+      <time datetime="2017-02-22T04:10:20.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/ng-ui-route/">angular-ui-router路由设置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angular-ui-router路由设置</strong><br>因为chorme不支持本地文件访问，而FF支持，这里不想搭建本地服务器的，可以用火狐浏览器调试<br><a href="http://jingyan.baidu.com/article/ed2a5d1f128ff609f6be17fa.html" target="_blank" rel="external">提供一个搭建本地服务器链接 》</a><br>首先新建5个页面<br><figure class="highlight plain"><figcaption><span>[a.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是a页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[b.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是b页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[c.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;h1&gt;我是c页面&lt;/h1&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Tab.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;div&gt;&lt;a ui-sref=&quot;.page1&quot;&gt;A&lt;/a&gt;&lt;a ui-sref=&quot;.page2&quot;&gt;B&lt;/a&gt;&lt;a ui-sref=&quot;.page3&quot;&gt;C&lt;/a&gt;&lt;/div&gt;&lt;br&gt;     &lt;div&gt;&lt;br&gt;          &lt;div ui-view=&quot;&quot;/&gt;&lt;br&gt;     &lt;/div&gt;&lt;br&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;br&gt;  &lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;br&gt;    &lt;title&gt;demo&lt;/title&gt;&lt;br&gt;    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;&lt;br&gt;    &lt;link href=&quot;&quot; rel=&quot;stylesheet&quot;&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/angular-ui-router.js&apos;&gt;&lt;/script&gt;&lt;br&gt;    &lt;script type=&quot;text/javascript&quot; src=&apos;js/app.js&apos;&gt;&lt;/script&gt;&lt;br&gt;  &lt;/head&gt;&lt;br&gt;  &lt;body data-ng-app=&quot;demo&quot;&gt;&lt;br&gt;       &lt;div class=&quot;content&quot;&gt;&lt;br&gt;            &lt;div data-ui-view=&quot;&quot;&gt;&lt;/div&gt;&lt;br&gt;        &lt;/div&gt;&lt;br&gt;  &lt;/body&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br>首先注入ui.router<br>默认进入Tab.html页面<br><figure class="highlight plain"><figcaption><span>[JS]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;var demo = angular.module(“demo”, [“ui.router”]);&lt;br&gt;demo.config(function ($stateProvider, $urlRouterProvider) &#123;&lt;/p&gt;</div><div class="line"><pre><code>$urlRouterProvider.otherwise(&apos;/Tab&apos;);
+
+$stateProvider
+   .state(&quot;Tab&quot;, {
+       url: &quot;/Tab&quot;,
+       templateUrl: &quot;Tab.html&quot;
+   })
+   .state(&quot;Tab.page1&quot;, {
+       url:&quot;/page1&quot;,
+       templateUrl: &quot;page1.html&quot;
+   })
+   .state(&quot;Tab.page2&quot;, {
+       url:&quot;/page2&quot;,
+       templateUrl: &quot;page2.html&quot;
+   })
+   .state(&quot;Tab.page3&quot;, {
+       url:&quot;/page3&quot;,
+       templateUrl: &quot;page3.html&quot;
+   });
+</code></pre>&lt;p&gt;&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ng-route" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/ng-route/" class="article-date">
+      <time datetime="2017-02-21T10:10:20.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/ng-route/">angular ng-route</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>angular js 路由设置</strong><br><figure class="highlight plain"><figcaption><span>[Index.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;html&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;head&gt;&lt;br&gt;  &lt;meta charset=&quot;utf-8&quot; /&gt;&lt;br&gt;  &lt;title&gt;测试&lt;/title&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;  &lt;script src=&quot;./js/angular-route.min.js&quot;&gt;&lt;/script&gt;&lt;br&gt;&lt;/head&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;body ng-app=&quot;myApp&quot;&gt;&lt;br&gt;  &lt;div ng-controller=&quot;TextController&quot;&gt;&lt;br&gt;     &lt;p&gt;&lt;/p&gt;&lt;br&gt;  &lt;/div&gt;&lt;br&gt;  &lt;div ng-view&gt;&lt;/div&gt;&lt;br&gt;&lt;/body&gt;&lt;br&gt;  &lt;script&gt;&lt;br&gt;    var myApp = angular.module(‘myApp’, [‘ngRoute’]);&lt;br&gt;    myApp.controller(‘TextController’, function ($scope) &#123;&lt;br&gt;      $scope.someText = ‘测试显示内容’;&lt;br&gt;    &#125;);&lt;/p&gt;</div><div class="line"><pre><code>//路由
+function emailRouteConfig($routeProvider) {
+  $routeProvider.
+  when(&apos;/&apos;, {
+    controller: ListController,
+    templateUrl: &apos;list.html&apos;
+  }).
+  when(&apos;/view/:id&apos;, { //在id前面加一个冒号，从而制订了一个参数化URL
+    controller: DetailController,
+    templateUrl: &apos;detail.html&apos;
+  }).
+  otherwise({
+    redirectTo: &apos;/&apos;
+  });
+}
+
+myApp.config(emailRouteConfig);//配置我们的路由
+
+messages = [{
+  id: 0, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
+}, {
+  id: 1, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
+}, {
+  id: 2, sender: &quot;1574697828@qq.com&quot;, subject: &quot;这是一个邮箱&quot;, date: &quot;2015年4月13日&quot;, recipients: [&apos;wifei@163.com&apos;], message: &quot;你好，我是xxx，这是发送给您的邮件。&quot;
+}];
+
+function ListController($scope) {
+  $scope.messages = messages;
+}
+
+function DetailController($scope,$routeParams) {
+  $scope.message = messages[$routeParams.id];
+}
+</code></pre>&lt;p&gt;  &lt;/script&gt;&lt;br&gt;&lt;/html&gt;&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[list.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;发件人&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;内容&lt;/strong&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;strong&gt;日期&lt;/strong&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">  &lt;tr ng-repeat=&quot;message in messages&quot;&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;a href=&quot;#/view/&quot;&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">    &lt;td&gt;&lt;/td&gt;</div><div class="line">  &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>[detail.html]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;strong&gt;项目:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;发送者:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;strong&gt;日期:&lt;/strong&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">  &lt;strong&gt;To:&lt;/strong&gt;</div><div class="line">  &lt;span ng-repeat=&quot;recipient in message.recipients&quot;&gt;</div><div class="line">    </div><div class="line">  &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;a href=&quot;#/&quot;&gt;回到列表&lt;/a&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-ionic_plugin" class="article article-type-post" itemscope itemprop="blogPost">
   

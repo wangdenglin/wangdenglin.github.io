@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
+<meta name="description" content="JS arguments 详解在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)[无需传参在函数内部通过argume">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular http请求">
-<meta property="og:url" content="http://wangdenglin.github.io/2016/11/08/angular_http/index.html">
+<meta property="og:title" content="JS arguments 详解">
+<meta property="og:url" content="http://wangdenglin.github.io/2017/04/27/js_ Summary_arguments/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
-<meta property="og:updated_time" content="2017-03-07T09:04:37.568Z">
+<meta property="og:description" content="JS arguments 详解在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)[无需传参在函数内部通过argume">
+<meta property="og:updated_time" content="2017-04-27T08:11:23.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular http请求">
-<meta name="twitter:description" content="如何封装http请求?1234567891011121314151617181920212223242526272829303132333435.factory(&amp;apos;EXT&amp;apos;, function ($http)&amp;#123;    var factory = &amp;#123;&amp;#125;;    //封装请求    try    &amp;#123;        factory.Packag">
+<meta name="twitter:title" content="JS arguments 详解">
+<meta name="twitter:description" content="JS arguments 详解在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)[无需传参在函数内部通过argume">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular http请求 | 我的博客</title>
+<title>JS arguments 详解 | 我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-angular_http" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js_ Summary_arguments" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/08/angular_http/" class="article-date">
-      <time datetime="2016-11-08T14:31:49.000Z" itemprop="datePublished">2016-11-08</time>
+      <a href="/2017/04/27/js_ Summary_arguments/" class="article-date">
+      <time datetime="2017-04-27T07:40:20.000Z" itemprop="datePublished">2017-04-27</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular http请求
+      JS arguments 详解
     </h1>
   
 
@@ -285,6 +285,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -292,8 +296,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>如何封装http请求?</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.factory(&apos;EXT&apos;, function ($http)</div><div class="line">&#123;</div><div class="line">    var factory = &#123;&#125;;</div><div class="line">    //封装请求</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">        factory.PackageHttp = function (url, data, successfn, errorfn,flag_with_form_encode)</div><div class="line">        &#123;</div><div class="line">                $http(&#123;</div><div class="line">                    method: &apos;POST&apos;,</div><div class="line">                    data: data,</div><div class="line">                    url: url,</div><div class="line">                    headers: headers,</div><div class="line">                &#125;)</div><div class="line">                .success(function (d, status)</div><div class="line">                &#123;</div><div class="line">                    successfn(d, status);</div><div class="line">                &#125;)</div><div class="line">                .error(function (e, status)</div><div class="line">                &#123;</div><div class="line">                    errorfn(e,status);</div><div class="line">                &#125;)</div><div class="line">            </div><div class="line">            &#125;</div><div class="line">            catch (err)</div><div class="line">            &#123;</div><div class="line">                //alert(err.message + &quot;封装&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    catch(err)</div><div class="line">    &#123;</div><div class="line">        //alert(err.message)</div><div class="line">    &#125;</div><div class="line"></div></pre></td></tr></table></figure></p>
-<p><strong>使用example如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.controller(&apos;HomeCtrl&apos;, function ( EXT)</div><div class="line">&#123;</div><div class="line"> EXT.PackageHttp(URL, Data,</div><div class="line">                function (Data, status)</div><div class="line">                &#123;</div><div class="line">                   console.log(&quot;success&quot;);</div><div class="line">                &#125;,</div><div class="line">                function ()</div><div class="line">                &#123;</div><div class="line">                    console.log(&quot;fail&quot;);</div><div class="line">                &#125;</div><div class="line">            )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p><strong>JS arguments 详解</strong><br>在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments<br>的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)<br><figure class="highlight plain"><figcaption><span>[无需传参在函数内部通过arguments就可以调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function wdl ()&#123;&lt;br&gt;    console.log(‘我是’+arguments[0])&lt;br&gt;&#125;&lt;br&gt;wdl(‘wdl’);&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[arguments长度]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function wdl (a,b,c)&#123;&lt;br&gt;    console.log(arguments.length)//1&lt;br&gt;&#125;&lt;br&gt;wdl(‘wdl’);&lt;br&gt;</div></pre></td></tr></table></figure><br>callee 属性是 arguments 对象的一个成员，仅当相关函数正在执行时才可用。callee 属性的初始值就是正被执行的 Function 对象，这允许匿名的递归函数。(print()打印)<br><figure class="highlight plain"><figcaption><span>[递归]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function factorial(n)&#123;&lt;br&gt;  if (n &amp;lt;= 0)&#123;&lt;br&gt;       return 1;&lt;br&gt;  &#125;&lt;br&gt;  else&#123;&lt;br&gt;    return n * arguments.callee(n - 1)&lt;br&gt;   &#125;&lt;br&gt;&#125;&lt;br&gt;console.log(factorial(3));&lt;br&gt;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -302,13 +305,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/08/angular_http/">angular http请求</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/27/js_ Summary_arguments/">JS arguments 详解</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
-        <p><span>发布时间:</span>2016-11-08, 22:31:49</p>
-        <p><span>最后更新:</span>2017-03-07, 17:04:37</p>
+        <p><span>发布时间:</span>2017-04-27, 15:40:20</p>
+        <p><span>最后更新:</span>2017-04-27, 16:11:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/08/angular_http/" title="angular http请求">http://wangdenglin.github.io/2016/11/08/angular_http/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2016/11/08/angular_http/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/27/js_ Summary_arguments/" title="JS arguments 详解">http://wangdenglin.github.io/2017/04/27/js_ Summary_arguments/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/04/27/js_ Summary_arguments/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -320,16 +323,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/21/Rem/">
-                    一段js 适应所有的屏幕（rem）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/13/ionic/">
-                    ionic 常见问题
+                <a href="/2017/04/17/js_ get_jn/">
+                    get新技能
                 </a>
             </div>
         
@@ -377,7 +374,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular http请求　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"JS arguments 详解　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,15 +394,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/21/Rem/" title="上一篇: 一段js 适应所有的屏幕（rem）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/13/ionic/" title="下一篇: ionic 常见问题">
+            <a href="/2017/04/17/js_ get_jn/" title="下一篇: get新技能">
                 <i class="fa fa-angle-right"></i>
             </a>
         
