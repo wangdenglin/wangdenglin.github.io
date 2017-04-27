@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://wangdenglin.github.io/2017/04/27/js_ Summary_arguments/index.html">
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="JS arguments 详解在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)[无需传参在函数内部通过argume">
-<meta property="og:updated_time" content="2017-04-27T08:11:23.789Z">
+<meta property="og:updated_time" content="2017-04-27T08:19:15.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS arguments 详解">
 <meta name="twitter:description" content="JS arguments 详解在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)[无需传参在函数内部通过argume">
@@ -296,7 +296,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>JS arguments 详解</strong><br>在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments<br>的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)<br><figure class="highlight plain"><figcaption><span>[无需传参在函数内部通过arguments就可以调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function wdl ()&#123;&lt;br&gt;    console.log(‘我是’+arguments[0])&lt;br&gt;&#125;&lt;br&gt;wdl(‘wdl’);&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[arguments长度]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function wdl (a,b,c)&#123;&lt;br&gt;    console.log(arguments.length)//1&lt;br&gt;&#125;&lt;br&gt;wdl(‘wdl’);&lt;br&gt;</div></pre></td></tr></table></figure><br>callee 属性是 arguments 对象的一个成员，仅当相关函数正在执行时才可用。callee 属性的初始值就是正被执行的 Function 对象，这允许匿名的递归函数。(print()打印)<br><figure class="highlight plain"><figcaption><span>[递归]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function factorial(n)&#123;&lt;br&gt;  if (n &amp;lt;= 0)&#123;&lt;br&gt;       return 1;&lt;br&gt;  &#125;&lt;br&gt;  else&#123;&lt;br&gt;    return n * arguments.callee(n - 1)&lt;br&gt;   &#125;&lt;br&gt;&#125;&lt;br&gt;console.log(factorial(3));&lt;br&gt;</div></pre></td></tr></table></figure></p>
+        <p><strong>JS arguments 详解</strong><br>在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。并且arguments<br>的长度是取决与实参而非形参。另外arguments是类数组，我们可以用Array.prototype.slice.apply(arguments)将其转化为真正的数组。(虽然即使不转化也能使用，但更严谨的方式还是转化比较好)<br><figure class="highlight plain"><figcaption><span>[无需传参在函数内部通过arguments就可以调用]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function wdl ()&#123;&lt;br&gt;    console.log(‘我是’+arguments[0])&lt;br&gt;&#125;&lt;br&gt;wdl(‘wdl’);&lt;br&gt;</div></pre></td></tr></table></figure><br><figure class="highlight plain"><figcaption><span>[arguments长度]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function wdl (a,b,c)&#123;&lt;br&gt;    console.log(arguments.length)//1&lt;br&gt;&#125;&lt;br&gt;wdl(‘wdl’);&lt;br&gt;</div></pre></td></tr></table></figure><br>callee 属性是 arguments 对象的一个成员，仅当相关函数正在执行时才可用。callee 属性的初始值就是正被执行的 Function 对象，这允许匿名的递归函数。(print()打印)<br><figure class="highlight plain"><figcaption><span>[递归]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;function factorial(n)&#123;&lt;br&gt;  if (n &amp;lt;= 0)&#123;&lt;br&gt;       return 1;&lt;br&gt;  &#125;&lt;br&gt;  else&#123;&lt;br&gt;    return n &lt;em&gt; arguments.callee(n - 1)&lt;br&gt;   &#125;&lt;br&gt;&#125;&lt;br&gt;console.log(factorial(6));//6&lt;/em&gt;5&lt;em&gt;4&lt;/em&gt;3&lt;em&gt;2&lt;/em&gt;1=720&lt;br&gt;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -308,7 +308,7 @@
         <p><span>本文标题:</span><a href="/2017/04/27/js_ Summary_arguments/">JS arguments 详解</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wangdenglin</a></p>
         <p><span>发布时间:</span>2017-04-27, 15:40:20</p>
-        <p><span>最后更新:</span>2017-04-27, 16:11:23</p>
+        <p><span>最后更新:</span>2017-04-27, 16:19:15</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/04/27/js_ Summary_arguments/" title="JS arguments 详解">http://wangdenglin.github.io/2017/04/27/js_ Summary_arguments/</a>
             <span class="copy-path" data-clipboard-text="原文: http://wangdenglin.github.io/2017/04/27/js_ Summary_arguments/　　作者: wangdenglin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
