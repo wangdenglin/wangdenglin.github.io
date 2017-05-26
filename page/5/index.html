@@ -14,14 +14,16 @@
 <meta name="author" content="wangdenglin" />
 
 
+    
+    
+
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="个人信息">
-<meta property="og:url" content="http://wangdenglin.github.io/tags/aaa/index.html">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://wangdenglin.github.io/page/5/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:updated_time" content="2017-03-21T06:14:48.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人信息">
+<meta name="twitter:title" content="我的博客">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -49,11 +51,13 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+    <style> .article { opacity: 0;} </style>
+
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>个人信息 | 我的博客</title>
+<title>我的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,7 +66,7 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: false,
+        isHome: true,
         isPost: false,
         isArchive: false,
         isTag: false,
@@ -253,11 +257,13 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-github_upload" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/aaa/index.html" class="article-date">
-      <time datetime="2016-04-21T05:50:05.000Z" itemprop="datePublished">2016-04-21</time>
+      <a href="/2016/06/16/github_upload/" class="article-date">
+      <time datetime="2016-06-16T02:31:49.000Z" itemprop="datePublished">2016-06-16</time>
 </a>
 
 
@@ -271,93 +277,61 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      个人信息
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/16/github_upload/">github upload</a>
     </h1>
   
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p><strong>如何将本地项目上传到github</strong></p>
+<p>首先你要有个github账号,怎么申请账号在这里我就不介绍了。下面开始讲解怎么上传本地项目到github.<br>1.创建一个仓库</p>
+<p><img src="/2016/06/16/github_upload/1.png" alt="1"></p>
+<p>2.创建好后，复制链接(后面会用)</p>
+<p><img src="/2016/06/16/github_upload/link.png" alt="link"></p>
+<p>3.接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入如下界面，node-login即为我的项目名。</p>
+<p>4.接下来输入如下代码（关键步骤），把github上面的仓库克隆到本地</p>
+<p>git clone <a href="https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）" target="_blank" rel="external">https://github.com/wangdenglin/node-login.git（https://github.com/wangdenglin/node-login.git替换成你之前复制的地址）</a></p>
+<p>5.这个步骤以后你的本地项目文件夹下面就会多出个文件夹，该文件夹名即为你github上面的项目名，我多出了个node-login文件夹，我们把本地项目文件夹下的所有文件（除了新多出的那个文件夹不用），其余都复制到那个新多出的文件夹下</p>
+<p>6.接着继续输入命令 cd node-login，进入node-login文件夹</p>
+<p>7.接下来依次输入以下代码即可完成其他剩余操作<br>  git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）</p>
+<p>  git commit  -m  “提交信息”  （注：“提交信息”里面换成你需要，如“first commit”）</p>
+<p>  git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）<br>出现如下图表示成功<br><img src="/2016/06/16/github_upload/4.png" alt="4"></p>
 
-
-          
-        
       
     </div>
     
-  </div>
-  
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
     
-
-
+  </div>
   
 </article>
 
 
 
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"个人信息　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
 
 
 
 
 
 
-
-    
-
-
-
-
-
-    <script>
-        
-    </script>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
